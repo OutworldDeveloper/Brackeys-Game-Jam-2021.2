@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 20a79f028d02407458cfc2b863732356
+  m_SerializeEntries:
+  - m_GUID: 89f61723eee292c478446320a250cc49
+    m_Address: Assets/Sprites/Icons/Bladder.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 6e0779a03b08e9c43bfb147fd791e36f
+    m_Address: Assets/Sprites/Icons/Energy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: a7cb218143bb3664e918ec2f6b0cd3c2
+    m_Address: Assets/Sprites/Icons/Hunger.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: 18190a57eecfb2546894db6cf8379650
+    m_Address: Assets/Sprites/Icons/Thirst.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  - m_GUID: ebb72a80509c27a4f872120fe29b4a7f
+    m_Address: Assets/Sprites/Icons/PhysicalEnergy.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    m_MainAsset: {fileID: 0}
+    m_TargetAsset: {fileID: 0}
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 8c0594f722c384343a5cfa31f047e929, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5ea78faa424fbf9498ae3c0cdf6c9062, type: 2}
+    - {fileID: 11400000, guid: 7096e1606fb7f5a458682aa5e22cb1c1, type: 2}
