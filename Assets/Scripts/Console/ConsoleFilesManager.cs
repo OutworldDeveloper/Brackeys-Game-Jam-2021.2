@@ -9,6 +9,8 @@ using Zenject;
 public class ConsoleFilesManager : IInitializable, IDisposable
 {
 
+    private const string DefaultAutoexec = "bind <F1, toggle-console>";
+
     public DataContainer DataContainer { get; private set; }
     public string[] Autoexec { get; private set; }
     private readonly IDataSerializer _dataSerializer;
@@ -21,14 +23,16 @@ public class ConsoleFilesManager : IInitializable, IDisposable
     public void Initialize()
     {
         var autoexecPath = Path.Combine(GetPath(), "Autoexec.txt");
-        if (File.Exists(autoexecPath))
+
+        if (!File.Exists(autoexecPath))
         {
-            Autoexec = File.ReadAllLines(autoexecPath);
+            using (StreamWriter sw = File.CreateText(autoexecPath))
+            {
+                sw.Write(DefaultAutoexec);
+            }
         }
-        else
-        {
-            File.Create(autoexecPath);
-        }
+
+        Autoexec = File.ReadAllLines(autoexecPath);
 
         var filePath = $"{GetPath()}/ConsoleData.txt";
         if (File.Exists(filePath))
