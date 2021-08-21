@@ -9,7 +9,10 @@ using Zenject;
 public class ConsoleFilesManager : IInitializable, IDisposable
 {
 
-    private const string DefaultAutoexec = "bind <F1, toggle-console>";
+    private static readonly string[] DefaultAutoexecLines =
+    {
+        "bind <F1, toggle-console>"
+    };
 
     public DataContainer DataContainer { get; private set; }
     public string[] Autoexec { get; private set; }
@@ -28,7 +31,10 @@ public class ConsoleFilesManager : IInitializable, IDisposable
         {
             using (StreamWriter sw = File.CreateText(autoexecPath))
             {
-                sw.Write(DefaultAutoexec);
+                foreach (var line in DefaultAutoexecLines)
+                {
+                    sw.WriteLine(line);
+                }
             }
         }
 
