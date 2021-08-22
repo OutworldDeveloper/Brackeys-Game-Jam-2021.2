@@ -7,7 +7,7 @@ using UnityEngine;
 public sealed class SettingsManager : MonoBehaviour
 {
 
-    public const string ManagerName = "Settings Manager";
+    public const string ManagerName = "SettingsManager";
 
     public static event Action OnSettingsChanged;
     public static List<SettingsGroup> Groups => _instance._settingsGroups;
