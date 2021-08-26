@@ -6,34 +6,47 @@ using UnityEngine;
 public abstract class Actor : MonoBehaviour
 {
 
-    protected const string DeathTrigger = "died";
-
-    [SerializeField] private float StartHealth = 100f;
-    [SerializeField] private float MaxHealth = 100f;
-    [SerializeField] private float EyesOffset = 1.75f;
+    [SerializeField] private float _startHealth = 100f;
+    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private float _eyesOffset = 1.75f;
+    [SerializeField] private Team _team;
 
     public event DamagedEventHandler Damaged;
     public event HealedEventHanndler Healed;
     public event HealthChangedEventHandler HealthChanged;
     public event DiedEventHandler Died;
 
-    public Vector3 EyesPosition => transform.position + Vector3.up * EyesOffset;
+    public Vector3 EyesPosition => transform.position + Vector3.up * _eyesOffset;
     public float Health { get; private set; }
+    public float MaxHealth => _maxHealth;
+    public float NormalizedHealth => Health / _maxHealth;
+    public Team Team => _team;
     public bool IsDead => Health > 0;
 
     protected readonly StateMachine StateMachine = new StateMachine();
+    protected State DefaultState { get; private set; }
+    protected State DeathState { get; private set; }
 
     protected virtual void Awake()
     {
-        Health = StartHealth;
+        Health = _startHealth;
+        DefaultState = CreateDefaultState();
+        DeathState = CreateDeathState();
+        StateMachine.CreateTransition(DeathState, () => IsDead);
     }
 
     protected virtual void Start()
     {
-        //StateMachine.AddGlobalTransition(GetDeathState(), () => IsDead);
-        //StateMachine.Start();
+        StateMachine.Start(DefaultState);
     }
 
+    protected virtual void Update()
+    {
+        StateMachine.Tick();
+    }
+
+    // If we would ever need to damage objects other than Actors
+    // we could just create an Interface with this method
     public void ApplyDamage(float damage, FlatVector direction)
     {
         if (IsDead)
@@ -49,7 +62,6 @@ public abstract class Actor : MonoBehaviour
 
         if (IsDead)
         {
-            StateMachine.FireTrigger(DeathTrigger);
             OnDied();
             Died?.Invoke();
         }
@@ -63,20 +75,14 @@ public abstract class Actor : MonoBehaviour
         }
 
         float healthBefore = Health;
-        Health = Mathf.Min(MaxHealth, Health + heal);
+        Health = Mathf.Min(_maxHealth, Health + heal);
         Healed?.Invoke(heal, Health, healthBefore);
         HealthChanged?.Invoke(Health, healthBefore);
     }
 
-    protected virtual State CreateDefaultState()
-    {
-        throw new NotImplementedException();
-    }
+    protected abstract State CreateDefaultState();
 
-    protected virtual State CreateDeathState()
-    {
-        throw new NotImplementedException();
-    }
+    protected abstract State CreateDeathState();
 
     protected virtual void OnDied() { }
 

@@ -201,6 +201,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 324180185}
+  _luckPrefab: {fileID: 3906774235026343310, guid: 242d5c0fddb2bd74ebc589f6eb44709d,
+    type: 3}
+  _jackPrefab: {fileID: 5317274424552912370, guid: e1515854c7a5c6b45b0ce43ecf00b6b4,
+    type: 3}
 --- !u!1 &324180183
 GameObject:
   m_ObjectHideFlags: 0
