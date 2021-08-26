@@ -26,6 +26,8 @@ public class ConsoleWindow : BaseConsoleWindow<ConsoleWindow>
         {
             LogEvent(this, log);
         }
+
+        _inputField.Select();
     }
 
     private void Update()

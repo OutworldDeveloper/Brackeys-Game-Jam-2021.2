@@ -11,11 +11,14 @@ public class PlayerPawn : Pawn
 
     private Vector3 _virtualCameraTarget;
     private FlatVector _luckInput;
+    private FlatVector _jackInput;
 
     protected override void OnPawnStart()
     {
-        InputReciver.BindAxis("moveForward", (value) => _luckInput.z = value);
-        InputReciver.BindAxis("moveRight", (value) => _luckInput.x = value);
+        InputReciver.BindAxis("luck_forward", (value) => _luckInput.z = value);
+        InputReciver.BindAxis("luck_right", (value) => _luckInput.x = value);
+        InputReciver.BindAxis("jack_forward", (value) => _jackInput.z = value);
+        InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
     }
 
     public override void PossessedTick()
@@ -29,7 +32,7 @@ public class PlayerPawn : Pawn
         CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);
 
         _luck.Move(_luckInput);
-        _jack.Move(_luckInput);
+        _jack.Move(_jackInput);
     }
 
 }

@@ -8,8 +8,7 @@ public class CoreInstaller : MonoInstaller
     {
         Container.BindInterfacesAndSelfTo<CursorManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<TimescaleManager>().AsSingle();
-
-        Container.BindInterfacesAndSelfTo<InputSystem>().AsSingle().NonLazy();
+        Container.Bind<InputSystem>().FromComponentInHierarchy().AsSingle();
     }
 
 }

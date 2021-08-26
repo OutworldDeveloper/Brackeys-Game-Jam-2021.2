@@ -34,6 +34,28 @@ public class KeyCodeAction : IInputAction
 
 }
 
+public class DynamicKeyCodeAction : IInputAction
+{
+
+    private readonly Setting_KeyCode _keyCode;
+
+    public DynamicKeyCodeAction(Setting_KeyCode keyCode)
+    {
+        _keyCode = keyCode;
+    }
+
+    public bool IsDown()
+    {
+        return Input.GetKeyDown(_keyCode.GetValue());
+    }
+
+    public bool IsUp()
+    {
+        return Input.GetKeyUp(_keyCode.GetValue());
+    }
+
+}
+
 public class MouseAction : IInputAction
 {
 
@@ -107,6 +129,32 @@ public class TwoKeysAxis : IInputAxis
 
 }
 
+public class DynamicTwoKeysAxis : IInputAxis
+{
+
+    private readonly Setting_KeyCode _keyCodeA;
+    private readonly Setting_KeyCode _keyCodeB;
+
+    public DynamicTwoKeysAxis(Setting_KeyCode keyCodeA, Setting_KeyCode keyCodeB)
+    {
+        _keyCodeA = keyCodeA;
+        _keyCodeB = keyCodeB;
+    }
+
+    public float GetValue()
+    {
+        int value = 0;
+
+        if (Input.GetKey(_keyCodeA.GetValue()))
+            value++;
+        if (Input.GetKey(_keyCodeB.GetValue()))
+            value--;
+
+        return value;
+    }
+
+}
+
 public class UnityAxis : IInputAxis
 {
 
@@ -134,8 +182,13 @@ public class MouseScrollAxis : IInputAxis
 
 }
 
-public class InputSystem : IInitializable, ITickable, IDisposable
+public class InputSystem : MonoBehaviour
 {
+
+    [Inject] private IConsole _console;
+    [Inject] private TimescaleManager _timescaleManager;
+    [SerializeField] private InputActionBlueprint[] _actionsBlueprints;
+    [SerializeField] private InputAxisBlueprint[] _axesBlueprints;
 
     private readonly Dictionary<string, IInputAction> _inputActions = new Dictionary<string, IInputAction>()
     {
@@ -157,30 +210,51 @@ public class InputSystem : IInitializable, ITickable, IDisposable
         { "mouseY", new UnityAxis("Mouse Y") },
         { "scroll", new MouseScrollAxis() },
     };
-
-    private readonly IConsole _console;
-    private readonly TimescaleManager _timescaleManager;
+    
     private readonly List<InputReciver> _inputRecivers = new List<InputReciver>();
 
-    public InputSystem(IConsole console, TimescaleManager timescaleManager)
+    public void AddReciver(InputReciver reciver)
     {
-        _console = console;
-        _timescaleManager = timescaleManager;
+        _inputRecivers.Insert(0, reciver);
     }
 
-    public void Initialize()
+    public void AddReciverToTheBottomOfStack(InputReciver reciver)
+    {
+        _inputRecivers.Add(reciver);
+    }
+
+    public void RemoveReciver(InputReciver reciver)
+    {
+        _inputRecivers.Remove(reciver);
+    }
+
+    private void Start()
     {
         _console.RegisterObject(this);
         _timescaleManager.OnGamePaused += OnGamePaused;
+
+        foreach (var blueprint in _actionsBlueprints)
+        {
+            var action = new DynamicKeyCodeAction(blueprint.Key);
+            _inputActions.Add(blueprint.Id, action);
+        }
+
+        foreach (var blueprint in _axesBlueprints)
+        {
+            var axis = new DynamicTwoKeysAxis(blueprint.PositiveKey, blueprint.NegativeKey);
+            _inputAxes.Add(blueprint.Id, axis);
+        }
     }
 
-    public void Dispose()
+    // This is not needed because InputSystem is only destroyed 
+    // when the application is closed.
+    private void OnDestroy()
     {
         _console.DeregisterObject(this);
         _timescaleManager.OnGamePaused -= OnGamePaused;
     }
 
-    public void Tick()
+    private void Update()
     {
         foreach (var inputAction in _inputActions)
         {
@@ -245,26 +319,11 @@ public class InputSystem : IInitializable, ITickable, IDisposable
 
                 if (reciver.EatEverything)
                 {
-                    OnGamePaused();
+                    OnGamePaused(); // ?
                     break;
                 }
             }
         }
-    }
-
-    public void AddReciver(InputReciver reciver) 
-    {
-        _inputRecivers.Insert(0, reciver);
-    }
-
-    public void AddReciverToTheBottomOfStack(InputReciver reciver)
-    {
-        _inputRecivers.Add(reciver);
-    }
-
-    public void RemoveReciver(InputReciver reciver)
-    {
-        _inputRecivers.Remove(reciver);
     }
 
     private void OnGamePaused()
@@ -292,46 +351,19 @@ public class InputSystem : IInitializable, ITickable, IDisposable
 
 }
 
-public class InputReciver 
+[Serializable]
+public class InputActionBlueprint
 {
+    public string Id;
+    public Setting_KeyCode Key;
 
-    public readonly bool ExecuteWhenPaused;
-    public readonly string Information;
-    public bool EatEverything { get; set; }
-    public IReadOnlyDictionary<string, List<Action>> ActionsBindsPressed => _actionsBindsPressed;
-    public IReadOnlyDictionary<string, Action> ActionsBindsReleased => _actionsBindsReleased;
-    public IReadOnlyDictionary<string, Action<float>> AxisBinds => _axisBinds;
+}
 
-    private readonly Dictionary<string, List<Action>> _actionsBindsPressed = new Dictionary<string, List<Action>>();
-    private readonly Dictionary<string, Action> _actionsBindsReleased = new Dictionary<string, Action>();
-    private readonly Dictionary<string, Action<float>> _axisBinds = new Dictionary<string, Action<float>>();
-
-    public InputReciver(bool executeWhenPaused, string information = "Information is not provided")
-    {
-        ExecuteWhenPaused = executeWhenPaused;
-        Information = information;
-    }
-
-    public void BindInputActionPressed(string name, params Action[] actions)
-    {
-        if (_actionsBindsPressed.ContainsKey(name) == false)
-        {
-            _actionsBindsPressed.Add(name, new List<Action>());
-        }
-        foreach (var action in actions)
-        {
-            _actionsBindsPressed[name].Add(action);
-        }
-    }
-
-    public void BindInputActionRelesed(string name, Action action)
-    {
-        _actionsBindsReleased.Add(name, action);
-    }
-
-    public void BindAxis(string name, Action<float> action)
-    {
-        _axisBinds.Add(name, action);
-    }
+[Serializable]
+public class InputAxisBlueprint
+{
+    public string Id;
+    public Setting_KeyCode PositiveKey;
+    public Setting_KeyCode NegativeKey;
 
 }

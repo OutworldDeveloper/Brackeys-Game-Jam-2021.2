@@ -24,8 +24,8 @@ public class PlayerCharacterMovementState : State
     {
         RotationController.LookIn(PlayerCharacter.DesiredDirection);
 
-        var moveVector = PlayerCharacter.DesiredDirection * PlayerCharacter.Speed + Physics.gravity;
-        CharacterController.Move(moveVector * Time.deltaTime);
+        Vector3 moveVector = PlayerCharacter.DesiredDirection * PlayerCharacter.Speed;
+        CharacterController.Move((moveVector + Physics.gravity) * Time.deltaTime);
 
         // 20 is just a random const that works for some reason
         _currentAnimationMagnitude = Mathf.MoveTowards(_currentAnimationMagnitude, CharacterController.velocity.magnitude, 20f * Time.deltaTime);
