@@ -59,7 +59,7 @@ public sealed class SettingsManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Settings Manager is ready.");
+        Debug.Log("Settings Manager is initialized.");
 
         if (_gameStartedCallbackSended)
             return;
