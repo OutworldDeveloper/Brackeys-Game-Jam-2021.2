@@ -8,9 +8,6 @@ public class LuckMovementState : PlayerCharacterMovementState
     private const float IdleAnimationCooldownMax = 20f;
     private const float IdleTimeToAfk = 3f;
 
-    private readonly CharacterController _characterController;
-    private readonly Animator _animator;
-
     private float _idleTime;
     private float _idleAnimationAvaliableTime;
     private bool _wasAfkLastFrame;
@@ -21,16 +18,13 @@ public class LuckMovementState : PlayerCharacterMovementState
         RotationController rotationController, 
         Animator animator) : 
         base(playerCharacter, characterController, rotationController, animator)
-    {
-        _characterController = characterController;
-        _animator = animator;
-    }
+    { }
 
     public override void Tick()
     {
         base.Tick();
 
-        if (_characterController.velocity.magnitude == 0f)
+        if (CharacterController.velocity.magnitude == 0f)
         {
             _idleTime += Time.deltaTime;
         }
@@ -48,7 +42,7 @@ public class LuckMovementState : PlayerCharacterMovementState
 
         if (isAfk && Time.time > _idleAnimationAvaliableTime)
         {
-            _animator.SetTrigger(IdleTrigger);
+            Animator.SetTrigger(IdleTrigger);
             ResetIdleAnimationCooldown();
         }
 

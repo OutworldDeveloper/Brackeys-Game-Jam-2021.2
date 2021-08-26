@@ -3,25 +3,33 @@
 public class PlayerCharacterMovementState : State
 {
 
-    private readonly PlayerCharacter _playerCharacter;
-    private readonly CharacterController _characterController;
-    private readonly RotationController _rotationController;
-    private readonly Animator _animator;
+    private const string AnimatorSpeedParameter = "speed";
+    
+    protected readonly PlayerCharacter PlayerCharacter;
+    protected readonly CharacterController CharacterController;
+    protected readonly RotationController RotationController;
+    protected readonly Animator Animator;
+
+    private float _currentAnimationMagnitude;
 
     public PlayerCharacterMovementState(PlayerCharacter playerCharacter, CharacterController characterController, RotationController rotationController, Animator animator)
     {
-        _playerCharacter = playerCharacter;
-        _characterController = characterController;
-        _rotationController = rotationController;
-        _animator = animator;
+        PlayerCharacter = playerCharacter;
+        CharacterController = characterController;
+        RotationController = rotationController;
+        Animator = animator;
     }
 
     public override void Tick()
     {
-        _rotationController.LookIn(_playerCharacter.InputVector);
+        RotationController.LookIn(PlayerCharacter.DesiredDirection);
 
-        var moveVector = _playerCharacter.InputVector * _playerCharacter.Speed + Physics.gravity;
-        _characterController.Move(moveVector * Time.deltaTime);
+        var moveVector = PlayerCharacter.DesiredDirection * PlayerCharacter.Speed + Physics.gravity;
+        CharacterController.Move(moveVector * Time.deltaTime);
+
+        // 20 is just a random const that works for some reason
+        _currentAnimationMagnitude = Mathf.MoveTowards(_currentAnimationMagnitude, CharacterController.velocity.magnitude, 20f * Time.deltaTime);
+        Animator.SetFloat(AnimatorSpeedParameter, _currentAnimationMagnitude);
     }
 
 }

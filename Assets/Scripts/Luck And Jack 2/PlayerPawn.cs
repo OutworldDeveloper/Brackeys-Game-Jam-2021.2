@@ -10,26 +10,12 @@ public class PlayerPawn : Pawn
     [Inject] private Jack _jack;
 
     private Vector3 _virtualCameraTarget;
+    private FlatVector _luckInput;
 
     protected override void OnPawnStart()
     {
-        /*
-        InputReciver.BindAxis("moveForward", (value) => _cameraController.Move(new FlatVector(0, value)));
-        InputReciver.BindAxis("moveRight", (value) => _cameraController.Move(new FlatVector(value, 0)));
-        InputReciver.BindAxis("qe", (value) => _cameraController.Rotate((int)value));
-        InputReciver.BindAxis("scroll", _cameraController.Zoom);
-
-        InputReciver.BindInputActionPressed("mouse0", ClearSelection, _cameraController.StartRotating);
-        InputReciver.BindInputActionRelesed("mouse0", _cameraController.StopRotating);
-
-        InputReciver.BindInputActionPressed("mouse2", _cameraController.StartMoving, ClearSelection);
-        InputReciver.BindInputActionRelesed("mouse2", _cameraController.StopMoving);
-
-        InputReciver.BindInputActionPressed("mouse1", ClearSelection, Raycast);
-
-        InputReciver.BindInputActionPressed("jump", SelectNextCharacter); // TODO: Change
-        InputReciver.BindInputActionPressed("pause", _pauseMenu.Show, ClearSelection); 
-        */
+        InputReciver.BindAxis("moveForward", (value) => _luckInput.z = value);
+        InputReciver.BindAxis("moveRight", (value) => _luckInput.x = value);
     }
 
     public override void PossessedTick()
@@ -39,8 +25,11 @@ public class PlayerPawn : Pawn
         var distance = FlatVector.Distance(luckPosition, jackPosition);
         _virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
 
-        CameraPosition = _virtualCameraTarget + Vector3.forward * -3.4f + Vector3.up * 7.5f;
+        CameraPosition = _virtualCameraTarget - Vector3.forward * 6.8f + Vector3.up * 7.5f;
         CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);
+
+        _luck.Move(_luckInput);
+        _jack.Move(_luckInput);
     }
 
 }

@@ -31,6 +31,8 @@ public abstract class BaseConsoleWindow<T> : MonoBehaviour, IPointerClickHandler
         InputReciver.BindInputActionPressed("pause", Close);
         _inputSystem.AddReciver(InputReciver);
 
+        InputReciver.EatEverything = true;
+
         _cursorManager.Show(this);
 
         if (FileManager.DataContainer.TryGetData(WindowId, out WindowInfo info))

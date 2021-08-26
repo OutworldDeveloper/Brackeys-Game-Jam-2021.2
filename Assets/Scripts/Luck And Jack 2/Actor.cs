@@ -21,7 +21,7 @@ public abstract class Actor : MonoBehaviour
     public float MaxHealth => _maxHealth;
     public float NormalizedHealth => Health / _maxHealth;
     public Team Team => _team;
-    public bool IsDead => Health > 0;
+    public bool IsDead => Health == 0;
 
     protected readonly StateMachine StateMachine = new StateMachine();
     protected State DefaultState { get; private set; }

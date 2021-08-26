@@ -30,7 +30,7 @@ public class ConsoleWindow : BaseConsoleWindow<ConsoleWindow>
 
     private void Update()
     {
-        InputReciver.EatEverything = _inputField.isFocused;
+        //InputReciver.EatEverything = _inputField.isFocused;
     }
 
     protected override void OnDestroy()
