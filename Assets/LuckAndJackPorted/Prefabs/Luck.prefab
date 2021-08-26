@@ -478,6 +478,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &7170634390410946399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149418618623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f64afc484f2a048bc6685fe24a80c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _audioClips:
+  - {fileID: 8300000, guid: dd05a427533477243a252cd72c3f7fcd, type: 3}
+  - {fileID: 8300000, guid: e3a713b7d1d0f704890d2e03c3aee804, type: 3}
+  - {fileID: 8300000, guid: 38f271584d43bca4ab161c010e27c623, type: 3}
+  - {fileID: 8300000, guid: 1a3c2aa5210c9b84aa408a980c1c86e0, type: 3}
+  - {fileID: 8300000, guid: bd8499fddb3e4c543bfebd3557677bef, type: 3}
 --- !u!1 &5056782572292583765
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,9 +563,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8632e628d203a40a15bb2144459d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialRotationSpeed: 900
-  _rotationSpeed: 1200
-  _acceleration: 1500
+  _initialRotationSpeed: 300
+  _rotationSpeed: 1300
+  _acceleration: 4500
 --- !u!114 &64477650670889678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,7 +582,7 @@ MonoBehaviour:
   _maxHealth: 100
   _eyesOffset: 1.75
   _team: 0
-  _speed: 4
+  _speed: 4.5
   _animator: {fileID: 1301305294}
 --- !u!54 &1394629212050198792
 Rigidbody:

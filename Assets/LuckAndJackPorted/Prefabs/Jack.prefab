@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 1106348805613730365}
   - component: {fileID: 1714251898559578249}
   - component: {fileID: 887350396587322802}
+  - component: {fileID: 5093305755110640672}
   m_Layer: 0
   m_Name: Pugalo
   m_TagString: Untagged
@@ -662,6 +663,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5093305755110640672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3344275465836830077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f64afc484f2a048bc6685fe24a80c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 0.6
+  _maxPitch: 0.65
+  _audioClips:
+  - {fileID: 8300000, guid: dd05a427533477243a252cd72c3f7fcd, type: 3}
+  - {fileID: 8300000, guid: e3a713b7d1d0f704890d2e03c3aee804, type: 3}
+  - {fileID: 8300000, guid: 38f271584d43bca4ab161c010e27c623, type: 3}
+  - {fileID: 8300000, guid: 1a3c2aa5210c9b84aa408a980c1c86e0, type: 3}
+  - {fileID: 8300000, guid: bd8499fddb3e4c543bfebd3557677bef, type: 3}
 --- !u!1 &3509300432015400589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1817,9 +1838,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c8632e628d203a40a15bb2144459d83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialRotationSpeed: 900
-  _rotationSpeed: 1200
-  _acceleration: 1500
+  _initialRotationSpeed: 250
+  _rotationSpeed: 600
+  _acceleration: 2000
 --- !u!114 &2651313650324215342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1836,7 +1857,7 @@ MonoBehaviour:
   _maxHealth: 100
   _eyesOffset: 1.75
   _team: 0
-  _speed: 4
+  _speed: 3
   _animator: {fileID: 1714251898559578249}
 --- !u!1 &9161862722324076394
 GameObject:

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -9,7 +7,6 @@ public class PlayerPawn : Pawn
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
 
-    private Vector3 _virtualCameraTarget;
     private FlatVector _luckInput;
     private FlatVector _jackInput;
 
@@ -25,10 +22,12 @@ public class PlayerPawn : Pawn
     {
         var luckPosition = _luck.transform.GetFlatPosition();
         var jackPosition = _jack.transform.GetFlatPosition();
-        var distance = FlatVector.Distance(luckPosition, jackPosition);
-        _virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
 
-        CameraPosition = _virtualCameraTarget - Vector3.forward * 6.8f + Vector3.up * 7.5f;
+        var distance = FlatVector.Distance(luckPosition, jackPosition);
+
+        var virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
+
+        CameraPosition = virtualCameraTarget - Vector3.forward * 8f + Vector3.up * 7.5f;
         CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);
 
         _luck.Move(_luckInput);

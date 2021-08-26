@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 1308409410}
   - component: {fileID: 70599526}
   m_Layer: 0
-  m_Name: Road Decal Projector (10)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1081,7 +1081,7 @@ GameObject:
   - component: {fileID: 1969343417}
   - component: {fileID: 104021477}
   m_Layer: 0
-  m_Name: Road Decal Projector (15)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2482,7 +2482,7 @@ GameObject:
   - component: {fileID: 1452350709}
   - component: {fileID: 196561720}
   m_Layer: 0
-  m_Name: Road Decal Projector (5)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2740,7 +2740,7 @@ GameObject:
   - component: {fileID: 211835508}
   - component: {fileID: 211835507}
   m_Layer: 0
-  m_Name: Decal Projector (6)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2871,7 +2871,7 @@ GameObject:
   - component: {fileID: 214056252}
   - component: {fileID: 214056251}
   m_Layer: 0
-  m_Name: Decal Projector (4)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2927,7 +2927,7 @@ GameObject:
   - component: {fileID: 57092252}
   - component: {fileID: 216027336}
   m_Layer: 0
-  m_Name: Road Decal Projector (3)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3207,7 +3207,7 @@ GameObject:
   - component: {fileID: 273681992}
   - component: {fileID: 273681993}
   m_Layer: 0
-  m_Name: Decal Projector (19)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4170,7 +4170,7 @@ GameObject:
   - component: {fileID: 402643480}
   - component: {fileID: 402643481}
   m_Layer: 0
-  m_Name: Decal Projector (20)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4226,7 +4226,7 @@ GameObject:
   - component: {fileID: 1083310700}
   - component: {fileID: 408923697}
   m_Layer: 0
-  m_Name: Road Decal Projector (2)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4508,7 +4508,7 @@ GameObject:
   - component: {fileID: 681787283}
   - component: {fileID: 468233241}
   m_Layer: 0
-  m_Name: Road Decal Projector (14)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4772,7 +4772,7 @@ GameObject:
   - component: {fileID: 488432133}
   - component: {fileID: 488432132}
   m_Layer: 0
-  m_Name: Decal Projector (1)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4828,7 +4828,7 @@ GameObject:
   - component: {fileID: 491783538}
   - component: {fileID: 491783539}
   m_Layer: 0
-  m_Name: Decal Projector (14)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5378,7 +5378,7 @@ GameObject:
   - component: {fileID: 545662517}
   - component: {fileID: 545662518}
   m_Layer: 0
-  m_Name: Decal Projector (17)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6071,7 +6071,7 @@ GameObject:
   - component: {fileID: 630917128}
   - component: {fileID: 630917129}
   m_Layer: 0
-  m_Name: Decal Projector (11)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8642,7 +8642,7 @@ GameObject:
   - component: {fileID: 837519540}
   - component: {fileID: 837519539}
   m_Layer: 0
-  m_Name: Decal Projector (3)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9653,7 +9653,7 @@ GameObject:
   - component: {fileID: 950260402}
   - component: {fileID: 950260401}
   m_Layer: 0
-  m_Name: Road Decal Projector (16)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10254,7 +10254,7 @@ GameObject:
   - component: {fileID: 1002182428}
   - component: {fileID: 1002182427}
   m_Layer: 0
-  m_Name: Decal Projector (5)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10535,7 +10535,7 @@ GameObject:
   - component: {fileID: 982318580}
   - component: {fileID: 1015162976}
   m_Layer: 0
-  m_Name: Road Decal Projector (4)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10708,7 +10708,7 @@ GameObject:
   - component: {fileID: 1026672319}
   - component: {fileID: 1026672320}
   m_Layer: 0
-  m_Name: Decal Projector (13)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10764,7 +10764,7 @@ GameObject:
   - component: {fileID: 1027525123}
   - component: {fileID: 1027525124}
   m_Layer: 0
-  m_Name: Decal Projector (18)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11252,7 +11252,7 @@ GameObject:
   - component: {fileID: 1073632324}
   - component: {fileID: 1073632325}
   m_Layer: 0
-  m_Name: Decal Projector (12)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11843,7 +11843,7 @@ GameObject:
   - component: {fileID: 1143735781}
   - component: {fileID: 1143735782}
   m_Layer: 0
-  m_Name: Decal Projector (21)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12115,7 +12115,7 @@ GameObject:
   - component: {fileID: 1152543570}
   - component: {fileID: 1152543569}
   m_Layer: 0
-  m_Name: Decal Projector (8)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12310,7 +12310,7 @@ GameObject:
   - component: {fileID: 1163195283}
   - component: {fileID: 1163195282}
   m_Layer: 0
-  m_Name: Decal Projector (9)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13496,7 +13496,7 @@ GameObject:
   - component: {fileID: 1912267256}
   - component: {fileID: 1240697786}
   m_Layer: 0
-  m_Name: Road Decal Projector (17)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14462,7 +14462,7 @@ GameObject:
   - component: {fileID: 1508731347}
   - component: {fileID: 1369094181}
   m_Layer: 0
-  m_Name: Road Decal Projector (1)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15962,7 +15962,7 @@ GameObject:
   - component: {fileID: 1498875685}
   - component: {fileID: 1498875684}
   m_Layer: 0
-  m_Name: Decal Projector (2)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16488,7 +16488,7 @@ GameObject:
   - component: {fileID: 229046902}
   - component: {fileID: 1552298627}
   m_Layer: 0
-  m_Name: Road Decal Projector (6)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17769,7 +17769,7 @@ GameObject:
   - component: {fileID: 1562456661}
   - component: {fileID: 1726613905}
   m_Layer: 0
-  m_Name: Road Decal Projector (8)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17811,7 +17811,7 @@ GameObject:
   - component: {fileID: 1902053517}
   - component: {fileID: 1728044325}
   m_Layer: 0
-  m_Name: Road Decal Projector (13)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17914,7 +17914,7 @@ GameObject:
   - component: {fileID: 1743273826}
   - component: {fileID: 1743273827}
   m_Layer: 0
-  m_Name: Decal Projector (10)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18474,7 +18474,7 @@ GameObject:
   - component: {fileID: 1453950825}
   - component: {fileID: 1803534431}
   m_Layer: 0
-  m_Name: Road Decal Projector (9)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18591,7 +18591,7 @@ GameObject:
   - component: {fileID: 1251773660}
   - component: {fileID: 1823422761}
   m_Layer: 0
-  m_Name: Road Decal Projector (12)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18633,7 +18633,7 @@ GameObject:
   - component: {fileID: 191778857}
   - component: {fileID: 1838883200}
   m_Layer: 0
-  m_Name: Road Decal Projector (11)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19162,7 +19162,7 @@ GameObject:
   - component: {fileID: 284158291}
   - component: {fileID: 1883899151}
   m_Layer: 0
-  m_Name: Road Decal Projector (7)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21999,7 +21999,7 @@ GameObject:
   - component: {fileID: 2072331189}
   - component: {fileID: 2072331190}
   m_Layer: 0
-  m_Name: Decal Projector (15)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22055,7 +22055,7 @@ GameObject:
   - component: {fileID: 2074401354}
   - component: {fileID: 2074401355}
   m_Layer: 0
-  m_Name: Decal Projector (16)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22198,7 +22198,7 @@ GameObject:
   - component: {fileID: 2084558051}
   - component: {fileID: 2084558050}
   m_Layer: 0
-  m_Name: Decal Projector (7)
+  m_Name: Road Decal Projector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
