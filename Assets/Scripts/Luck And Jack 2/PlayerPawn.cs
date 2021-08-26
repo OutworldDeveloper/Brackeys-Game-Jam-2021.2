@@ -17,7 +17,7 @@ public class PlayerPawn : Pawn
         InputReciver.BindAxis("jack_forward", (value) => _jackInput.z = value);
         InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
 
-        InputReciver.BindInputActionPressed("jump", _luck.TryInteract);
+        InputReciver.BindInputActionPressed("jump", _jack.TryAttack);
     }
 
     public override void PossessedTick()

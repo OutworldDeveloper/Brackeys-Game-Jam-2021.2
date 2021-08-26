@@ -19,9 +19,9 @@ public sealed class StateMachine
     public void Tick()
     {
         var nextState = FindNextState(_currentState);
-        if (nextState != null)
+        if (nextState != null && nextState != _currentState)
         {
-            _currentState.Exit();
+            _currentState.End();
             _currentState = nextState;
             _currentState.Start();
             OnStateChanged();
@@ -88,7 +88,7 @@ public abstract class State
 {
     public virtual void Start() { }
     public virtual void Tick() { }
-    public virtual void Exit() { }
+    public virtual void End() { }
 
 }
 

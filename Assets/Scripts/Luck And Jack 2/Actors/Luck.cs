@@ -32,11 +32,6 @@ public class Luck : PlayerCharacter
         return new LuckMovementState(this, CharacterController, RotationController, Animator);
     }
 
-    protected override State CreateDeathState()
-    {
-        return new DeathState(Animator);
-    }
-
     private bool HasInteractableInRange(out Interactable result)
     {
         foreach (var interactable in FindObjectsOfType<Interactable>())

@@ -30,7 +30,7 @@ public class InteractingState : State
         interactable.StartInteraction(_luck);
     }
 
-    public override void Exit()
+    public override void End()
     {
         _characterController.enabled = true;
     }

@@ -22,6 +22,8 @@ public abstract class Actor : MonoBehaviour
     public float NormalizedHealth => Health / _maxHealth;
     public Team Team => _team;
     public bool IsDead => Health == 0;
+    public float LastDamage { get; private set; }
+    public FlatVector LastDamageDirection { get; private set; }
 
     protected readonly StateMachine StateMachine = new StateMachine();
     protected State DefaultState { get; private set; }
@@ -53,6 +55,9 @@ public abstract class Actor : MonoBehaviour
         {
             return;
         }
+
+        LastDamage = damage;
+        LastDamageDirection = direction;
 
         var healthBefore = Health;
         Health = Mathf.Max(0, Health - damage);

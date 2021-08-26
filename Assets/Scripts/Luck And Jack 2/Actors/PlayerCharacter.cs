@@ -29,4 +29,15 @@ public abstract class PlayerCharacter : Actor
         base.Awake();
     }
 
+    protected override State CreateDeathState()
+    {
+        return new DeathState(Animator);
+    }
+
+    protected override void OnDied()
+    {
+        CharacterController.enabled = false;
+        RotationController.enabled = false;
+    }
+
 }

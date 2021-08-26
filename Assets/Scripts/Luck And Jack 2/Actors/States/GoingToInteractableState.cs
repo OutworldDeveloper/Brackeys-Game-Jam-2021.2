@@ -38,7 +38,7 @@ public class GoingToInteractableState : State
         _animator.SetFloat(PlayerCharacter.AnimatorSpeedParameter, _luck.Speed);
     }
 
-    public override void Exit()
+    public override void End()
     {
         _animator.SetFloat(PlayerCharacter.AnimatorSpeedParameter, 0f);
         _characterController.enabled = true;
