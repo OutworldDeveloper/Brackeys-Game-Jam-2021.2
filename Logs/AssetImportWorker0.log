@@ -6395,3 +6395,571 @@ Received Import Request.
 Start importing Assets/Scripts/Luck And Jack 2/PlayerPawn.cs using Guid(471da914776e81a40b7e21c17e9f952a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89c3a7bff72fc59960804d7f0d5fff2b') in 0.002530 seconds 
   Import took 0.010617 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 54.361607 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.008457 seconds 
+  Import took 0.016136 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.128525 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.002732 seconds 
+  Import took 0.010561 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.694909 seconds.
+  path: Assets/LuckAndJackPorted
+  artifactKey: Guid(cb3eb59101e479e40a8e2e008801e71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted using Guid(cb3eb59101e479e40a8e2e008801e71d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e488036307c59d2cf953b5272b1b56aa') in 0.007495 seconds 
+  Import took 0.015279 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018961 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.13 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.691 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1691ms)
+		BeginReloadAssembly (139ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (52ms)
+		EndReloadAssembly (1472ms)
+			LoadAssemblies (114ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (492ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (536ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (119ms)
+				ProcessInitializeOnLoadAttributes (385ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (32ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.16 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4501 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.7 MB.
+System memory in use after: 195.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5427.
+Total: 5.427300 ms (FindLiveObjects: 0.548300 ms CreateObjectMapping: 0.136600 ms MarkObjects: 4.706700 ms  DeleteObjects: 0.033500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 243.359830 seconds.
+  path: Assets/LuckAndJackPorted/Sprites
+  artifactKey: Guid(5f030684901305c4da10d0dbbaa01a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Sprites using Guid(5f030684901305c4da10d0dbbaa01a98) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cc2e559d14d67601f15951afc75f033b') in 0.016780 seconds 
+  Import took 0.026041 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.396753 seconds.
+  path: Assets/LuckAndJackPorted/Scenes
+  artifactKey: Guid(32820d6dbcf2e1041a730c5485c4bd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes using Guid(32820d6dbcf2e1041a730c5485c4bd5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5898a4b0d0fc8b08d66885330f611a43') in 0.007243 seconds 
+  Import took 0.015510 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.199674 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay
+  artifactKey: Guid(6faf9582ebeac0342b8fcb98e61149e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay using Guid(6faf9582ebeac0342b8fcb98e61149e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43713d49a367edf12049e583627dead3') in 0.007952 seconds 
+  Import took 0.015857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000752 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay
+  artifactKey: Guid(6faf9582ebeac0342b8fcb98e61149e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay using Guid(6faf9582ebeac0342b8fcb98e61149e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43713d49a367edf12049e583627dead3') in 0.003090 seconds 
+  Import took 0.010977 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.059884 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay/SampleScene.unity
+  artifactKey: Guid(cbfe36cfddfde964d9dfce63a355d5dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay/SampleScene.unity using Guid(cbfe36cfddfde964d9dfce63a355d5dd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68f811ab524906621ce2dd6c6a0d0098') in 0.038478 seconds 
+  Import took 0.046805 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009530 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.686 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1686ms)
+		BeginReloadAssembly (136ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (48ms)
+		EndReloadAssembly (1473ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (491ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (544ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (116ms)
+				ProcessInitializeOnLoadAttributes (396ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (33ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4501 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.6 MB.
+System memory in use after: 194.8 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5429.
+Total: 5.921700 ms (FindLiveObjects: 0.571700 ms CreateObjectMapping: 0.138600 ms MarkObjects: 5.178600 ms  DeleteObjects: 0.031200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009051 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.14 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.669 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1669ms)
+		BeginReloadAssembly (131ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (48ms)
+		EndReloadAssembly (1463ms)
+			LoadAssemblies (110ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (481ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (79ms)
+			SetupLoadedEditorAssemblies (542ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (115ms)
+				ProcessInitializeOnLoadAttributes (396ms)
+				ProcessInitializeOnLoadMethodAttributes (16ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (32ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.21 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4501 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 194.8 MB.
+System memory in use after: 195.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5431.
+Total: 5.746700 ms (FindLiveObjects: 0.609700 ms CreateObjectMapping: 0.149100 ms MarkObjects: 4.957300 ms  DeleteObjects: 0.028600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 455.515568 seconds.
+  path: Assets/LuckAndJackPorted/Volumes
+  artifactKey: Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Volumes using Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80fb97f314b314f9677f2c0590cc417b') in 0.016338 seconds 
+  Import took 0.025294 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 7.588642 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProoofiles
+  artifactKey: Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProoofiles using Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6da7d29586d31cd8f74b1f28a7cc38a2') in 0.023364 seconds 
+  Import took 0.033566 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.508949 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles
+  artifactKey: Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles using Guid(08fe86fb7199f1043ada31b745f76e4c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ac5f8210684ebca7a2930582bc1743e') in 0.008771 seconds 
+  Import took 0.016894 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.469247 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Sky and Fog Volume Voumetric Fog Profile.asset
+  artifactKey: Guid(9a4b2e69a98efe048b35d042087b527a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Sky and Fog Volume Voumetric Fog Profile.asset using Guid(9a4b2e69a98efe048b35d042087b527a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c66a26d08556bc47d670cf5b68b45759') in 0.054331 seconds 
+  Import took 0.066986 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.458938 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles/Sky and Fog Volume Voumetric Fog Profile.asset
+  artifactKey: Guid(9a4b2e69a98efe048b35d042087b527a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles/Sky and Fog Volume Voumetric Fog Profile.asset using Guid(9a4b2e69a98efe048b35d042087b527a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0b8da2e10c261b5c678f0443aa6710e') in 0.003826 seconds 
+  Import took 0.012114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.666611 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Post Process Volume Luck Hit.asset
+  artifactKey: Guid(b9e359e1136e15842bfeb40fe8c521b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Post Process Volume Luck Hit.asset using Guid(b9e359e1136e15842bfeb40fe8c521b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2fbb0920e7446adcc50717aa1ee654b8') in 0.011871 seconds 
+  Import took 0.020021 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.881117 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Post Process Volume Luck Dead Profile.asset
+  artifactKey: Guid(1483d0dc58558bc40b6a9a062895d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/Gameplay/samplescene/Post Process Volume Luck Dead Profile.asset using Guid(1483d0dc58558bc40b6a9a062895d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14766a7bdbc12b889f1a57de792aec18') in 0.011245 seconds 
+  Import took 0.019469 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.326610 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles/Post Process Volume Luck Dead Profile.asset
+  artifactKey: Guid(1483d0dc58558bc40b6a9a062895d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles/Post Process Volume Luck Dead Profile.asset using Guid(1483d0dc58558bc40b6a9a062895d1cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '94d26fd37067ea0464903d658b21cb81') in 0.004029 seconds 
+  Import took 0.012744 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 10.703189 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/HatsPreview/HatsPreview/Sky and Fog Volume Voumetric Fog Profile.asset
+  artifactKey: Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/HatsPreview/HatsPreview/Sky and Fog Volume Voumetric Fog Profile.asset using Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '185eed1c266099747d9913dfd605f6dc') in 0.003129 seconds 
+  Import took 0.011128 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.684676 seconds.
+  path: Assets/LuckAndJackPorted/Scenes/HatsPreview/HatsPreview/Menu Sky.asset
+  artifactKey: Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Scenes/HatsPreview/HatsPreview/Menu Sky.asset using Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b174068e639d2ae00be7b257da3b11d3') in 0.008519 seconds 
+  Import took 0.018205 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 14.769753 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles/Hats Preview Profile.asset
+  artifactKey: Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles/Hats Preview Profile.asset using Guid(2390599e1911b394eaf507fde5e89c31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4152dafe2e6bb8acba6d27b187168adf') in 0.009178 seconds 
+  Import took 0.026913 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.312334 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles/Sky and Fog Volume Profile.asset
+  artifactKey: Guid(35dc25846c1ee9e49a59b8e4d513334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles/Sky and Fog Volume Profile.asset using Guid(35dc25846c1ee9e49a59b8e4d513334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '39b0c5d4bf4acdfd7e81556026812261') in 0.008579 seconds 
+  Import took 0.016656 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 31.337146 seconds.
+  path: Assets/LuckAndJackPorted/VolumesProfiles/Luck&Jack Sky Profile.asset
+  artifactKey: Guid(35dc25846c1ee9e49a59b8e4d513334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/VolumesProfiles/Luck&Jack Sky Profile.asset using Guid(35dc25846c1ee9e49a59b8e4d513334c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a7dc9b5719c9f5fe26e2e9f3e5522bfe') in 0.008352 seconds 
+  Import took 0.016534 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1124.228667 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs/GameSystems
+  artifactKey: Guid(f6c02d7116d144a49b4884a9efd97c81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs/GameSystems using Guid(f6c02d7116d144a49b4884a9efd97c81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1da413fa28454db40a4664912080d98b') in 0.008626 seconds 
+  Import took 0.017685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 21.404377 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs/Jack.prefab
+  artifactKey: Guid(15b7410a5c0cad149aedbf6ca6ed70a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs/Jack.prefab using Guid(15b7410a5c0cad149aedbf6ca6ed70a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Launched and connected shader compiler UnityShaderCompiler.exe after 0.11 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+ -> (artifact id: 'd42741302589213cbda52132aaed3e79') in 3.151459 seconds 
+  Import took 3.162428 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs/Luck.prefab
+  artifactKey: Guid(ec4a64eaff073fa4a9dcbbe6111369e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs/Luck.prefab using Guid(ec4a64eaff073fa4a9dcbbe6111369e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c517dcdacf46f198536feb552cde82d3') in 0.179119 seconds 
+  Import took 0.197389 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 142.218940 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs/Luck.prefab
+  artifactKey: Guid(ec4a64eaff073fa4a9dcbbe6111369e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs/Luck.prefab using Guid(ec4a64eaff073fa4a9dcbbe6111369e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9183f302c84f94d56e507ddf7342d112') in 0.129455 seconds 
+  Import took 0.148614 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009774 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.27 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.981 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1982ms)
+		BeginReloadAssembly (234ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (37ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (65ms)
+		EndReloadAssembly (1666ms)
+			LoadAssemblies (120ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (499ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (575ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (122ms)
+				ProcessInitializeOnLoadAttributes (404ms)
+				ProcessInitializeOnLoadMethodAttributes (29ms)
+				AfterProcessingInitializeOnLoad (12ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (38ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.21 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4514 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 220.5 MB.
+System memory in use after: 221.0 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5573.
+Total: 6.707100 ms (FindLiveObjects: 0.677100 ms CreateObjectMapping: 0.154900 ms MarkObjects: 5.841200 ms  DeleteObjects: 0.032300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 231.214209 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs/Jack.prefab
+  artifactKey: Guid(15b7410a5c0cad149aedbf6ca6ed70a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs/Jack.prefab using Guid(15b7410a5c0cad149aedbf6ca6ed70a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3bae07d5f654431731dfd74f5ce9b7b') in 0.645195 seconds 
+  Import took 0.656235 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.875748 seconds.
+  path: Assets/LuckAndJackPorted/Models/Jack/pugalo.controller
+  artifactKey: Guid(e4567f57b6d336f4c84ca140f74e85d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Models/Jack/pugalo.controller using Guid(e4567f57b6d336f4c84ca140f74e85d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '06098aa3b5e24eda3f3a2a67c02d479d') in 0.012367 seconds 
+  Import took 0.020706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 28.885281 seconds.
+  path: Assets/LuckAndJackPorted/Models
+  artifactKey: Guid(2831b233dc1d55f4999c204e70ccf9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Models using Guid(2831b233dc1d55f4999c204e70ccf9db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '551d30ee89bcd8f7827a35cb9ab0ec98') in 0.009074 seconds 
+  Import took 0.017656 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.539634 seconds.
+  path: Assets/LuckAndJackPorted/Prefabs
+  artifactKey: Guid(245d461b58cc3cc41b78dba4b5516efc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Prefabs using Guid(245d461b58cc3cc41b78dba4b5516efc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ebef2c1f65675fc60c53cc3e68a658e') in 0.008282 seconds 
+  Import took 0.016529 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.329695 seconds.
+  path: Assets/LuckAndJackPorted/Models/Luck/medivalanime.controller
+  artifactKey: Guid(5eb0fa75121b6534597291e7239bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/LuckAndJackPorted/Models/Luck/medivalanime.controller using Guid(5eb0fa75121b6534597291e7239bd940) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6bad4adfd1245fb752df14c979b44757') in 0.052083 seconds 
+  Import took 0.064622 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.009900 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Refreshing native plugins compatible for Editor in 1.29 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.854 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1854ms)
+		BeginReloadAssembly (191ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (34ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (61ms)
+		EndReloadAssembly (1584ms)
+			LoadAssemblies (115ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (487ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (84ms)
+			SetupLoadedEditorAssemblies (542ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (119ms)
+				ProcessInitializeOnLoadAttributes (391ms)
+				ProcessInitializeOnLoadMethodAttributes (17ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (38ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.26 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4501 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 220.2 MB.
+System memory in use after: 220.7 MB.
+
+Unloading 21 unused Assets to reduce memory usage. Loaded Objects now: 5678.
+Total: 5.938700 ms (FindLiveObjects: 0.651100 ms CreateObjectMapping: 0.167400 ms MarkObjects: 5.086800 ms  DeleteObjects: 0.032000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 344.888797 seconds.
+  path: Assets/Scripts/Core/InputSystem.cs
+  artifactKey: Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/InputSystem.cs using Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d773adac78fb02d1f270690cf043693') in 0.014828 seconds 
+  Import took 0.023491 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001716 seconds.
+  path: Assets/Scripts/Core/InputSystem.cs
+  artifactKey: Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/InputSystem.cs using Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d773adac78fb02d1f270690cf043693') in 0.002459 seconds 
+  Import took 0.010278 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 68.441835 seconds.
+  path: Assets/Scripts/Core/InputSystem.cs
+  artifactKey: Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/InputSystem.cs using Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '888359c944bfc54a8dc4954bc9ea574e') in 0.002729 seconds 
+  Import took 0.010774 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.014512 seconds.
+  path: Assets/Scripts/Core/InputSystem.cs
+  artifactKey: Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Core/InputSystem.cs using Guid(56b1af197bc49be438aa2ea3577e8111) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '888359c944bfc54a8dc4954bc9ea574e') in 0.002514 seconds 
+  Import took 0.010604 seconds .
+

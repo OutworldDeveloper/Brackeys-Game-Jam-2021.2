@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3aef449059cfff44d91084a7dab1e80b, type: 3}
+  m_Name: 3Keybinds
+  m_EditorClassIdentifier: 
+  DisplayName: Input
+  parameters:
+  - {fileID: 11400000, guid: 3468b3c9da76d1640be937dfd89235e5, type: 2}
+  - {fileID: 11400000, guid: 5902d8b25356386429dadff8afbbc912, type: 2}
+  - {fileID: 11400000, guid: f662ba75da86eea42b835599de440277, type: 2}
+  - {fileID: 11400000, guid: 416417421334cf64e800fecf9a44f26c, type: 2}
+  - {fileID: 11400000, guid: daff864dd3a96a2449190a538c694f37, type: 2}
+  - {fileID: 11400000, guid: 7a7051e5c48b93a43a62f9713edc140b, type: 2}
+  - {fileID: 11400000, guid: 7fde8d73ffb7f7b439907c797cb475f3, type: 2}
+  - {fileID: 11400000, guid: e22f89eb82ab7c84ba6046e908ea5d9d, type: 2}
+  - {fileID: 11400000, guid: 3e572cabcb54ef744820a348ce7bc208, type: 2}
+  - {fileID: 11400000, guid: 8ce58573854d9a94782bc0cbe093954d, type: 2}
+  - {fileID: 11400000, guid: 9827ccc8fc0c3f341817bcc7797ccbd9, type: 2}
+  - {fileID: 11400000, guid: db0dbe3ab1ba7684a8d83a6339d11784, type: 2}

@@ -134,7 +134,7 @@ public class MouseScrollAxis : IInputAxis
 
 }
 
-public class InputSystem : IInitializable, ITickable, IDisposable // Not needed
+public class InputSystem : IInitializable, ITickable, IDisposable
 {
 
     private readonly Dictionary<string, IInputAction> _inputActions = new Dictionary<string, IInputAction>()
@@ -252,7 +252,6 @@ public class InputSystem : IInitializable, ITickable, IDisposable // Not needed
         }
     }
 
-    // I'm not sure about this
     public void AddReciver(InputReciver reciver) 
     {
         _inputRecivers.Insert(0, reciver);
