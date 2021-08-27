@@ -4,11 +4,19 @@ using Zenject;
 public class PlayerPawn : Pawn
 {
 
+    [SerializeField] private float _cameraSoloModeDistance = 7.5f;
+    [SerializeField] private float _cameraPartyModeDistance = 9.5f;
+    [SerializeField] private Setting_Float _cameraSpeed;
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
 
     private FlatVector _luckInput;
     private FlatVector _jackInput;
+
+    private bool _isCameraInSoloMode = true;
+    private Vector3 _virtualCameraTarget;
+    private Vector3 _virtualCameraPosition;
+    private Vector3 _cameraVelocity;
 
     protected override void OnPawnStart()
     {
@@ -23,27 +31,39 @@ public class PlayerPawn : Pawn
 
     public override void PossessedTick()
     {
+        _luck.Move(_luckInput);
+        _jack.Move(_jackInput);
+
         var luckPosition = _luck.transform.GetFlatPosition();
         var jackPosition = _jack.transform.GetFlatPosition();
 
         var distance = FlatVector.Distance(luckPosition, jackPosition);
 
-        Vector3 virtualCameraTarget;
-
-        if (distance < 7.5f)
+        if (_isCameraInSoloMode)
         {
-            virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
+            if (distance < _cameraSoloModeDistance)
+                _isCameraInSoloMode = false;
         }
         else
         {
-            virtualCameraTarget = luckPosition;
+            if (distance > _cameraPartyModeDistance)
+                _isCameraInSoloMode = true;
         }
 
-        CameraPosition = virtualCameraTarget - Vector3.forward * 8f + Vector3.up * 7.5f;
-        CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);
+        if (_isCameraInSoloMode)
+        {
+            _virtualCameraTarget = luckPosition;
+        }
+        else
+        {
+            _virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
+        }
 
-        _luck.Move(_luckInput);
-        _jack.Move(_jackInput);
+        var invertedSpeed = 1f - _cameraSpeed.GetValue();
+        _virtualCameraPosition = Vector3.SmoothDamp(_virtualCameraPosition, _virtualCameraTarget, ref _cameraVelocity, invertedSpeed);
+
+        CameraPosition = _virtualCameraPosition - Vector3.forward * 8f + Vector3.up * 7.5f;
+        CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);
     }
 
     protected override void OnUnpossessed()

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -16,6 +15,7 @@ public class LuckGameplayBase : GameplayController
     [Inject] protected PlayerPawn PlayerPawn { get; private set; }
     [Inject] protected Luck Luck { get; private set; }
     [Inject] protected Jack Jack { get; private set; }
+    [Inject] protected CharactersSpawnPoint SpawnPoint { get; private set; }
     [Inject] protected RatsSpawnPoint[] RatsSpawnPoints { get; private set; }
     [Inject] protected Grave[] Graves { get; private set; }
     [Inject] protected Rat.Factory RatFactory { get; private set; }
@@ -35,6 +35,8 @@ public class LuckGameplayBase : GameplayController
         Luck.Died += OnLuckDied;
         Grave.GraveSaved += OnGraveSaved;
         PlayerController.Possess(PlayerPawn);
+        Luck.transform.position = SpawnPoint.transform.position;
+        Jack.transform.position = SpawnPoint.transform.position;
     }
     protected virtual void OnDestroy()
     {

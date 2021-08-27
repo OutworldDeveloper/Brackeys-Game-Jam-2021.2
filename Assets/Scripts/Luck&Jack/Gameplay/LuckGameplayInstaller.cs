@@ -5,6 +5,7 @@ using UnityEngine;
 public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, PlayerController>
 {
 
+    [SerializeField] private PlayerPawn _playerPawnPrefab;
     [SerializeField] private Luck _luckPrefab;
     [SerializeField] private Jack _jackPrefab;
     [SerializeField] private Rat _ratPrefab;
@@ -14,7 +15,7 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
         base.InstallBindings();
 
         Container.BindInterfacesAndSelfTo<PlayerPawn>().
-            FromNewComponentOnNewGameObject().
+            FromComponentInNewPrefab(_playerPawnPrefab).
             UnderTransform(transform).
             AsSingle();
 
