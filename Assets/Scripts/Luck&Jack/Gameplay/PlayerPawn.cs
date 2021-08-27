@@ -24,9 +24,15 @@ public class PlayerPawn : Pawn
         InputReciver.BindAxis("luck_right", (value) => _luckInput.x = value);
         InputReciver.BindAxis("jack_forward", (value) => _jackInput.z = value);
         InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
-
         InputReciver.BindInputActionPressed("luck_interact", _luck.TryInteract);
         InputReciver.BindInputActionPressed("jack_attack", _jack.TryAttack);
+    }
+
+    protected override void OnPossesesed()
+    {
+        _virtualCameraTarget = (FlatVector)_luck.transform.position;
+        _virtualCameraPosition = _virtualCameraTarget;
+        _cameraVelocity = Vector3.zero;
     }
 
     public override void PossessedTick()

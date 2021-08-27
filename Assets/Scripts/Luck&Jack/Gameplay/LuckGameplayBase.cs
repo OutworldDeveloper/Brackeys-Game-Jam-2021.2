@@ -34,9 +34,9 @@ public class LuckGameplayBase : GameplayController
         base.Start();
         Luck.Died += OnLuckDied;
         Grave.GraveSaved += OnGraveSaved;
-        PlayerController.Possess(PlayerPawn);
         Luck.transform.position = SpawnPoint.transform.position;
         Jack.transform.position = SpawnPoint.transform.position;
+        PlayerController.Possess(PlayerPawn);
     }
     protected virtual void OnDestroy()
     {
