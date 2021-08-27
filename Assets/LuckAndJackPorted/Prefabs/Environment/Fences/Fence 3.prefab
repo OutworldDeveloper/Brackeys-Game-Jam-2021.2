@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2683125953188372524}
   - component: {fileID: 690955158303774759}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Fence 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 7464619634686796637}
   - component: {fileID: 1005095888337432870}
   - component: {fileID: 5117088828830592475}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.002_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -135,6 +136,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &5117088828830592475
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -160,7 +162,7 @@ GameObject:
   - component: {fileID: 5593454527490440709}
   - component: {fileID: 7845039829898899463}
   - component: {fileID: 2832163843892867832}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.001_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -204,6 +206,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -228,6 +231,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2832163843892867832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -253,7 +257,7 @@ GameObject:
   - component: {fileID: 189421076464055320}
   - component: {fileID: 6156319701040260158}
   - component: {fileID: 986344409850084057}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.003_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,6 +301,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -321,6 +326,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &986344409850084057
 BoxCollider:
   m_ObjectHideFlags: 0

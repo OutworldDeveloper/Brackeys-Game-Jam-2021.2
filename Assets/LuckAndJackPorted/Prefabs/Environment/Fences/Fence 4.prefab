@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6337199620820188980}
   - component: {fileID: 5558971418773318592}
   - component: {fileID: 4121933553112700727}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.002_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,6 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4121933553112700727
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105,7 +107,7 @@ GameObject:
   - component: {fileID: 7547221499563476499}
   - component: {fileID: 8603568715144859367}
   - component: {fileID: 3030197896977541922}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.001_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,6 +151,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -173,6 +176,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3030197896977541922
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -198,7 +202,7 @@ GameObject:
   - component: {fileID: 4144320426567109933}
   - component: {fileID: 7233157920269948763}
   - component: {fileID: 2086060844436115231}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: fence.003_low.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -242,6 +246,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -266,6 +271,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2086060844436115231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -289,7 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7473071264651861502}
   - component: {fileID: 7655084673334842413}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Fence 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
