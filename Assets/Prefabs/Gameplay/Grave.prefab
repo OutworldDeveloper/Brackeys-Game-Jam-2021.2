@@ -426,6 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109082492257311347}
   - component: {fileID: 4109082492257311344}
+  - component: {fileID: 1025235136153546382}
   - component: {fileID: 3249568318799562918}
   - component: {fileID: 2166042763011847350}
   m_Layer: 0
@@ -475,6 +476,38 @@ MonoBehaviour:
   _direction: {x: 0, y: 0, z: -1}
   _range: 3
   _textPosition: {x: 0, y: 2.5, z: 0}
+  _animator: {fileID: 3249568318799562918}
+  _candlesGroup: {fileID: 1025235136153546382}
+  _savedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4549568241712666758}
+        m_TargetAssemblyTypeName: SoundPlayer, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1025235136153546382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4109082492257311345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405c1cf6a58d805469a7d4a643eb0684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _light: {fileID: 3655317816508044718}
+  _candles: []
+  _findInChildren: 1
 --- !u!95 &3249568318799562918
 Animator:
   serializedVersion: 3
@@ -524,7 +557,7 @@ GameObject:
   - component: {fileID: 6872161164507371584}
   - component: {fileID: 4549568241712666758}
   m_Layer: 0
-  m_Name: SavedSoundPlayer
+  m_Name: Saved Sound Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -653,8 +686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78f64afc484f2a048bc6685fe24a80c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _minPitch: 0.9
-  _maxPitch: 1.1
+  _minPitch: 1
+  _maxPitch: 1
+  _minVolume: 1
+  _maxVolume: 1
   _audioClips:
   - {fileID: 8300000, guid: b7dd943b501447e42b6f13ed00cd5af8, type: 3}
 --- !u!65 &3128795789434341780
@@ -1419,15 +1454,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 884af010b07eb914fbb7db58cb04e215, type: 3}
---- !u!1 &5807320138439808555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 884af010b07eb914fbb7db58cb04e215,
-    type: 3}
-  m_PrefabInstance: {fileID: 6653742119311666042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6619286812778892433 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 884af010b07eb914fbb7db58cb04e215,
+    type: 3}
+  m_PrefabInstance: {fileID: 6653742119311666042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5807320138439808555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 884af010b07eb914fbb7db58cb04e215,
     type: 3}
   m_PrefabInstance: {fileID: 6653742119311666042}
   m_PrefabAsset: {fileID: 0}

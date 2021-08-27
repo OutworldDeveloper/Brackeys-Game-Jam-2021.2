@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 83518020438223962}
   - component: {fileID: 1324288275313087678}
   m_Layer: 13
-  m_Name: Hit
+  m_Name: Hit Sound Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,6 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minPitch: 0.95
   _maxPitch: 1.1
+  _minVolume: 0.5
+  _maxVolume: 0.5
   _audioClips:
   - {fileID: 8300000, guid: 2ac2f623ec6df464197c9094535139a3, type: 3}
   - {fileID: 8300000, guid: 298e44f3911ae8a48b723b867f9d712a, type: 3}
@@ -824,6 +826,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minPitch: 0.6
   _maxPitch: 0.65
+  _minVolume: 1
+  _maxVolume: 1
   _audioClips:
   - {fileID: 8300000, guid: dd05a427533477243a252cd72c3f7fcd, type: 3}
   - {fileID: 8300000, guid: e3a713b7d1d0f704890d2e03c3aee804, type: 3}
@@ -1711,7 +1715,7 @@ GameObject:
   - component: {fileID: 1517922347233305780}
   - component: {fileID: 1552975247579451178}
   m_Layer: 13
-  m_Name: AttackSound
+  m_Name: Attack Sound Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1745,6 +1749,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minPitch: 0.95
   _maxPitch: 1.1
+  _minVolume: 0.5
+  _maxVolume: 0.5
   _audioClips:
   - {fileID: 8300000, guid: d00c624b70936054fb888863345c60d7, type: 3}
   - {fileID: 8300000, guid: 9b3445dfb6af7194483cc8c4ef865b40, type: 3}

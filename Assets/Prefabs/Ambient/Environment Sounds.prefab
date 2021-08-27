@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2370067987573370254}
-  - component: {fileID: 2370067987573370353}
   - component: {fileID: 2370067987573370352}
+  - component: {fileID: 941223202}
+  - component: {fileID: 941223201}
   m_Layer: 0
   m_Name: Environment Sounds
   m_TagString: Untagged
@@ -32,36 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2370067987573370353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2370067987573370355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74e393356e96d314885f82030b20e6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  environmentSounds:
-  - AudioClip: {fileID: 8300000, guid: 48fff27f5a35df14f9dfb08249a084b0, type: 3}
-    minPitch: 0.75
-    maxPitch: 1.1
-    minVolume: 0.75
-    maxVolume: 1
-  - AudioClip: {fileID: 8300000, guid: b94d4c0148246bb49aa1a06534f8743d, type: 3}
-    minPitch: 0.75
-    maxPitch: 1.1
-    minVolume: 0.75
-    maxVolume: 1
-  - AudioClip: {fileID: 8300000, guid: d4a7cca74debf7f439ec8ebd2f53ed53, type: 3}
-    minPitch: 0.75
-    maxPitch: 1.1
-    minVolume: 0.75
-    maxVolume: 1
-  minCooldown: 10
-  maxCooldown: 15
 --- !u!82 &2370067987573370352
 AudioSource:
   m_ObjectHideFlags: 0
@@ -159,3 +130,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &941223202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370067987573370355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb891dd71d8ab1e48ae4db52ce92ee62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minCooldown: 10
+  _maxCooldown: 15
+--- !u!114 &941223201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2370067987573370355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f64afc484f2a048bc6685fe24a80c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 0.75
+  _maxPitch: 1.1
+  _minVolume: 0.75
+  _maxVolume: 1
+  _audioClips:
+  - {fileID: 8300000, guid: 48fff27f5a35df14f9dfb08249a084b0, type: 3}
+  - {fileID: 8300000, guid: b94d4c0148246bb49aa1a06534f8743d, type: 3}
+  - {fileID: 8300000, guid: d4a7cca74debf7f439ec8ebd2f53ed53, type: 3}

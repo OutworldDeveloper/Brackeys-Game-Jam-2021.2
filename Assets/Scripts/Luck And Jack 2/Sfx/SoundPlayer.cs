@@ -8,6 +8,8 @@ public class SoundPlayer : MonoBehaviour
 
     [SerializeField] private float _minPitch = 1f;
     [SerializeField] private float _maxPitch = 1f;
+    [SerializeField] private float _minVolume = 1f;
+    [SerializeField] private float _maxVolume = 1f;
     [SerializeField] private AudioClip[] _audioClips;
 
     public bool IsPlaying => _audioSource.isPlaying;
@@ -23,6 +25,7 @@ public class SoundPlayer : MonoBehaviour
     {
         _audioSource.clip = _audioClips[Random.Range(0, _audioClips.Length)];
         _audioSource.pitch = Random.Range(_minPitch, _maxPitch);
+        _audioSource.volume = Random.Range(_minVolume, _maxVolume);
         _audioSource.Play();
     }
 
