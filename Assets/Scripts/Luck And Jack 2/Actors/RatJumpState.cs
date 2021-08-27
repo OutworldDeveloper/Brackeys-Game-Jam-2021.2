@@ -7,7 +7,7 @@ public class RatJumpState : State
     private const float JumpDuration = 0.5f;
     private const float JumpSpeed = 12f;
     private const float BiteRange = 1.3f;
-    private const float BiteAngle = 50f;
+    private const float BiteAngle = 360f; // 50f
 
     public bool IsEnded => Time.time > _endTime || _hasSetDamage;
 

@@ -662,7 +662,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b1af197bc49be438aa2ea3577e8111, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionsBlueprints: []
+  _actionsBlueprints:
+  - Id: luck_interact
+    Key: {fileID: 11400000, guid: c83c9d811b408214da60ad3ec76e367e, type: 2}
+  - Id: jack_attack
+    Key: {fileID: 11400000, guid: 3f0fb43438cef1547bb6efa9213cc705, type: 2}
   _axesBlueprints:
   - Id: luck_forward
     PositiveKey: {fileID: 11400000, guid: 613f7068291a49d4db5c2fc4840f8493, type: 2}

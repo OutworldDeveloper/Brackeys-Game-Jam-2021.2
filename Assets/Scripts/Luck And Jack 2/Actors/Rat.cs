@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 public class Rat : BaseNpc
 {
@@ -43,14 +44,6 @@ public class Rat : BaseNpc
         StateMachine.CreateTransition(jumpState, DefaultState, () => jumpState.IsEnded);
     }
 
-    protected override void Update()
-    {
-        base.Update();
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            Jump((FlatVector)transform.forward);
-        }
-    }
+    public class Factory : PlaceholderFactory<Rat> { }
 
 }

@@ -7,6 +7,7 @@ using Zenject;
 public class RatBrain : MonoBehaviour
 {
 
+    [Inject] private LuckGameplayControllerBase _gameplayController;
     [Inject] private Luck _luck;
     [SerializeField] private float _jumpDistance = 5f;
     [SerializeField] private float _attackCooldownMin = 4f;
@@ -15,6 +16,7 @@ public class RatBrain : MonoBehaviour
     private Rat _rat;
     private bool _isAttacking;
     private float _nextAttackTime;
+    private RatsSpawnPoint _closestSpawnPoint;
 
     private void Awake()
     {
@@ -24,6 +26,7 @@ public class RatBrain : MonoBehaviour
     private void Start()
     {
         _rat.Died += () => Destroy(this);
+        _closestSpawnPoint = _gameplayController.GetClosestRatsSpawnPoint(transform.GetFlatPosition());
     }
 
     private void Update()
@@ -33,6 +36,8 @@ public class RatBrain : MonoBehaviour
             if (_luck.IsDead)
             {
                 _isAttacking = false;
+                _closestSpawnPoint = _gameplayController.GetClosestRatsSpawnPoint(transform.GetFlatPosition());
+                return;
             }
 
             var targetPosition = _luck.transform.GetFlatPosition();
@@ -43,6 +48,7 @@ public class RatBrain : MonoBehaviour
                 var direction = ((FlatVector)_luck.transform.position - (FlatVector)_rat.transform.position).normalized;
                 _rat.Jump(direction);
                 _isAttacking = false;
+                _closestSpawnPoint = _gameplayController.GetClosestRatsSpawnPoint(transform.GetFlatPosition());
                 _nextAttackTime = Time.time + Random.Range(_attackCooldownMin, _attackCoooldownMax);
             }
         }
@@ -51,9 +57,10 @@ public class RatBrain : MonoBehaviour
             if (Time.time > _nextAttackTime && !_luck.IsDead)
             {
                 _isAttacking = true;
+                return;
             }
 
-
+            _rat.MoveTo(_closestSpawnPoint.transform.GetFlatPosition());
         }
     }
 

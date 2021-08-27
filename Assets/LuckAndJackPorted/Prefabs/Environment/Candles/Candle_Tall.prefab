@@ -57,6 +57,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -81,6 +82,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &9192404065973012906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +92,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3057336097029229805}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14a60d7752786084793f2045ca413ef9, type: 3}
+  m_Script: {fileID: 11500000, guid: c1f0bb88289423a4a842a93f8ce0a2da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   glowObject: {fileID: 3802813578581285364}
@@ -139,6 +141,7 @@ VisualEffect:
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
   m_ResetSeedOnPlay: 1
+  m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
       m_Array: []
@@ -177,6 +180,7 @@ VFXRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

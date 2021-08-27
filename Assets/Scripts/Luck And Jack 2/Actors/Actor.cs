@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class Actor : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public abstract class Actor : MonoBehaviour
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private float _eyesOffset = 1.75f;
     [SerializeField] private Team _team;
+    [SerializeField] private UnityEvent _deathEvent;
 
     public event DamagedEventHandler Damaged;
     public event HealedEventHanndler Healed;
@@ -21,7 +23,7 @@ public abstract class Actor : MonoBehaviour
     public float MaxHealth => _maxHealth;
     public float NormalizedHealth => Health / _maxHealth;
     public Team Team => _team;
-    public bool IsDead => Health == 0;
+    public bool IsDead => Health <= 0;
     public float LastDamage { get; private set; }
     public FlatVector LastDamageDirection { get; private set; }
 
@@ -69,6 +71,7 @@ public abstract class Actor : MonoBehaviour
         {
             OnDied();
             Died?.Invoke();
+            _deathEvent.Invoke();
         }
     }
 
