@@ -2,13 +2,11 @@ using System;
 using UnityEngine;
 using Zenject;
 
-public class TutorialExplainer : MonoBehaviour
+public class TutorialExplainer : Explainer
 {
 
-    [Inject] private Luck _luck;
     [Inject] private TutorialWall _tutorialWall;
     [Inject] private LuckGameplayTutorial _gameplayTutorial;
-    [Inject] private UI_HelperText _helperText;
     [Header("Keys")]
     [SerializeField] private Setting_KeyCode[] _luckMovement;
     [SerializeField] private Setting_KeyCode[] _jackMovement;
@@ -24,7 +22,7 @@ public class TutorialExplainer : MonoBehaviour
         _gameplayTutorial.JackSaved += OnJackSaved;
 
         var toShow = GenerateMovementTip(_luckMovement, "Luck");
-        _helperText.Show(toShow, 10f);
+        HelperText.Show(toShow, 10f);
     }
 
     private void Update()
@@ -32,10 +30,10 @@ public class TutorialExplainer : MonoBehaviour
         if (_jackSaved)
             return;
 
-        var distance = FlatVector.Distance((FlatVector)_luck.transform.position, (FlatVector)_tutorialWall.transform.position);
+        var distance = FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)_tutorialWall.transform.position);
         if (distance < _messageDistance)
         {
-            _helperText.Show("You need to wake up Jack first.", _messageDuration);
+            HelperText.Show("You need to wake up Jack first.", _messageDuration);
         }
     }
 
@@ -49,7 +47,7 @@ public class TutorialExplainer : MonoBehaviour
         _gameplayTutorial.JackSaved -= OnJackSaved;
         _jackSaved = true;
         var toShow = GenerateMovementTip(_jackMovement, "Jack");
-        _helperText.Show(toShow, 15f);
+        HelperText.Show(toShow, 15f);
     }
 
     private string GenerateMovementTip(Setting_KeyCode[] movement, string character)
@@ -84,5 +82,13 @@ public class TutorialExplainer : MonoBehaviour
         public KeyCode KeyCode;
         public string Override;
     }
+
+}
+
+public class Explainer : MonoBehaviour
+{
+
+    [Inject] protected Luck Luck { get; private set; }
+    [Inject] protected UI_HelperText HelperText { get; private set; }
 
 }

@@ -14397,8 +14397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64a742280e6ec741ac4c66b559331d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _messageDistance: 3.4
-  _messageDuration: 0.5
 --- !u!114 &1413740248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22874,71 +22872,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[0].KeyCode
-      value: 273
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[1].KeyCode
-      value: 274
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[2].KeyCode
-      value: 275
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[3].KeyCode
-      value: 276
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[4].KeyCode
-      value: 305
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[5].KeyCode
-      value: 306
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[0].Override
-      value: "\u2191"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[1].Override
-      value: "\u2193"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[2].Override
-      value: "\u2192"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[3].Override
-      value: "\u2190"
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[4].Override
-      value: R Ctrl
-      objectReference: {fileID: 0}
-    - target: {fileID: 5789713045116162323, guid: 088d4f50751d3d24fb6a42af78f5dad2,
-        type: 3}
-      propertyPath: _keyStringOverrides.Array.data[5].Override
-      value: L Ctrl
       objectReference: {fileID: 0}
     - target: {fileID: 5951270222198285864, guid: 088d4f50751d3d24fb6a42af78f5dad2,
         type: 3}
