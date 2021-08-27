@@ -28,7 +28,16 @@ public class PlayerPawn : Pawn
 
         var distance = FlatVector.Distance(luckPosition, jackPosition);
 
-        var virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
+        Vector3 virtualCameraTarget;
+
+        if (distance < 7.5f)
+        {
+            virtualCameraTarget = Vector3.Lerp(jackPosition, luckPosition, 0.5f);
+        }
+        else
+        {
+            virtualCameraTarget = luckPosition;
+        }
 
         CameraPosition = virtualCameraTarget - Vector3.forward * 8f + Vector3.up * 7.5f;
         CameraRotation = Quaternion.Euler(46.13f, 0f, 0f);

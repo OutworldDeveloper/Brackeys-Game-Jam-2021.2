@@ -8,6 +8,10 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
     [Inject] private SleepingJack _sleepingJack;
 
+    protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
+
+    private bool _hasSavedJack;
+
     protected override void Start()
     {
         base.Start();
@@ -24,6 +28,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
     private void OnJackSaved()
     {
+        _hasSavedJack = true;
         _sleepingJack.JackSaved -= OnJackSaved;
         JackSaved?.Invoke();
     }

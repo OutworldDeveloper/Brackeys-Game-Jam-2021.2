@@ -10,6 +10,8 @@ public class LuckGameplayBase : GameplayController
     public event QuestUpdatedEventHandler QuestUpdated;
 
     [SerializeField] private float _ratDetectionRange = 15f;
+    [SerializeField] private float _jackSleepingRange = 14f;
+    [SerializeField] private float _jackWakingUpRange = 3.5f;
     [SerializeField] private AnimationCurve _spawnCurve;
     [Inject] protected PlayerPawn PlayerPawn { get; private set; }
     [Inject] protected Luck Luck { get; private set; }
@@ -22,6 +24,7 @@ public class LuckGameplayBase : GameplayController
     public int RatsKilled { get; private set; }
     public bool HasSeenRat { get; private set; }
     public IReadOnlyList<Rat> RatsAlive => _ratsAlive;
+    protected virtual bool IgnoreDistanceSleeping => false;
 
     private readonly List<Rat> _ratsAlive = new List<Rat>();
     private bool _isGameOver;
@@ -41,16 +44,35 @@ public class LuckGameplayBase : GameplayController
 
     protected virtual void Update()
     {
-        if (HasSeenRat)
-            return;
-
-        foreach (var rat in _ratsAlive)
+        if (IgnoreDistanceSleeping == false)
         {
-            if (FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange ||
-                FlatVector.Distance((FlatVector)Jack.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange)
+            var distance = FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)Jack.transform.position);
+            if (Jack.IsSleeping)
             {
-                HasSeenRat = true;
-                OnFirstRatEncounter();
+                if (distance < _jackWakingUpRange)
+                {
+                    Jack.WakeUp();
+                }
+            }
+            else
+            {
+                if (distance > _jackSleepingRange)
+                {
+                    Jack.Sleep();
+                }
+            }
+        }
+
+        if (HasSeenRat == false)
+        {
+            foreach (var rat in _ratsAlive)
+            {
+                if (FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange ||
+                    FlatVector.Distance((FlatVector)Jack.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange)
+                {
+                    HasSeenRat = true;
+                    OnFirstRatEncounter();
+                }
             }
         }
     }

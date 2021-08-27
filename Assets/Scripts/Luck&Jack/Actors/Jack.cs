@@ -9,7 +9,7 @@ public class Jack : PlayerCharacter
     [SerializeField] private SoundPlayer _hitSoundPlayer;
     [SerializeField] private SoundPlayer _wakingUpSoundPlayer;
 
-    private bool _isSleeping;
+    public bool IsSleeping { get; private set; }
 
     public void TryAttack()
     {
@@ -18,12 +18,12 @@ public class Jack : PlayerCharacter
 
     public void Sleep()
     {
-        _isSleeping = true;
+        IsSleeping = true;
     }
 
     public void WakeUp()
     {
-        _isSleeping = false;
+        IsSleeping = false;
     }
 
     protected override State CreateDefaultState()
@@ -40,8 +40,8 @@ public class Jack : PlayerCharacter
 
         StateMachine.CreateTransition(DefaultState, attackState, () => StateMachine.CheckTrigger(AttackTrigger) && !attackState.IsOnCooldown);
         StateMachine.CreateTransition(attackState, DefaultState, () => attackState.IsEnded);
-        StateMachine.CreateTransition(sleepingState, () => _isSleeping);
-        StateMachine.CreateTransition(sleepingState, DefaultState, () => !_isSleeping);
+        StateMachine.CreateTransition(sleepingState, () => IsSleeping);
+        StateMachine.CreateTransition(sleepingState, DefaultState, () => !IsSleeping);
     }
 
 }
