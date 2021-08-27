@@ -7,6 +7,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
     public event Action JackSaved;
 
     [Inject] private SleepingJack _sleepingJack;
+    [Inject] private UI_HelperText _helperText;
 
     protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
 
@@ -17,6 +18,8 @@ public class LuckGameplayTutorial : LuckGameplayBase
         base.Start();
         _sleepingJack.PlaceJack(Jack);
         _sleepingJack.JackSaved += OnJackSaved;
+
+        _helperText.Show("Hello and welcome back!", 10f);
     }
 
     protected override void OnDestroy()
