@@ -70,7 +70,7 @@ public abstract class Actor : MonoBehaviour
         if (IsDead)
         {
             OnDied();
-            Died?.Invoke();
+            Died?.Invoke(this);
             _deathEvent.Invoke();
         }
     }
@@ -97,6 +97,6 @@ public abstract class Actor : MonoBehaviour
     public delegate void DamagedEventHandler(float damage, float health, float healthBefore, FlatVector direction);
     public delegate void HealedEventHanndler(float heal, float health, float healthBefore);
     public delegate void HealthChangedEventHandler(float health, float healthBefore);
-    public delegate void DiedEventHandler();
+    public delegate void DiedEventHandler(Actor sender);
 
 }

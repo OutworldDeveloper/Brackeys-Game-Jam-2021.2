@@ -25,7 +25,7 @@ public class RatBrain : MonoBehaviour
 
     private void Start()
     {
-        _rat.Died += () => Destroy(this);
+        _rat.Died += (sender) => Destroy(this);
         _closestSpawnPoint = _gameplayController.GetClosestRatsSpawnPoint(transform.GetFlatPosition());
     }
 

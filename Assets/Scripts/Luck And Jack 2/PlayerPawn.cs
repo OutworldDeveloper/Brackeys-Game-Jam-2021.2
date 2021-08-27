@@ -37,4 +37,10 @@ public class PlayerPawn : Pawn
         _jack.Move(_jackInput);
     }
 
+    protected override void OnUnpossessed()
+    {
+        _luck.Move(FlatVector.zero);
+        _jack.Move(FlatVector.zero);
+    }
+
 }

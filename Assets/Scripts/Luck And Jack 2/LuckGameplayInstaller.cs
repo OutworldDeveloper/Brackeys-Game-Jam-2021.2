@@ -23,6 +23,8 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayControll
         Container.Bind<Jack>().FromComponentInNewPrefab(_jackPrefab).AsSingle();
 
         Container.BindFactory<Rat, Rat.Factory>().FromComponentInNewPrefab(_ratPrefab);
+
+        Container.Bind<AnimationCurve>().FromInstance(_ratsSpawningCurve).AsSingle();
     }
 
 }
