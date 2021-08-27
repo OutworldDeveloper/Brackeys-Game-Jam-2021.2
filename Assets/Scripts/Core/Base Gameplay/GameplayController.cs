@@ -1,24 +1,19 @@
-﻿using Zenject;
+﻿using System;
+using UnityEngine;
+using Zenject;
 
-public class GameplayController : IInitializable
+public class GameplayController : MonoBehaviour
 {
 
-    public readonly PlayerController PlayerController; // Maybe generic arguement instead
+    [Inject] private PlayerController _playerController;
+    [Inject] private IConsole _console;
 
-    private readonly IConsole _console;
+    public PlayerController PlayerController => _playerController;
+    protected IConsole Console => _console;
 
-    public GameplayController(IConsole console, PlayerController playerController)
-    {
-        _console = console;
-        PlayerController = playerController;
-    }
-
-    public void Initialize()
+    protected virtual void Start()
     {
         _console.Log($"GameplayController of type {GetType()} is initialized.");
-        GameplayStarted();
     }
-
-    protected virtual void GameplayStarted() { }
 
 }

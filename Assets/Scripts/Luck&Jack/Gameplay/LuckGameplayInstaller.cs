@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayControllerBase, PlayerController>
+public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, PlayerController>
 {
 
-    [SerializeField] private AnimationCurve _ratsSpawningCurve;
     [SerializeField] private Luck _luckPrefab;
     [SerializeField] private Jack _jackPrefab;
     [SerializeField] private Rat _ratPrefab;
@@ -23,8 +22,6 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayControll
         Container.Bind<Jack>().FromComponentInNewPrefab(_jackPrefab).AsSingle();
 
         Container.BindFactory<Rat, Rat.Factory>().FromComponentInNewPrefab(_ratPrefab);
-
-        Container.Bind<AnimationCurve>().FromInstance(_ratsSpawningCurve).AsSingle();
     }
 
 }

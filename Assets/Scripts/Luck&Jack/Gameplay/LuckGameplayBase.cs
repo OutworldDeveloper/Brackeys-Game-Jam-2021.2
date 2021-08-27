@@ -1,73 +1,58 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 using UnityRandom = UnityEngine.Random;
 
-public class LuckGameplayControllerBase : GameplayController, ITickable, IDisposable
+public class LuckGameplayBase : GameplayController
 {
 
-    private const float RatDetectionRange = 15f;
-
     public event QuestUpdatedEventHandler QuestUpdated;
+
+    [SerializeField] private float _ratDetectionRange = 15f;
+    [SerializeField] private AnimationCurve _spawnCurve;
+    [Inject] protected PlayerPawn PlayerPawn { get; private set; }
+    [Inject] protected Luck Luck { get; private set; }
+    [Inject] protected Jack Jack { get; private set; }
+    [Inject] protected RatsSpawnPoint[] RatsSpawnPoints { get; private set; }
+    [Inject] protected Grave[] Graves { get; private set; }
+    [Inject] protected Rat.Factory RatFactory { get; private set; }
 
     public int GravesSaved { get; private set; }
     public int RatsKilled { get; private set; }
     public bool HasSeenRat { get; private set; }
     public IReadOnlyList<Rat> RatsAlive => _ratsAlive;
 
-    protected readonly PlayerPawn PlayerPawn;
-    protected readonly Luck Luck;
-    protected readonly Jack Jack;
-    protected readonly RatsSpawnPoint[] RatsSpawnPoints;
-    protected readonly Grave[] Graves;
-    protected readonly Rat.Factory RatFactory;
-
-    private readonly AnimationCurve _spawnCurve;
     private readonly List<Rat> _ratsAlive = new List<Rat>();
     private bool _isGameOver;
 
-    public LuckGameplayControllerBase(
-        IConsole console, 
-        PlayerController playerController,
-        PlayerPawn playerPawn,
-        Luck luck,
-        Jack jack,
-        RatsSpawnPoint[] ratsSpawnPoints,
-        Grave[] graves,
-        Rat.Factory ratFactory,
-        AnimationCurve spawnCurve) : base(console, playerController)
+    protected override void Start()
     {
-        PlayerPawn = playerPawn;
-        Luck = luck;
-        Jack = jack;
-        RatsSpawnPoints = ratsSpawnPoints;
-        Graves = graves;
-        RatFactory = ratFactory;
-        _spawnCurve = spawnCurve;
+        base.Start();
+        Luck.Died += OnLuckDied;
+        Grave.GraveSaved += OnGraveSaved;
+        PlayerController.Possess(PlayerPawn);
     }
-
-    public void Tick()
-    {
-        if (HasSeenRat == false)
-        {
-            foreach (var rat in _ratsAlive)
-            {
-                if (FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)rat.transform.position) < RatDetectionRange ||
-                    FlatVector.Distance((FlatVector)Jack.transform.position, (FlatVector)rat.transform.position) < RatDetectionRange)
-                {
-                    HasSeenRat = true;
-                    OnFirstRatEncounter();
-                }
-            }
-        }
-    }
-
-    public void Dispose()
+    protected virtual void OnDestroy()
     {
         Luck.Died -= OnLuckDied;
         Grave.GraveSaved -= OnGraveSaved;
+    }
+
+    protected virtual void Update()
+    {
+        if (HasSeenRat)
+            return;
+
+        foreach (var rat in _ratsAlive)
+        {
+            if (FlatVector.Distance((FlatVector)Luck.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange ||
+                FlatVector.Distance((FlatVector)Jack.transform.position, (FlatVector)rat.transform.position) < _ratDetectionRange)
+            {
+                HasSeenRat = true;
+                OnFirstRatEncounter();
+            }
+        }
     }
 
     public RatsSpawnPoint GetClosestRatsSpawnPoint(FlatVector location)
@@ -95,13 +80,6 @@ public class LuckGameplayControllerBase : GameplayController, ITickable, IDispos
         return closest;
     }
 
-    protected override void GameplayStarted()
-    {
-        Luck.Died += OnLuckDied;
-        Grave.GraveSaved += OnGraveSaved;
-        PlayerController.Possess(PlayerPawn);
-    }
-
     private void OnLuckDied(Actor sender)
     {
         if (_isGameOver == false)
@@ -114,6 +92,7 @@ public class LuckGameplayControllerBase : GameplayController, ITickable, IDispos
     protected virtual void OnGraveSaved(Grave grave)
     {
         GravesSaved++;
+        SpawnRats();
     }
 
     protected virtual void OnGameover()

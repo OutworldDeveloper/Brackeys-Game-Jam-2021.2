@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
-public abstract class GameplaySceneInstaller<TGameplayController, TPlayerController> : MonoInstaller 
+public abstract class GameplaySceneInstaller<TGameplayController, TPlayerController> : MonoInstaller
     where TGameplayController : GameplayController
     where TPlayerController : PlayerController
 {
 
-    [SerializeField] private Camera _mainCamera = default;
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private TGameplayController _gameplayControllerPrefab;
 
     public override void InstallBindings()
     {
@@ -28,22 +29,24 @@ public abstract class GameplaySceneInstaller<TGameplayController, TPlayerControl
 
     private void BindGameplayController()
     {
-        var type = typeof(TGameplayController);
         var typesToBind = new List<Type>();
 
-        foreach (var item in type.GetInterfaces())
+        var desiredType = typeof(TGameplayController);
+        var actuallType = _gameplayControllerPrefab.GetType();
+
+        typesToBind.Add(desiredType);
+
+        if (actuallType != desiredType)
         {
-            typesToBind.Add(item);
-        }
+            typesToBind.Add(actuallType);
+        }     
 
-        typesToBind.Add(type);
-
-        if (type != typeof(GameplayController))
+        if (desiredType != typeof(GameplayController))
         {
             typesToBind.Add(typeof(GameplayController));
         }
 
-        Container.Bind(typesToBind).To<TGameplayController>().AsSingle();
+        Container.Bind(typesToBind).FromComponentInNewPrefab(_gameplayControllerPrefab).UnderTransform(transform).AsSingle();
     }
 
     private void BindPlayerController()

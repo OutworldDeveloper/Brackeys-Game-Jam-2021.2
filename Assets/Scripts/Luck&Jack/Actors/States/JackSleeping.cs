@@ -1,0 +1,34 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class JackSleeping : State
+{
+
+    private const string AnimatorSleepingTrigger = "sleep";
+
+    private readonly CharacterController _characterController;
+    private readonly Animator _animator;
+    private readonly SoundPlayer _soundPlayer;
+
+    public JackSleeping(CharacterController characterController, Animator animator, SoundPlayer wakingUpSoundPlayer)
+    {
+        _characterController = characterController;
+        _animator = animator;
+        _soundPlayer = wakingUpSoundPlayer;
+    }
+
+    public override void Start()
+    {
+        _characterController.enabled = false;
+        _animator.SetBool(AnimatorSleepingTrigger, true);
+    }
+
+    public override void End()
+    {
+        _characterController.enabled = true;
+        _animator.SetBool(AnimatorSleepingTrigger, false);
+        _soundPlayer.PlaySound();
+    }
+
+}

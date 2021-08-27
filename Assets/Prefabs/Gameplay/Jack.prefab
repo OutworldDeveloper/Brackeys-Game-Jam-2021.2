@@ -61,7 +61,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8561048763999663308}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &83518020438223962
 MonoBehaviour:
@@ -255,8 +255,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3356731846136727860}
   - component: {fileID: 4820132399487244658}
+  - component: {fileID: 4954205455783281403}
   m_Layer: 13
-  m_Name: AwakiningSound
+  m_Name: Waking Up Sound Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -274,7 +275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8561048763999663308}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &4820132399487244658
 AudioSource:
@@ -373,6 +374,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4954205455783281403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884265433762867344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f64afc484f2a048bc6685fe24a80c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _minVolume: 1
+  _maxVolume: 1
+  _audioClips:
+  - {fileID: 8300000, guid: ff2edaf2038a1ca4e9ad75b70841df86, type: 3}
 --- !u!1 &1065081256982103514
 GameObject:
   m_ObjectHideFlags: 0
@@ -433,7 +452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8561048763999663308}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &7182614094444487841
 AudioSource:
@@ -1733,7 +1752,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8561048763999663308}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1517922347233305780
 MonoBehaviour:
@@ -2004,10 +2023,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1106348805613730365}
-  - {fileID: 3356731846136727860}
   - {fileID: 6489936051797239751}
   - {fileID: 8248064900555162415}
   - {fileID: 2753975115768882154}
+  - {fileID: 3356731846136727860}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
@@ -2067,6 +2086,7 @@ MonoBehaviour:
   _animator: {fileID: 1714251898559578249}
   _attackSoundPlayer: {fileID: 1517922347233305780}
   _hitSoundPlayer: {fileID: 83518020438223962}
+  _wakingUpSoundPlayer: {fileID: 4954205455783281403}
 --- !u!1 &9161862722324076394
 GameObject:
   m_ObjectHideFlags: 0

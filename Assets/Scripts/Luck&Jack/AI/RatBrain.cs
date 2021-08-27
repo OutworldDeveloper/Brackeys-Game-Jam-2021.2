@@ -7,7 +7,7 @@ using Zenject;
 public class RatBrain : MonoBehaviour
 {
 
-    [Inject] private LuckGameplayControllerBase _gameplayController;
+    [Inject] private LuckGameplayBase _gameplayController;
     [Inject] private Luck _luck;
     [SerializeField] private float _jumpDistance = 5f;
     [SerializeField] private float _attackCooldownMin = 4f;

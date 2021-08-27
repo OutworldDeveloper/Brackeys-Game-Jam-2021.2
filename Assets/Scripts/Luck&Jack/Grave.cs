@@ -65,7 +65,7 @@ public class Grave : Interactable
         IsSaved = true;
         LastSavedTime = Time.time;
         GraveSaved?.Invoke(this);
-        _savedEvent?.Invoke();
+        _savedEvent.Invoke();
     }
 
     public delegate void GraveSavedEventHandler(Grave grave);

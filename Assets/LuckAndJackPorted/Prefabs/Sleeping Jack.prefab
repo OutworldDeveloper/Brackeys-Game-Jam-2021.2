@@ -55,6 +55,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2381849082777967274
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,8 +91,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2381849082777967272}
   - component: {fileID: 2381849082777967273}
+  - component: {fileID: 6640375722913172269}
+  - component: {fileID: 5215961751308599509}
   m_Layer: 0
-  m_Name: JackSaveInteraction
+  m_Name: Sleeping Jack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,15 +135,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 2381849082777967274}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4cdee96a2e8fce44a08e4690a812e98, type: 3}
+  m_Script: {fileID: 11500000, guid: db18cf2a90c639340a2e5f42f5ce1a15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionPointOffset: {x: 0, y: 0, z: 0.825}
-  interactionRangeCenterPointOffset: {x: 0, y: 0, z: 0}
-  interactionFacingDirection: {x: 0, y: 0, z: -1}
-  interactionTextPosition: {x: 0, y: 3, z: -0.75}
-  interactionRange: 5
-  light: {fileID: 2381849083308231503}
+  _pointOffset: {x: 0, y: 0, z: 0.825}
+  _rangeCenterPointOffset: {x: 0, y: 0, z: 0}
+  _direction: {x: 0, y: 0, z: -1}
+  _range: 5
+  _textPosition: {x: 0, y: 3, z: -0.75}
+  _savedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6640375722913172269}
+        m_TargetAssemblyTypeName: CandlesGroup, Assembly-CSharp
+        m_MethodName: TurnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6640375722913172269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381849082777967274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 405c1cf6a58d805469a7d4a643eb0684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _light: {fileID: 2381849083308231503}
+  _candles: []
+  _findInChildren: 1
+--- !u!114 &5215961751308599509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381849082777967274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 2381849082777967273}
+  _identifier: 
+  _useSceneContext: 1
+  _context: {fileID: 0}
+  _bindType: 0
 --- !u!1 &2381849083308231498
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,6 +284,7 @@ Light:
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
 --- !u!114 &2381849083308231496
@@ -247,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Version: 10
+  m_Version: 11
   m_ObsoleteShadowResolutionTier: 1
   m_ObsoleteUseShadowQualitySettings: 0
   m_ObsoleteCustomShadowResolution: 512
@@ -259,10 +311,12 @@ MonoBehaviour:
   m_EnableSpotReflector: 0
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
+  m_SpotIESCutoffPercent: 100
   m_LightDimmer: 1
   m_VolumetricDimmer: 1
   m_LightUnit: 0
   m_FadeDistance: 10000
+  m_VolumetricFadeDistance: 10000
   m_AffectDiffuse: 1
   m_AffectSpecular: 1
   m_NonLightmappedOnly: 0
@@ -277,6 +331,9 @@ MonoBehaviour:
   m_ApplyRangeAttenuation: 1
   m_DisplayAreaLightEmissiveMesh: 0
   m_AreaLightCookie: {fileID: 0}
+  m_IESPoint: {fileID: 0}
+  m_IESSpot: {fileID: 0}
+  m_IncludeForRayTracing: 1
   m_AreaLightShadowCone: 120
   m_UseScreenSpaceShadows: 0
   m_InteractsWithSky: 1
@@ -295,6 +352,7 @@ MonoBehaviour:
   m_LightShadowRadius: 0.5
   m_SemiTransparentShadow: 0
   m_ColorShadow: 1
+  m_DistanceBasedFiltering: 0
   m_EvsmExponent: 15
   m_EvsmLightLeakBias: 0
   m_EvsmVarianceBias: 0.00001
@@ -325,8 +383,13 @@ MonoBehaviour:
   m_NormalBias: 0.75
   m_SlopeBias: 0.5
   m_ShadowUpdateMode: 0
+  m_AlwaysDrawDynamicShadows: 0
+  m_UpdateShadowOnLightMovement: 0
+  m_CachedShadowTranslationThreshold: 0.01
+  m_CachedShadowAngularThreshold: 0.5
   m_BarnDoorAngle: 90
   m_BarnDoorLength: 0.05
+  m_preserveCachedShadow: 0
   m_ShadowCascadeRatios:
   - 0.05
   - 0.2
@@ -355,13 +418,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2381849083308231498}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 031f36c3cc881514ba6a5a0ca7ca76eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d09529dd9d6caf43bc78c6eef1989b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intensityChangingSpeed: 4000000
+  intensityChangingSpeed: 200000
   changeIntervalDelayMin: 0.2
-  changeIntervalDelayMax: 1
-  minIntensity: 125000
+  changeIntervalDelayMax: 0.5
+  minIntensity: 50000
   maxIntensity: 200000
 --- !u!114 &6990848780713515241
 MonoBehaviour:
@@ -375,10 +438,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aaeee3b7a8f606a4d82e563980ed684f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParameterUpdated:
+  settingsUpdated:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2381849083308231496}
+        m_TargetAssemblyTypeName: UnityEngine.Rendering.HighDefinition.HDAdditionalLightData,
+          Unity.RenderPipelines.HighDefinition.Runtime
         m_MethodName: EnableShadows
         m_Mode: 0
         m_Arguments:
@@ -389,7 +454,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  targetParameter: {fileID: 11400000, guid: a9574a1e9c6b71443840bc9cab7ffc4f, type: 2}
+  targetParameter: {fileID: 11400000, guid: bad49ca2305a0c844b8ca59f2d5d39fb, type: 2}
+  invert: 0
 --- !u!1 &2381849083414237218
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,9 +503,12 @@ MonoBehaviour:
   m_Material: {fileID: 2100000, guid: 3ff4b8f09f4b92e4a91055687f326111, type: 2}
   m_DrawDistance: 1000
   m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
   m_UVScale: {x: 1, y: 1}
   m_UVBias: {x: 0, y: 0}
   m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
   m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 4, y: 4, z: 1}
   m_FadeFactor: 1
@@ -498,6 +567,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -522,6 +592,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2381849084219864992
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +648,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -601,6 +673,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &2381849082706871284
 PrefabInstance:
   m_ObjectHideFlags: 0
