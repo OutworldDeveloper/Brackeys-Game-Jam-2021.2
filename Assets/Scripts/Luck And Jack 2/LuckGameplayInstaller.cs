@@ -5,6 +5,7 @@ using UnityEngine;
 public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayControllerBase, PlayerController>
 {
 
+    [SerializeField] private AnimationCurve _ratsSpawningCurve;
     [SerializeField] private Luck _luckPrefab;
     [SerializeField] private Jack _jackPrefab;
 

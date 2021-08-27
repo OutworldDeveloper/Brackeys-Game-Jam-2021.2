@@ -5,6 +5,8 @@ using UnityEngine;
 public class LuckGameplayControllerBase : GameplayController
 {
 
+    public event QuestUpdatedEventHandler QuestUpdated;
+
     protected readonly PlayerPawn PlayerPawn;
 
     public LuckGameplayControllerBase(
@@ -19,5 +21,7 @@ public class LuckGameplayControllerBase : GameplayController
     {
         PlayerController.Possess(PlayerPawn);
     }
+
+    public delegate void QuestUpdatedEventHandler(string newQuest);
 
 }

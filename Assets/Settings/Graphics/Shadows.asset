@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe0d73502838eb54bb61e8cfad071f3e, type: 3}
   m_Name: Shadows
   m_EditorClassIdentifier: 
-  _displayName: 
-  _defaultValue: 0
+  _displayName: Shadows
+  _defaultValue: 1
