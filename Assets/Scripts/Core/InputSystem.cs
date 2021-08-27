@@ -195,17 +195,12 @@ public class InputSystem : MonoBehaviour
         { "mouse0", new MouseAction(0) },
         { "mouse1", new MouseAction(1) },
         { "mouse2", new MouseAction(2) },
-        { "fire", new KeyCodeAction(KeyCode.Mouse0) },
-        { "jump", new KeyCodeAction(KeyCode.Space) },
         { "pause", new KeyCodeAction(KeyCode.Escape) },
         { "submit", new KeyCodeAction(KeyCode.Return) },
     };
 
     private readonly Dictionary<string, IInputAxis> _inputAxes = new Dictionary<string, IInputAxis>()
     {
-        { "moveForward", new TwoKeysAxis(KeyCode.W, KeyCode.S) },
-        { "moveRight", new TwoKeysAxis(KeyCode.D, KeyCode.A) },
-        { "qe", new TwoKeysAxis(KeyCode.E, KeyCode.Q) },
         { "mouseX", new UnityAxis("Mouse X") },
         { "mouseY", new UnityAxis("Mouse Y") },
         { "scroll", new MouseScrollAxis() },
@@ -335,6 +330,10 @@ public class InputSystem : MonoBehaviour
             foreach (var action in reciver.ActionsBindsReleased.Values)
             {
                 action.Invoke();
+            }
+            foreach (var axis in reciver.AxisBinds.Values)
+            {
+                axis.Invoke(0f);
             }
         }
     }
