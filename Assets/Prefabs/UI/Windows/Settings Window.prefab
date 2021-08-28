@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc10e84ad817d40b1bfd858c17f23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideMenusUnderneath: 1
 --- !u!1001 &393622036995413451
 PrefabInstance:
   m_ObjectHideFlags: 0

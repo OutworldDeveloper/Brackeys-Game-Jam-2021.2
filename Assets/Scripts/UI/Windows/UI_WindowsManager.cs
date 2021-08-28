@@ -38,6 +38,25 @@ public class UI_WindowsManager : MonoBehaviour
 
     private void HideWindowsExceptTheLast()
     {
+        bool hide = false;
+
+        for (int i = _windows.Count - 1; i >= 0; i--)
+        {
+            var window = _windows[i];
+
+            if (hide)
+            {
+                window.Hide();
+            }
+            else
+            {
+                hide = window.HideWindowsUnderneath;
+                window.Show ();
+            }
+        }
+
+        return;
+
         if (_hideWindows)
         {
             _windows.ForEach(window => window.Hide());

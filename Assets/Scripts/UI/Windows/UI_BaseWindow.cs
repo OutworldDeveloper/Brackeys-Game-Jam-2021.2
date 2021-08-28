@@ -15,11 +15,13 @@ public abstract class UI_BaseWindow : MonoBehaviour
     [Inject] private CursorManager _cursorManager;
     [Inject] private TimescaleManager _timescaleManager;
     [Inject] private InputSystem _inputSystem;
+    [SerializeField] private bool _hideMenusUnderneath = false;
 
     public CanvasGroup CanvasGroup { get; private set; }
     public RectTransform RectTransform { get; private set; }
     public Text TitleText { get; private set; }
     public Button CloseButton { get; private set; }
+    public bool HideWindowsUnderneath => _hideMenusUnderneath;
 
     protected readonly InputReciver InputReciver = new InputReciver(true);
 
