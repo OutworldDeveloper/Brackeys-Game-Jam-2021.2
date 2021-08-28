@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     [Inject] private UI_YesNoWindow.Factory _yesNoWindowFactory;
     [Inject] private UI_SelectionMenu.Factory _selectionWindowFactory;
+    [Inject] private UI_LuckSettingsMenu.Factory _settingsMenuFactory;
 
     public void Show()
     {
@@ -17,8 +19,13 @@ public class PauseMenu : MonoBehaviour
 
         pauseWindow.AddSelection("Resume", pauseWindow.CloseThenDestroy);
         pauseWindow.AddSelection("Hats", () => Debug.Log("Hats :("));
-        pauseWindow.AddSelection("Settings", () => Debug.Log("Goga :("));
+        pauseWindow.AddSelection("Settings", OpenPauseMenu);
         pauseWindow.AddSelection("Main Menu", () => SubMenu(pauseWindow));
+    }
+
+    private void OpenPauseMenu()
+    {
+        var window = _settingsMenuFactory.Create();
     }
 
     private void SubMenu(UI_SelectionMenu parent)

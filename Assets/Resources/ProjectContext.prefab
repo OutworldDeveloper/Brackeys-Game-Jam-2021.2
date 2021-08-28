@@ -402,6 +402,8 @@ MonoBehaviour:
     type: 3}
   _prefabSelectionMenu: {fileID: 4169384544188038901, guid: 3a5252493ea801145addf72bfffd1a9b,
     type: 3}
+  _settingsMenu: {fileID: 8485535833057905033, guid: cb62cfefa3d22dd4e949eee9764f7d3b,
+    type: 3}
 --- !u!1 &4247755887982522703
 GameObject:
   m_ObjectHideFlags: 0
