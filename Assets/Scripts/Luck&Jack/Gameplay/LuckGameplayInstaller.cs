@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, PlayerController>
@@ -16,6 +14,11 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
 
         Container.BindInterfacesAndSelfTo<PlayerPawn>().
             FromComponentInNewPrefab(_playerPawnPrefab).
+            UnderTransform(transform).
+            AsSingle();
+
+        Container.Bind<PauseMenu>().
+            FromNewComponentOnNewGameObject().
             UnderTransform(transform).
             AsSingle();
 

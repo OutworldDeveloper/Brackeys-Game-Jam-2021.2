@@ -9,6 +9,7 @@ public class PlayerPawn : Pawn
     [SerializeField] private Setting_Float _cameraSpeed;
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
+    [Inject] private PauseMenu _pauseMenu;
 
     private FlatVector _luckInput;
     private FlatVector _jackInput;
@@ -26,6 +27,7 @@ public class PlayerPawn : Pawn
         InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
         InputReciver.BindInputActionPressed("luck_interact", _luck.TryInteract);
         InputReciver.BindInputActionPressed("jack_attack", _jack.TryAttack);
+        InputReciver.BindInputActionPressed("pause", _pauseMenu.Show);
     }
 
     protected override void OnPossesesed()

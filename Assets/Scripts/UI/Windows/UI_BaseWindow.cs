@@ -8,7 +8,7 @@ using Zenject;
 public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to close the window
 {
 
-    [Inject] private UI_BackgroundHidder _backgroundHidder;
+    [Inject] private UI_BackgroundHider _backgroundHidder;
     [Inject] private CursorManager _cursorManager;
     [Inject] private TimescaleManager _timescaleManager;
     [Inject] private InputSystem _inputSystem;
@@ -41,6 +41,11 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
         _inputSystem.AddReciver(InputReciver);
 
         OnOpened();
+    }
+
+    public void SetTitle(string title)
+    {
+        References.TitleText.text = title;
     }
 
     public void CloseThenDestroy()
@@ -85,7 +90,7 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
 
     protected virtual void OnOpened() 
     {
-        InputReciver.BindInputActionPressed("pause", () => CloseThenDestroy());
+        InputReciver.BindInputActionPressed("pause", CloseThenDestroy);
     }
 
     protected virtual void OnClosed() { }

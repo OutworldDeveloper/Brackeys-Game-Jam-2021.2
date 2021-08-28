@@ -43,4 +43,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7346be21a84954bb626ee8feafc67c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsGroups: []
+  _settingsGroups:
+  - _displayName: Gameplay
+    _settings:
+    - {fileID: 11400000, guid: 714afd080e9359a478fc1c21d4ba6474, type: 2}
+  - _displayName: Graphics
+    _settings:
+    - {fileID: 11400000, guid: bad49ca2305a0c844b8ca59f2d5d39fb, type: 2}
+  - _displayName: Luck Controls
+    _settings:
+    - {fileID: 11400000, guid: 613f7068291a49d4db5c2fc4840f8493, type: 2}
+    - {fileID: 11400000, guid: fd8f5fd4f499f6b4ca303a2a1c3ad7d1, type: 2}
+    - {fileID: 11400000, guid: 76daac9427361904d9167135c67c3b3d, type: 2}
+    - {fileID: 11400000, guid: 975bc052c35db4a42925ce223cdc3576, type: 2}
+    - {fileID: 11400000, guid: c83c9d811b408214da60ad3ec76e367e, type: 2}
+  - _displayName: Jack Controls
+    _settings:
+    - {fileID: 11400000, guid: 828c9b6b0d5988647a4c8422e0e02cb8, type: 2}
+    - {fileID: 11400000, guid: f730c1fc089f7b14cb1d5fc7e437ab13, type: 2}
+    - {fileID: 11400000, guid: db0576c57ba480f4b8b7190c48d84afe, type: 2}
+    - {fileID: 11400000, guid: e089d2019a64894419368e4180d834c7, type: 2}
+    - {fileID: 11400000, guid: 3f0fb43438cef1547bb6efa9213cc705, type: 2}

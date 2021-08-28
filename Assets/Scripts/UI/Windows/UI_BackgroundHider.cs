@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_BackgroundHidder : MonoBehaviour
+public class UI_BackgroundHider : MonoBehaviour
 { 
 
     [SerializeField] private CanvasGroup _background = default;
