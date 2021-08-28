@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
         pauseWindow.SetTitle("Pause");
 
         pauseWindow.AddSelection("Resume", pauseWindow.CloseThenDestroy);
+        pauseWindow.AddSelection("Hats", () => Debug.Log("Hats :("));
         pauseWindow.AddSelection("Settings", () => Debug.Log("Goga :("));
         pauseWindow.AddSelection("Main Menu", () => SubMenu(pauseWindow));
     }
@@ -24,15 +25,11 @@ public class PauseMenu : MonoBehaviour
     {
         var window = _yesNoWindowFactory.Create();
 
-        window.SetTitle("You sure?");
-        window.SetDescription("Нажми нижнию кнопку что бы удалить");
+        window.SetTitle("Main Menu?");
+        window.SetDescription("Progress won't be saved!");
 
         window.SetYesCallback(() => Debug.Log("кого"));
-        window.SetNoCallback(() =>
-        {
-            parent.CloseThenDestroy();
-        });
-        parent.AddChildWindow(window);
+        window.SetNoCallback(window.CloseThenDestroy);
     }
 
 }

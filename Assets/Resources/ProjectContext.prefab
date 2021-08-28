@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4900179528191741947}
   - component: {fileID: 5401006125206193127}
   - component: {fileID: 4730695517495786522}
-  - component: {fileID: 8724209386607424527}
+  - component: {fileID: 8407301127769267583}
   - component: {fileID: 298547828127937298}
   - component: {fileID: 6984776561997218546}
   m_Layer: 5
@@ -352,7 +352,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &8724209386607424527
+--- !u!114 &8407301127769267583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,9 +361,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3696405039979403029}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 459b5a0c90d738545bc7c7eb5652186f, type: 3}
+  m_Script: {fileID: 11500000, guid: b25d261df2976274b9a1dc4101bb42f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideWindows: 1
+  _backgroundFadeDuration: 2
   _background: {fileID: 2910543490962189603}
 --- !u!114 &298547828127937298
 MonoBehaviour:
@@ -378,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _components:
-  - {fileID: 8724209386607424527}
+  - {fileID: 8407301127769267583}
   _identifier: 
   _useSceneContext: 0
   _context: {fileID: 0}

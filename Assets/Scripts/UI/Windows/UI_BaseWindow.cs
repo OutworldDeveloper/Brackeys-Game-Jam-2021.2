@@ -8,7 +8,7 @@ using Zenject;
 public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to close the window
 {
 
-    [Inject] private UI_BackgroundHider _backgroundHidder;
+    [Inject] private UI_WindowsManager _windowsManager;
     [Inject] private CursorManager _cursorManager;
     [Inject] private TimescaleManager _timescaleManager;
     [Inject] private InputSystem _inputSystem;
@@ -17,7 +17,6 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
     protected readonly InputReciver InputReciver = new InputReciver(true);
     private Sequence _currentSequence;
     private bool _isClosing;
-    private readonly List<UI_BaseWindow> _children = new List<UI_BaseWindow>();
 
     private void Awake()
     {
@@ -34,18 +33,21 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
 
         References.CloseButton.onClick.AddListener(() => CloseThenDestroy());
 
-        _backgroundHidder.RequestHidding(this);
+        _windowsManager.AddWindow(this);
+
         _cursorManager.Show(this);
         _timescaleManager.Pause(this);
 
         _inputSystem.AddReciver(InputReciver);
 
+        InputReciver.BindInputActionPressed("pause", CloseThenDestroy);
+
         OnOpened();
     }
 
-    public void SetTitle(string title)
+    public void Show(bool b)
     {
-        References.TitleText.text = title;
+        gameObject.SetActive(b);
     }
 
     public void CloseThenDestroy()
@@ -55,16 +57,12 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
 
         _isClosing = true;
 
-        foreach (var child in _children)
-        {
-            child.CloseThenDestroy();
-        }
-
         _currentSequence?.Kill();
         _currentSequence = CreateClosingSequence();
         _currentSequence.SetUpdate(true).OnComplete(() => Destroy(gameObject));
 
-        _backgroundHidder.CancelRequest(this);
+        _windowsManager.RemoveWindow(this);
+
         _cursorManager.Hide(this);
         _timescaleManager.Unpause(this);
 
@@ -73,9 +71,21 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
         OnClosed();
     }
 
+    public void SetTitle(string title)
+    {
+        References.TitleText.text = title;
+    }
+
     public void AddCloseButtonCallback(Action action)
     {
-        References.CloseButton.onClick.AddListener(() => action.Invoke()); // Should check if the menu is closed
+        References.CloseButton.gameObject.SetActive(true);
+        References.CloseButton.onClick.AddListener(() => 
+        {
+            if (_isClosing == false)
+            {
+                action.Invoke();
+            }
+        });
     }
 
     public void DisableCloseButton()
@@ -83,16 +93,7 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
         References.CloseButton.gameObject.SetActive(false);
     }
 
-    public void AddChildWindow(UI_BaseWindow window)
-    {
-        _children.Add(window);
-    }
-
-    protected virtual void OnOpened() 
-    {
-        InputReciver.BindInputActionPressed("pause", CloseThenDestroy);
-    }
-
+    protected virtual void OnOpened() { }
     protected virtual void OnClosed() { }
 
     protected virtual Sequence CreateOpeningSequence()
