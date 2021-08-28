@@ -17,17 +17,13 @@ public class LuckOpeningAnimation<T> : WindowAnimation<T> where T : UI_BaseWindo
 {
     public LuckOpeningAnimation(T window) : base(window) { }
 
-    public override Sequence CreateSequence()
+    public override void ModifySequence(Sequence sequence)
     {
-        var sequence = DOTween.Sequence();
-
         var alpha = Window.CanvasGroup.DOFade(1f, 0.25f);
         var scale = Window.RectTransform.DOScale(1f, 0.2f).From(1.5f).SetEase(Ease.OutExpo); 
 
         sequence.Insert(0, alpha);
         sequence.Insert(0, scale);
-
-        return sequence;
     }
 
 }
@@ -36,9 +32,9 @@ public class LuckSelectionMenuOpeningAnimation : LuckOpeningAnimation<UI_Selecti
 {
     public LuckSelectionMenuOpeningAnimation(UI_SelectionMenu window) : base(window) { }
 
-    public override Sequence CreateSequence()
+    public override void ModifySequence(Sequence sequence)
     {
-        var sequence = base.CreateSequence();
+        base.ModifySequence(sequence);
 
         for (int i = 0; i < Window.CurrentButtons.Length; i++)
         {
@@ -47,8 +43,6 @@ public class LuckSelectionMenuOpeningAnimation : LuckOpeningAnimation<UI_Selecti
             sequence.Insert(i * 0.05f, button.transform.DOScale(Vector3.one, 0.1f).From(Vector2.zero).SetEase(Ease.OutExpo));
             sequence.Insert(i * 0.05f, button.CanvasGroup.DOFade(1f, 0.1f).From(0f));
         }
-
-        return sequence;
     }
 
 }

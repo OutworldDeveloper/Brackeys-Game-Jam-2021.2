@@ -4,10 +4,8 @@ public class DefaultOpeningAnimation<T> : WindowAnimation<T> where T : UI_BaseWi
 {
     public DefaultOpeningAnimation(T window) : base(window) { }
 
-    public override Sequence CreateSequence()
+    public override void ModifySequence(Sequence sequence)
     {
-        var sequence = DOTween.Sequence();
-
         var alpha = Window.CanvasGroup.DOFade(1f, 0.25f);
         var scaleX = Window.RectTransform.DOScaleX(1f, 0.16f).SetEase(Ease.OutBack);
         var scaleY = Window.RectTransform.DOScaleY(1f, 0.25f).SetEase(Ease.OutBack);
@@ -15,8 +13,6 @@ public class DefaultOpeningAnimation<T> : WindowAnimation<T> where T : UI_BaseWi
         sequence.Insert(0, alpha);
         sequence.Insert(0, scaleX);
         sequence.Insert(0, scaleY);
-
-        return sequence;
     }
 
 }

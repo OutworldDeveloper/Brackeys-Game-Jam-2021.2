@@ -10,6 +10,6 @@ public abstract class WindowAnimation<T> : IWindowAnimation where T : UI_BaseWin
         Window = window;
     }
 
-    public abstract Sequence CreateSequence();
+    public abstract void ModifySequence(Sequence sequence);
 
 }

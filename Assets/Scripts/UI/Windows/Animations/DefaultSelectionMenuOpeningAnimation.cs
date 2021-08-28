@@ -5,9 +5,9 @@ public class DefaultSelectionMenuOpeningAnimation : DefaultOpeningAnimation<UI_S
 {
     public DefaultSelectionMenuOpeningAnimation(UI_SelectionMenu window) : base(window) { }
 
-    public override Sequence CreateSequence()
+    public override void ModifySequence(Sequence sequence)
     {
-        var sequence = base.CreateSequence();
+        base.ModifySequence(sequence);
 
         for (int i = 0; i < Window.CurrentButtons.Length; i++)
         {
@@ -16,8 +16,6 @@ public class DefaultSelectionMenuOpeningAnimation : DefaultOpeningAnimation<UI_S
             sequence.Insert(i * 0.05f, button.transform.DOScale(Vector3.one, 0.1f).From(Vector2.zero));
             sequence.Insert(i * 0.05f, button.CanvasGroup.DOFade(1f, 0.1f).From(0f));
         }
-
-        return sequence;
     }
 
 }

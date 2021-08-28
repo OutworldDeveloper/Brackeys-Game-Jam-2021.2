@@ -365,7 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hideWindows: 1
-  _backgroundFadeDuration: 2
+  _backgroundFadeDuration: 1.5
   _background: {fileID: 2910543490962189603}
 --- !u!114 &298547828127937298
 MonoBehaviour:

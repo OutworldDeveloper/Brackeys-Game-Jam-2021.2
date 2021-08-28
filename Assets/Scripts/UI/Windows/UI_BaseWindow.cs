@@ -47,7 +47,9 @@ public abstract class UI_BaseWindow : MonoBehaviour
         CanvasGroup.alpha = 0f;
         RectTransform.localScale = new Vector3(0, 0f, 1f);
 
-        _currentSequence = _openingAnimation.CreateSequence();
+        _currentSequence = DOTween.Sequence();
+        _openingAnimation.ModifySequence(_currentSequence);
+
         _currentSequence.SetUpdate(true);
 
         CloseButton.onClick.AddListener(() =>
@@ -89,7 +91,9 @@ public abstract class UI_BaseWindow : MonoBehaviour
         _isClosing = true;
 
         _currentSequence?.Kill();
-        _currentSequence = _closingAnimation.CreateSequence();
+
+        _currentSequence = DOTween.Sequence();
+        _closingAnimation.ModifySequence(_currentSequence);
         _currentSequence.SetUpdate(true).OnComplete(() => Destroy(gameObject));
 
         _windowsManager.RemoveWindow(this);
