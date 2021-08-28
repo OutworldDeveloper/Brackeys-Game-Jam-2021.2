@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(UI_WindowReferences))]
-public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to close the window
+public abstract class UI_BaseWindow : MonoBehaviour
 {
 
     [Inject] private UI_WindowsManager _windowsManager;
@@ -13,41 +14,69 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
     [Inject] private TimescaleManager _timescaleManager;
     [Inject] private InputSystem _inputSystem;
 
-    protected UI_WindowReferences References;
+    public CanvasGroup CanvasGroup { get; private set; }
+    public RectTransform RectTransform { get; private set; }
+    public Text TitleText { get; private set; }
+    public Button CloseButton { get; private set; }
+
     protected readonly InputReciver InputReciver = new InputReciver(true);
+
+    private IWindowAnimation _openingAnimation;
+    private IWindowAnimation _closingAnimation;
+
     private Sequence _currentSequence;
     private bool _isClosing;
+    private bool _isClosingDisabled;
 
     private void Awake()
     {
-        References = GetComponent<UI_WindowReferences>();
+        var references = GetComponent<UI_WindowReferences>();
+        CanvasGroup = references.CanvasGroup;
+        RectTransform = references.RectTransform;
+        TitleText = references.TitleText;
+        CloseButton = references.CloseButton;
     }
 
     private void Start()
     {
-        References.CanvasGroup.alpha = 0f;
-        References.RectTransform.localScale = new Vector3(0, 0f, 1f);
+        _openingAnimation = CreateOpeningAnimation();
+        _closingAnimation = CreateClosingAnimation();
 
-        _currentSequence = CreateOpeningSequence();
+        CanvasGroup.alpha = 0f;
+        RectTransform.localScale = new Vector3(0, 0f, 1f);
+
+        _currentSequence = _openingAnimation.CreateSequence();
         _currentSequence.SetUpdate(true);
 
-        References.CloseButton.onClick.AddListener(() => CloseThenDestroy());
+        CloseButton.onClick.AddListener(() =>
+        {
+            if (!_isClosingDisabled && !_isClosing)
+                CloseThenDestroy();
+        });
 
         _windowsManager.AddWindow(this);
-
         _cursorManager.Show(this);
         _timescaleManager.Pause(this);
 
         _inputSystem.AddReciver(InputReciver);
 
-        InputReciver.BindInputActionPressed("pause", CloseThenDestroy);
+        InputReciver.BindInputActionPressed("pause", () =>
+        {
+            if (!_isClosingDisabled && !_isClosing)
+                CloseThenDestroy();
+        });
 
         OnOpened();
     }
 
-    public void Show(bool b)
+    public void Show()
     {
-        gameObject.SetActive(b);
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
     }
 
     public void CloseThenDestroy()
@@ -58,7 +87,7 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
         _isClosing = true;
 
         _currentSequence?.Kill();
-        _currentSequence = CreateClosingSequence();
+        _currentSequence = _closingAnimation.CreateSequence();
         _currentSequence.SetUpdate(true).OnComplete(() => Destroy(gameObject));
 
         _windowsManager.RemoveWindow(this);
@@ -73,57 +102,38 @@ public abstract class UI_BaseWindow : MonoBehaviour // Maybe add Esc button to c
 
     public void SetTitle(string title)
     {
-        References.TitleText.text = title;
+        TitleText.text = title;
     }
 
     public void AddCloseButtonCallback(Action action)
     {
-        References.CloseButton.gameObject.SetActive(true);
-        References.CloseButton.onClick.AddListener(() => 
+        CloseButton.gameObject.SetActive(true);
+        CloseButton.onClick.AddListener(() => 
         {
-            if (_isClosing == false)
+            if (!_isClosingDisabled && !_isClosing)
             {
                 action.Invoke();
             }
         });
     }
 
-    public void DisableCloseButton()
+    public void DisableClosing()
     {
-        References.CloseButton.gameObject.SetActive(false);
+        _isClosingDisabled = true;
+        CloseButton.gameObject.SetActive(false);
+    }
+
+    protected virtual IWindowAnimation CreateOpeningAnimation()
+    {
+        return new DefaultOpeningAnimation<UI_BaseWindow>(this);
+    }
+
+    protected virtual IWindowAnimation CreateClosingAnimation()
+    {
+        return new DefaultClosingAnimation<UI_BaseWindow>(this);
     }
 
     protected virtual void OnOpened() { }
     protected virtual void OnClosed() { }
-
-    protected virtual Sequence CreateOpeningSequence()
-    {
-        var newSequence = DOTween.Sequence();
-
-        var alpha = References.CanvasGroup.DOFade(1f, 0.25f);
-        var scaleX = References.RectTransform.DOScaleX(1f, 0.16f).SetEase(Ease.OutBack);
-        var scaleY = References.RectTransform.DOScaleY(1f, 0.25f).SetEase(Ease.OutBack);
-
-        newSequence.Insert(0, alpha);
-        newSequence.Insert(0, scaleX);
-        newSequence.Insert(0, scaleY);
-
-        return newSequence;
-    }
-
-    protected virtual Sequence CreateClosingSequence()
-    {
-        var newSequence = DOTween.Sequence();
-
-        var alpha = References.CanvasGroup.DOFade(0f, 0.17f);
-        var scaleX = References.RectTransform.DOScaleX(1.5f, 0.17f);
-        var scaleY = References.RectTransform.DOScaleY(1.5f, 0.17f);
-
-        newSequence.Insert(0, alpha);
-        newSequence.Insert(0, scaleX);
-        newSequence.Insert(0, scaleY);
-
-        return newSequence;
-    }
 
 }

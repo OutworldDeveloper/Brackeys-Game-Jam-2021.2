@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &5265014630891941174
+--- !u!114 &7645023268457522097
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e707fbe7d51b96548bac05a2415c4f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabButton: {fileID: 4805699284933896934, guid: 8e7d6db84235e4a40aa70fcab9582442,
+  _selectionButtonPrefab: {fileID: 3036041491639720415, guid: 8e7d6db84235e4a40aa70fcab9582442,
     type: 3}
 --- !u!1001 &1427883476938588229
 PrefabInstance:
@@ -149,12 +149,7 @@ PrefabInstance:
     - target: {fileID: 8100863780868466885, guid: 2ce0c41b408fbf0499fdfd1db59a9c2c,
         type: 3}
       propertyPath: m_Name
-      value: SelectionsWindow
-      objectReference: {fileID: 0}
-    - target: {fileID: 8100863780868466910, guid: 2ce0c41b408fbf0499fdfd1db59a9c2c,
-        type: 3}
-      propertyPath: m_Alpha
-      value: 1
+      value: SelectionsWindowExample
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ce0c41b408fbf0499fdfd1db59a9c2c, type: 3}

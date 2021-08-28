@@ -400,7 +400,7 @@ MonoBehaviour:
   _windowsCanvas: {fileID: 4900179528191741947}
   _prefabYesNoWindow: {fileID: 3762679346528327643, guid: 77764a9669a0c2a439f1f7ba8d1db816,
     type: 3}
-  _prefabSelectionMenu: {fileID: 5265014630891941174, guid: f7267eb843a18f14e973343a74103bb8,
+  _prefabSelectionMenu: {fileID: 7645023268457522097, guid: f7267eb843a18f14e973343a74103bb8,
     type: 3}
 --- !u!1 &4247755887982522703
 GameObject:

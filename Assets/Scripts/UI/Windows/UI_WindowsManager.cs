@@ -40,10 +40,10 @@ public class UI_WindowsManager : MonoBehaviour
     {
         if (_hideWindows)
         {
-            _windows.ForEach(window => window.Show(false));
+            _windows.ForEach(window => window.Hide());
             if (_windows.Count > 0)
             {
-                _windows.Last().Show(true);
+                _windows.Last().Show();
             }
         }
     }
