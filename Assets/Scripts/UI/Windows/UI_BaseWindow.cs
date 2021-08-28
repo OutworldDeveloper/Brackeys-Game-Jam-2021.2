@@ -9,6 +9,8 @@ using Zenject;
 public abstract class UI_BaseWindow : MonoBehaviour
 {
 
+    // An idea: Add ShouldHideMenusUnderneath for different menus
+
     [Inject] private UI_WindowsManager _windowsManager;
     [Inject] private CursorManager _cursorManager;
     [Inject] private TimescaleManager _timescaleManager;

@@ -9,12 +9,10 @@ public class DefaultClosingAnimation<T> : WindowAnimation<T> where T : UI_BaseWi
         var sequence = DOTween.Sequence();
 
         var alpha = Window.CanvasGroup.DOFade(0f, 0.17f);
-        var scaleX = Window.RectTransform.DOScaleX(1.5f, 0.17f);
-        var scaleY = Window.RectTransform.DOScaleY(1.5f, 0.17f);
+        var scale = Window.RectTransform.DOScale(1.5f, 0.17f);
 
         sequence.Insert(0, alpha);
-        sequence.Insert(0, scaleX);
-        sequence.Insert(0, scaleY);
+        sequence.Insert(0, scale);
 
         return sequence;
     }

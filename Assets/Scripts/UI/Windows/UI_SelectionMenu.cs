@@ -7,7 +7,8 @@ using Zenject;
 public class UI_SelectionMenu : UI_BaseWindow
 {
 
-    [SerializeField] private UI_SelectionMenuButton _selectionButtonPrefab = default;
+    [SerializeField] private UI_SelectionMenuButton _selectionButtonPrefab;
+    [SerializeField] private RectTransform _selectionsParent;
 
     public UI_SelectionMenuButton[] CurrentButtons => _currentButtons.ToArray();
 
@@ -15,7 +16,7 @@ public class UI_SelectionMenu : UI_BaseWindow
 
     public void AddSelection(string name, Action action)
     {
-        var button = Instantiate(_selectionButtonPrefab, transform);
+        var button = Instantiate(_selectionButtonPrefab, _selectionsParent);
         button.GetComponentInChildren<Text>().text = name;
         button.Init(name, action);
         _currentButtons.Add(button);

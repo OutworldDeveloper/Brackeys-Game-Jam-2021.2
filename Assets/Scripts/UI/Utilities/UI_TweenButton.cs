@@ -6,31 +6,24 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UI_TweenButton : Selectable, IPointerClickHandler
+public class UI_TweenButton : Button, IPointerClickHandler
 {
 
     [SerializeField] private ScaleAction[] scaleActions = default;
     [SerializeField] private ColorAction[] colorActions = default;
     [SerializeField] private FillAmountAction[] fieldAmountActions = default;
-    [SerializeField] private UnityEvent onClick;
-    public UnityEvent OnClick => onClick;
+    //[SerializeField] private UnityEvent onClick;
+    //public UnityEvent OnClick => onClick;
 
     private List<ITweenSetting> tweenSettings = new List<ITweenSetting>();
     private List<Tween> activeTweens = new List<Tween>();
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.button != PointerEventData.InputButton.Left)
-            return;
-
-        onClick.Invoke();
-    }
-
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
+        base.DoStateTransition(state, instant);
         KillCurrentTweens();
         foreach (var tweenSetting in tweenSettings)
-            activeTweens.Add(tweenSetting.DoStateTransition(state));
+            activeTweens.Add(tweenSetting.DoStateTransition(state).SetUpdate(true));
     }
 
     protected override void Awake()
@@ -53,6 +46,7 @@ public class UI_TweenButton : Selectable, IPointerClickHandler
     
     protected override void Reset()
     {
+        base.Reset();
         KillCurrentTweens();
     }
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectionButtonPrefab: {fileID: 3036041491639720415, guid: 8e7d6db84235e4a40aa70fcab9582442,
     type: 3}
+  _selectionsParent: {fileID: 7186848648828627073}
 --- !u!1001 &1427883476938588229
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -156,6 +157,12 @@ PrefabInstance:
 --- !u!1 &7186848648828627072 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8100863780868466885, guid: 2ce0c41b408fbf0499fdfd1db59a9c2c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1427883476938588229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7186848648828627073 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8100863780868466884, guid: 2ce0c41b408fbf0499fdfd1db59a9c2c,
     type: 3}
   m_PrefabInstance: {fileID: 1427883476938588229}
   m_PrefabAsset: {fileID: 0}
