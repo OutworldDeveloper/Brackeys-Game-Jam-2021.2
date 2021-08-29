@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
         var pauseWindow = _selectionWindowFactory.Create();
 
         pauseWindow.SetTitle("Pause");
+        pauseWindow.DisableCloseButton();
 
         pauseWindow.AddSelection("Resume", pauseWindow.CloseThenDestroy);
         pauseWindow.AddSelection("Hats", () => Debug.Log("Hats :("));

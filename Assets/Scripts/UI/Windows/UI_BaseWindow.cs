@@ -125,10 +125,15 @@ public abstract class UI_BaseWindow : MonoBehaviour
         });
     }
 
+    public void DisableCloseButton()
+    {
+        CloseButton.gameObject.SetActive(false);
+    }
+
     public void DisableClosing()
     {
         _isClosingDisabled = true;
-        CloseButton.gameObject.SetActive(false);
+        DisableCloseButton();
     }
 
     protected virtual IWindowAnimation CreateOpeningAnimation()
