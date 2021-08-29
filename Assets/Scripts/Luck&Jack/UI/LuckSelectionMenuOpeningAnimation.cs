@@ -1,9 +1,8 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "Default Selection Menu Opening Animation", menuName = "Window Animations/Default Selection Menu Opening")]
-public class DefaultSelectionMenuOpeningAnimation : WindowAnimation<UI_SelectionMenu>
+[CreateAssetMenu(fileName = "Luck Selection Menu Opening Animation", menuName = "Window Animations/Luck Selection Menu Opening")]
+public class LuckSelectionMenuOpeningAnimation : WindowAnimation<UI_SelectionMenu>
 {
 
     public override void ModifySequence(UI_SelectionMenu window, Sequence sequence)
@@ -12,7 +11,7 @@ public class DefaultSelectionMenuOpeningAnimation : WindowAnimation<UI_Selection
         {
             var button = window.CurrentButtons[i];
 
-            sequence.Insert(i * 0.05f, button.transform.DOScale(Vector3.one, 0.1f).From(Vector2.zero));
+            sequence.Insert(i * 0.05f, button.transform.DOScale(Vector3.one, 0.1f).From(Vector2.zero).SetEase(Ease.OutExpo));
             sequence.Insert(i * 0.05f, button.CanvasGroup.DOFade(1f, 0.1f).From(0f));
         }
     }

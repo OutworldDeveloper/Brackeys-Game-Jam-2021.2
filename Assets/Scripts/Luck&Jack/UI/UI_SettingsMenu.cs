@@ -4,15 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class UI_SettingsMenu : UI_BaseWindow
+public class UI_SettingsMenu : UI_BaseWindow<UI_SettingsMenu>
 {
-
     protected override Selectable InitialSelection => CloseButton;
-
-    protected override IWindowAnimation CreateOpeningAnimation()
-    {
-        return new LuckOpeningAnimation<UI_SettingsMenu>(this);
-    }
 
     public class Factory : PlaceholderFactory<UI_SettingsMenu> { }
 

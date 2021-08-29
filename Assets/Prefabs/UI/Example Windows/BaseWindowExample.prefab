@@ -461,6 +461,10 @@ MonoBehaviour:
   _closeButton: {fileID: 6319705499805780768}
   _canvasGroup: {fileID: 8100863780868466910}
   _titleText: {fileID: 8100863780752750234}
+  _genericOpeningAnimation: {fileID: 11400000, guid: 909cff08b05e85844a2ff953d32ef6d0,
+    type: 2}
+  _genericClosingAnimation: {fileID: 11400000, guid: 5231299f35d2ab248841c99b70e6177b,
+    type: 2}
 --- !u!114 &8645073517277632767
 MonoBehaviour:
   m_ObjectHideFlags: 0

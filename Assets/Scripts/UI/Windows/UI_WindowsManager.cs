@@ -12,7 +12,7 @@ public class UI_WindowsManager : MonoBehaviour
     [SerializeField] private float _backgroundFadeDuration = 0.5f;
     [SerializeField] private CanvasGroup _background;
 
-    private readonly List<UI_BaseWindow> _windows = new List<UI_BaseWindow>();
+    private readonly List<IWindow> _windows = new List<IWindow>();
     private Tween _currentTween;
 
     private void Start()
@@ -22,14 +22,14 @@ public class UI_WindowsManager : MonoBehaviour
         _background.gameObject.SetActive(false);
     }
 
-    public void AddWindow(UI_BaseWindow window)
+    public void AddWindow(IWindow window)
     {
         _windows.Add(window);
         HideWindowsExceptTheLast();
         UpdateBackground();
     }
 
-    public void RemoveWindow(UI_BaseWindow window)
+    public void RemoveWindow(IWindow window)
     {
         _windows.Remove(window);
         HideWindowsExceptTheLast();

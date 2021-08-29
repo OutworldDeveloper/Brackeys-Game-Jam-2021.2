@@ -7,52 +7,49 @@ using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(UI_WindowReferences))]
-public abstract class UI_BaseWindow : MonoBehaviour
+public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_BaseWindow<T>
 {
-
-    // An idea: Add ShouldHideMenusUnderneath for different menus
 
     [Inject] private UI_WindowsManager _windowsManager;
     [Inject] private CursorManager _cursorManager;
     [Inject] private TimescaleManager _timescaleManager;
     [Inject] private InputSystem _inputSystem;
-    [SerializeField] private bool _hideMenusUnderneath = false;
 
-    public CanvasGroup CanvasGroup { get; private set; }
-    public RectTransform RectTransform { get; private set; }
-    public Text TitleText { get; private set; }
-    public Button CloseButton { get; private set; }
+    [SerializeField] private bool _hideMenusUnderneath = false;
+    [SerializeField] private WindowAnimation<T>[] _openingAnimations;
+    [SerializeField] private WindowAnimation<T>[] _closingAnimations;
+
+    public CanvasGroup CanvasGroup => _references.CanvasGroup;
+    public RectTransform RectTransform => _references.RectTransform;
+    public Text TitleText => _references.TitleText;
+    public Button CloseButton => _references.CloseButton;
     public bool HideWindowsUnderneath => _hideMenusUnderneath;
     protected abstract Selectable InitialSelection { get; }
-
     protected readonly InputReciver InputReciver = new InputReciver(true);
 
-    private IWindowAnimation _openingAnimation;
-    private IWindowAnimation _closingAnimation;
-
+    private UI_WindowReferences _references;
     private Sequence _currentSequence;
     private bool _isClosing;
     private bool _isClosingDisabled;
 
     private void Awake()
     {
-        var references = GetComponent<UI_WindowReferences>();
-        CanvasGroup = references.CanvasGroup;
-        RectTransform = references.RectTransform;
-        TitleText = references.TitleText;
-        CloseButton = references.CloseButton;
+        _references = GetComponent<UI_WindowReferences>();
     }
 
     private void Start()
     {
-        _openingAnimation = CreateOpeningAnimation();
-        _closingAnimation = CreateClosingAnimation();
-
         CanvasGroup.alpha = 0f;
         RectTransform.localScale = new Vector3(0, 0f, 1f);
 
         _currentSequence = DOTween.Sequence();
-        _openingAnimation.ModifySequence(_currentSequence);
+
+        _references.GenericOpeningAnimation.ModifySequence(this, _currentSequence);
+
+        foreach (var animation in _openingAnimations)
+        {
+            animation.ModifySequence((T)this, _currentSequence);
+        }
 
         _currentSequence.SetUpdate(true);
 
@@ -110,7 +107,14 @@ public abstract class UI_BaseWindow : MonoBehaviour
         _currentSequence?.Kill();
 
         _currentSequence = DOTween.Sequence();
-        _closingAnimation.ModifySequence(_currentSequence);
+
+        _references.GenericClosingAnimation.ModifySequence(this, _currentSequence);
+
+        foreach (var animation in _closingAnimations)
+        {
+            animation.ModifySequence((T)this, _currentSequence);
+        }
+
         _currentSequence.SetUpdate(true).OnComplete(() => Destroy(gameObject));
 
         _windowsManager.RemoveWindow(this);
@@ -151,17 +155,19 @@ public abstract class UI_BaseWindow : MonoBehaviour
         DisableCloseButton();
     }
 
-    protected virtual IWindowAnimation CreateOpeningAnimation()
-    {
-        return new DefaultOpeningAnimation<UI_BaseWindow>(this);
-    }
-
-    protected virtual IWindowAnimation CreateClosingAnimation()
-    {
-        return new DefaultClosingAnimation<UI_BaseWindow>(this);
-    }
-
     protected virtual void OnOpened() { }
     protected virtual void OnClosed() { }
+
+}
+
+public interface IWindow
+{
+    CanvasGroup CanvasGroup { get; }
+    RectTransform RectTransform { get; }
+    bool HideWindowsUnderneath { get; }
+    void Show();
+    void Hide();
+    void Select();
+    void Deselect();
 
 }

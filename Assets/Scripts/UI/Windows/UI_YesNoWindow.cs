@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class UI_YesNoWindow : UI_BaseWindow
+public class UI_YesNoWindow : UI_BaseWindow<UI_YesNoWindow>
 { 
 
     [SerializeField] private Text _descriptionText = default;

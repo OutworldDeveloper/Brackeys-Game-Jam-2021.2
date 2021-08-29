@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-public class UI_SelectionMenu : UI_BaseWindow
+public class UI_SelectionMenu : UI_BaseWindow<UI_SelectionMenu>
 {
 
     [SerializeField] private UI_SelectionMenuButton _selectionButtonPrefab;
@@ -17,15 +17,10 @@ public class UI_SelectionMenu : UI_BaseWindow
 
     public void AddSelection(string name, Action action)
     {
-        var button = Instantiate(_selectionButtonPrefab, _selectionsParent);
+        var button = GameObject.Instantiate(_selectionButtonPrefab, _selectionsParent);
         button.GetComponentInChildren<Text>().text = name;
         button.Init(name, action);
         _currentButtons.Add(button);
-    }
-
-    protected override IWindowAnimation CreateOpeningAnimation()
-    {
-        return new DefaultSelectionMenuOpeningAnimation(this);
     }
 
     public class Factory : PlaceholderFactory<UI_SelectionMenu> { }

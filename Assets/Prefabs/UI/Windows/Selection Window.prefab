@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-2277892425130802355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3204890485168629670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e707fbe7d51b96548bac05a2415c4f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideMenusUnderneath: 1
+  _openingAnimations:
+  - {fileID: 11400000, guid: d5e6ef25d769a334fa8baeaca2186698, type: 2}
+  _closingAnimations: []
+  _selectionButtonPrefab: {fileID: -4381349990295753288, guid: 83762427de45cbb4a8d07661ca9b6217,
+    type: 3}
+  _selectionsParent: {fileID: 8267133475942299349}
 --- !u!1 &2972389609683241011
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,22 +90,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &4169384544188038901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3204890485168629670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd635db3ec892ef47b925c6cee5ed919, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideMenusUnderneath: 1
-  _selectionButtonPrefab: {fileID: -4381349990295753288, guid: 83762427de45cbb4a8d07661ca9b6217,
-    type: 3}
-  _selectionsParent: {fileID: 8267133475942299349}
 --- !u!1001 &725491661684201521
 PrefabInstance:
   m_ObjectHideFlags: 0

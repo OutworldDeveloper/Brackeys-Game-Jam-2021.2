@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e707fbe7d51b96548bac05a2415c4f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hideMenusUnderneath: 0
+  _openingAnimations:
+  - {fileID: 11400000, guid: 54ba74f6d95b5e84da5fc24652e2c5f4, type: 2}
+  _closingAnimations: []
   _selectionButtonPrefab: {fileID: 3036041491639720415, guid: 8e7d6db84235e4a40aa70fcab9582442,
     type: 3}
   _selectionsParent: {fileID: 7186848648828627073}

@@ -1,14 +1,15 @@
 ﻿using DG.Tweening;
+using UnityEngine;
 
-public class DefaultOpeningAnimation<T> : WindowAnimation<T> where T : UI_BaseWindow
+[CreateAssetMenu(fileName = "Default Opening Animation", menuName = "Window Animations/Default Opening")]
+public class DefaultOpeningAnimation : GenericWindowAnimation
 {
-    public DefaultOpeningAnimation(T window) : base(window) { }
 
-    public override void ModifySequence(Sequence sequence)
+    public override void ModifySequence(IWindow window, Sequence sequence)
     {
-        var alpha = Window.CanvasGroup.DOFade(1f, 0.25f);
-        var scaleX = Window.RectTransform.DOScaleX(1f, 0.16f).SetEase(Ease.OutBack);
-        var scaleY = Window.RectTransform.DOScaleY(1f, 0.25f).SetEase(Ease.OutBack);
+        var alpha = window.CanvasGroup.DOFade(1f, 0.25f);
+        var scaleX = window.RectTransform.DOScaleX(1f, 0.16f).SetEase(Ease.OutBack);
+        var scaleY = window.RectTransform.DOScaleY(1f, 0.25f).SetEase(Ease.OutBack);
 
         sequence.Insert(0, alpha);
         sequence.Insert(0, scaleX);
