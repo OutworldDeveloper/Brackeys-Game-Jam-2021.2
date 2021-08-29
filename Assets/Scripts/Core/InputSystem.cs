@@ -204,6 +204,9 @@ public class InputSystem : MonoBehaviour
         { "mouseX", new UnityAxis("Mouse X") },
         { "mouseY", new UnityAxis("Mouse Y") },
         { "scroll", new MouseScrollAxis() },
+        { "moveForward", new TwoKeysAxis(KeyCode.W, KeyCode.S) },
+        { "moveRight", new TwoKeysAxis(KeyCode.D, KeyCode.A) },
+        { "qe", new TwoKeysAxis(KeyCode.E, KeyCode.Q) },
     };
     
     private readonly List<InputReciver> _inputRecivers = new List<InputReciver>();
