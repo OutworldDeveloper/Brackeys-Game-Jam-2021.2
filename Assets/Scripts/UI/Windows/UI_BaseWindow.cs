@@ -73,8 +73,7 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
                 CloseThenDestroy();
         });
 
-        //InitialSelection.Select();
-
+        // This should happen before animation and before registration in manager
         OnOpened();
     }
 

@@ -36,7 +36,7 @@ public abstract class Setting<T> : BaseSetting
         return DefaultValue;
     }
 
-    public override void Reset()
+    public override void ResetValue()
     {
         SetValue(DefaultValue);
     }

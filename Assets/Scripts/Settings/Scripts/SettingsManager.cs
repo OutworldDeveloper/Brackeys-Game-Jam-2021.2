@@ -33,7 +33,7 @@ public sealed class SettingsManager : MonoBehaviour
 
     public static void ResetSettings()
     {
-        ForEachSetting(setting => setting.Reset());
+        ForEachSetting(setting => setting.ResetValue());
     }
 
     public static void ForEachSetting(Action<BaseSetting> action)

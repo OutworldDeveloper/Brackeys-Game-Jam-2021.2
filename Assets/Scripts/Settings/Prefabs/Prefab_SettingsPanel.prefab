@@ -525,7 +525,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2496909388088851636}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -760,7 +760,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3034220988871258772}
   - component: {fileID: 3034220988871258769}
-  - component: {fileID: 3034220988871258771}
   m_Layer: 5
   m_Name: Prefab_SettingsPanel
   m_TagString: Untagged
@@ -796,26 +795,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3034220988871258773}
   m_CullTransparentMesh: 0
---- !u!114 &3034220988871258771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3034220988871258773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 376847fd67db43043b757119fd94f836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _groupPresenterPrefab: {fileID: 2295995378950334817, guid: 790947ff89954b644a62a2a3aedb540d,
-    type: 3}
-  _presentersPrefabs:
-  - {fileID: 4968042832042004380, guid: 929c6c0259ff57244b9e472b640eeaec, type: 3}
-  - {fileID: -3305293521985323663, guid: c683df4a628f9f3409baab5720f22cf7, type: 3}
-  - {fileID: 3445834183252169415, guid: d5d808627bf85ac4388709cce536f9e5, type: 3}
-  - {fileID: 9213096955717181607, guid: 1fcbc70d4f485964aa4689b33ece6b16, type: 3}
-  - {fileID: 6872996717217107445, guid: 93bc52da4fc2e0c45a57c33f012bcead, type: 3}
-  - {fileID: 6438397519438043255, guid: 51cbf8136beed934299539093a31d513, type: 3}
-  - {fileID: 556016622394933647, guid: 0a7c7d41eeaa1c244a64a314b24c3666, type: 3}
-  _parent: {fileID: 2496909387093063492}

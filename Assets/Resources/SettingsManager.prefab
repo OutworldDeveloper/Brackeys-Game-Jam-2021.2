@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settingsGroups:
+  - _displayName: Audio
+    _settings:
+    - {fileID: 11400000, guid: 9e68c3dc0af3f2d438320a9bc20bed18, type: 2}
   - _displayName: Gameplay
     _settings:
     - {fileID: 11400000, guid: 714afd080e9359a478fc1c21d4ba6474, type: 2}

@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
-using System.Linq;
+﻿using UnityEngine;
 
-public class SettingsUI : MonoBehaviour
+public struct UISettingsHelper
 {
 
-    [SerializeField] private SettingsGroupPresenter _groupPresenterPrefab;
-    [SerializeField] private BaseSettingPresenter[] _presentersPrefabs;
-    [SerializeField] private Transform _parent;
+    private readonly SettingsGroupPresenter _groupPresenterPrefab;
+    private readonly BaseSettingPresenter[] _presentersPrefabs;
 
-    private void Start()
+    public UISettingsHelper(SettingsGroupPresenter groupPresenterPrefab, BaseSettingPresenter[] presentersPrefabs)
+    {
+        _groupPresenterPrefab = groupPresenterPrefab;
+        _presentersPrefabs = presentersPrefabs;
+    }
+
+    public void Populate(Transform parent)
     {
         foreach (var group in SettingsManager.Groups)
         {
-            Instantiate(_groupPresenterPrefab, _parent).Setup(group);
+            GameObject.Instantiate(_groupPresenterPrefab, parent).Setup(group);
             foreach (var setting in group.Settings)
             {
                 var presenterPrefab = FindPresenterPrefabFor(setting);
-                Instantiate(presenterPrefab, _parent).Setup(setting);
+                GameObject.Instantiate(presenterPrefab, parent).Setup(setting);
             }
         }
     }

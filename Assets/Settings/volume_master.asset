@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d914448848dba1947a98b01490bd301e, type: 3}
+  m_Name: volume_master
+  m_EditorClassIdentifier: 
+  _displayName: Master Volume
+  _defaultValue: 100
+  _minValue: 0
+  _maxValue: 100
+  _presentation: 0
+  _targetMixer: {fileID: 24100000, guid: ee9848a8ff5e28846bd50d0702f5f218, type: 2}
+  _targetParameter: test

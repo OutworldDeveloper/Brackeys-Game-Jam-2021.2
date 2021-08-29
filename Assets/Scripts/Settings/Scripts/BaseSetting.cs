@@ -7,7 +7,7 @@ public abstract class BaseSetting : ScriptableObject
 
     public string DisplayName => _displayName;
 
-    public virtual void Reset() { }
+    public virtual void ResetValue() { }
     public virtual void OnGameStarted() { }
 
 }
