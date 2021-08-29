@@ -28,6 +28,8 @@ public class PlayerPawn : Pawn
         InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
         InputReciver.BindInputActionPressed("luck_interact", _luck.TryInteract);
         InputReciver.BindInputActionPressed("jack_attack", _jack.TryAttack);
+        InputReciver.BindInputActionPressed("jack_shine", _jack.StartShining);
+        InputReciver.BindInputActionRelesed("jack_shine", _jack.StopShining);
         InputReciver.BindInputActionPressed("pause", _pauseMenu.Show);
     }
 

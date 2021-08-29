@@ -893,6 +893,8 @@ MonoBehaviour:
     Key: {fileID: 11400000, guid: c83c9d811b408214da60ad3ec76e367e, type: 2}
   - Id: jack_attack
     Key: {fileID: 11400000, guid: 3f0fb43438cef1547bb6efa9213cc705, type: 2}
+  - Id: jack_shine
+    Key: {fileID: 11400000, guid: 0d6f50bf39142b5458d312cfabe782f4, type: 2}
   _axesBlueprints:
   - Id: luck_forward
     PositiveKey: {fileID: 11400000, guid: 613f7068291a49d4db5c2fc4840f8493, type: 2}

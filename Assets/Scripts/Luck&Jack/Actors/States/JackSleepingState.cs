@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class JackSleeping : State
+public class JackSleepingState : State
 {
 
     private const string AnimatorSleepingTrigger = "sleep";
@@ -9,7 +9,7 @@ public class JackSleeping : State
     private readonly Animator _animator;
     private readonly SoundPlayer _soundPlayer;
 
-    public JackSleeping(CharacterController characterController, Animator animator, SoundPlayer wakingUpSoundPlayer)
+    public JackSleepingState(CharacterController characterController, Animator animator, SoundPlayer wakingUpSoundPlayer)
     {
         _characterController = characterController;
         _animator = animator;
