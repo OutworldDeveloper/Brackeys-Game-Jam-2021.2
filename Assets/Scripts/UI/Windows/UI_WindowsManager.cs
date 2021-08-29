@@ -54,17 +54,6 @@ public class UI_WindowsManager : MonoBehaviour
                 window.Show ();
             }
         }
-
-        return;
-
-        if (_hideWindows)
-        {
-            _windows.ForEach(window => window.Hide());
-            if (_windows.Count > 0)
-            {
-                _windows.Last().Show();
-            }
-        }
     }
 
     private void UpdateBackground()

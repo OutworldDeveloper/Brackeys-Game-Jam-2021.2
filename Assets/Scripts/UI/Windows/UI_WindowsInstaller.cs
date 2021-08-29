@@ -4,27 +4,24 @@ using Zenject;
 public class UI_WindowsInstaller : MonoInstaller
 {
 
-    [SerializeField] private Canvas _windowsCanvas = default;
-    [SerializeField] private UI_YesNoWindow _prefabYesNoWindow = default;
-    [SerializeField] private UI_SelectionMenu _prefabSelectionMenu = default;
-    [SerializeField] private UI_LuckSettingsMenu _settingsMenu;
+    [SerializeField] private Canvas _windowsCanvas;
+    [SerializeField] private UI_YesNoWindow _yesNoWindowPrefab;
+    [SerializeField] private UI_SelectionMenu _selectionMenuWindowPrefab;
+    [SerializeField] private UI_SettingsMenu _settingsMenuWindowPrefab;
 
     public override void InstallBindings()
     {
         Container.BindFactory<UI_YesNoWindow, UI_YesNoWindow.Factory>().
-            FromComponentInNewPrefab(_prefabYesNoWindow.gameObject).
-            UnderTransform(_windowsCanvas.transform).
-            AsSingle();
+            FromComponentInNewPrefab(_yesNoWindowPrefab).
+            UnderTransform(_windowsCanvas.transform);
 
         Container.BindFactory<UI_SelectionMenu, UI_SelectionMenu.Factory>().
-           FromComponentInNewPrefab(_prefabSelectionMenu.gameObject).
-           UnderTransform(_windowsCanvas.transform).
-           AsSingle();
+           FromComponentInNewPrefab(_selectionMenuWindowPrefab).
+           UnderTransform(_windowsCanvas.transform);
 
-        Container.BindFactory<UI_LuckSettingsMenu, UI_LuckSettingsMenu.Factory>().
-            FromComponentInNewPrefab(_settingsMenu).
-            UnderTransform(_windowsCanvas.transform).
-            AsSingle();
+        Container.BindFactory<UI_SettingsMenu, UI_SettingsMenu.Factory>().
+            FromComponentInNewPrefab(_settingsMenuWindowPrefab).
+            UnderTransform(_windowsCanvas.transform);
     }
 
 }

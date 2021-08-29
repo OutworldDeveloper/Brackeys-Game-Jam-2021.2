@@ -9,7 +9,7 @@ public class PauseMenu : MonoBehaviour
 
     [Inject] private UI_YesNoWindow.Factory _yesNoWindowFactory;
     [Inject] private UI_SelectionMenu.Factory _selectionWindowFactory;
-    [Inject] private UI_LuckSettingsMenu.Factory _settingsMenuFactory;
+    [Inject] private UI_SettingsMenu.Factory _settingsMenuFactory;
 
     public void Show()
     {
