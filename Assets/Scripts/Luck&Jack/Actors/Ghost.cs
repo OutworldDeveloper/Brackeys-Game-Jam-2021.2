@@ -154,7 +154,7 @@ public class Ghost : MonoBehaviour
 
             if (distance < 0.25f)
             {
-                _target.ApplyDamage(1, (FlatVector)_ghost.transform.forward);
+                _target.ApplyDamage(40f, (FlatVector)_ghost.transform.forward);
                 _soundPlayer.PlaySound();
                 Ended = true;
             }
