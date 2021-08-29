@@ -19,6 +19,7 @@ public class LuckGameplayBase : GameplayController
     [Inject] protected RatsSpawnPoint[] RatsSpawnPoints { get; private set; }
     [Inject] protected Grave[] Graves { get; private set; }
     [Inject] protected Rat.Factory RatFactory { get; private set; }
+    [Inject] protected Ghost.Factory GhostFactory { get; private set; }
 
     public int GravesSaved { get; private set; }
     public int RatsKilled { get; private set; }
@@ -152,6 +153,18 @@ public class LuckGameplayBase : GameplayController
             rat.Died += OnRatDied;
             _ratsAlive.Add(rat);
         }
+    }
+
+    protected void SpawnGhost()
+    {
+        SpawnGhost(Ghost.DefaultSettings);
+    }
+
+    protected void SpawnGhost(Ghost.GhostSettings settings)
+    {
+        var spawnPoint = RatsSpawnPoints[UnityRandom.Range(0, RatsSpawnPoints.Length)];
+        var ghost = GhostFactory.Create(settings);
+        ghost.transform.position = (FlatVector)spawnPoint.transform.position;
     }
 
     protected void UpdateQuest(string quest)

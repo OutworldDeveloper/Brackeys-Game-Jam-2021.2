@@ -7,6 +7,7 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
     [SerializeField] private Luck _luckPrefab;
     [SerializeField] private Jack _jackPrefab;
     [SerializeField] private Rat _ratPrefab;
+    [SerializeField] private Ghost _ghostPrefab;
 
     public override void InstallBindings()
     {
@@ -26,6 +27,7 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
         Container.Bind<Jack>().FromComponentInNewPrefab(_jackPrefab).AsSingle();
 
         Container.BindFactory<Rat, Rat.Factory>().FromComponentInNewPrefab(_ratPrefab);
+        Container.BindFactory<Ghost.GhostSettings, Ghost, Ghost.Factory>().FromComponentInNewPrefab(_ghostPrefab);
     }
 
 }

@@ -16572,6 +16572,8 @@ MonoBehaviour:
     type: 3}
   _ratPrefab: {fileID: 3817168167294925950, guid: e156ef150b4568e40afbc886fb49bd18,
     type: 3}
+  _ghostPrefab: {fileID: 3571570347825308027, guid: ff576b22d6c1fec41b42c81a9aecefd4,
+    type: 3}
 --- !u!114 &1648246395
 MonoBehaviour:
   m_ObjectHideFlags: 0

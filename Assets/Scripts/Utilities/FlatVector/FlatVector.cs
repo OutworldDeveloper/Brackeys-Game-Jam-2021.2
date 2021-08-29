@@ -17,6 +17,11 @@ public struct FlatVector
         return Vector3.Distance(a.Vector3, b.Vector3);
     }
 
+    public static float Distance(Vector3 a, Vector3 b)
+    {
+        return Vector3.Distance((FlatVector)a, (FlatVector)b);
+    }
+
     public static float Angle(FlatVector from, FlatVector to)
     {
         return Vector3.Angle(from.Vector3, to.Vector3);

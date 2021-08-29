@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ratDetectionRange: 15
+  _jackSleepingRange: 14
+  _jackWakingUpRange: 3.5
   _spawnCurve:
     serializedVersion: 2
     m_Curve:
@@ -95,3 +97,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _tutorialGhost:
+    Speed: 1
+    AttackingSpeed: 4
+    RunningAwaySpeed: 14
+    LifetimeMin: 30
+    LifetimeMax: 35

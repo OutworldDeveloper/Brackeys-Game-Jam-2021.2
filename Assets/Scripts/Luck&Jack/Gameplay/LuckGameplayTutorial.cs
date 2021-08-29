@@ -9,6 +9,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
     [Inject] private SleepingJack _sleepingJack;
     [Inject] private UI_SelectionMenu.Factory _selectionMenuFactory;
+    [SerializeField] private Ghost.GhostSettings _tutorialGhost;
 
     protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
 
@@ -19,6 +20,8 @@ public class LuckGameplayTutorial : LuckGameplayBase
         base.Start();
         _sleepingJack.PlaceJack(Jack);
         _sleepingJack.JackSaved += OnJackSaved;
+
+        SpawnGhost();
     }
 
     protected override void OnDestroy()
@@ -38,6 +41,12 @@ public class LuckGameplayTutorial : LuckGameplayBase
     protected override void OnGraveSaved(Grave grave)
     {
         base.OnGraveSaved(grave);
+
+        if (GravesSaved == 2 || GravesSaved == 4)
+        {
+            SpawnGhost(_tutorialGhost);
+        }
+
         if (GravesSaved == Graves.Length)
         {
             var menu = _selectionMenuFactory.Create();
