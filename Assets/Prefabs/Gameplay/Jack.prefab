@@ -845,8 +845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minPitch: 0.6
   _maxPitch: 0.65
-  _minVolume: 1
-  _maxVolume: 1
+  _minVolume: 0.33
+  _maxVolume: 0.33
   _audioClips:
   - {fileID: 8300000, guid: dd05a427533477243a252cd72c3f7fcd, type: 3}
   - {fileID: 8300000, guid: e3a713b7d1d0f704890d2e03c3aee804, type: 3}
@@ -2087,6 +2087,9 @@ MonoBehaviour:
   _attackSoundPlayer: {fileID: 1517922347233305780}
   _hitSoundPlayer: {fileID: 83518020438223962}
   _wakingUpSoundPlayer: {fileID: 4954205455783281403}
+  _lightDeathZone: 1.5
+  _lightRange: 8
+  _lightAngle: 40
 --- !u!1 &9161862722324076394
 GameObject:
   m_ObjectHideFlags: 0

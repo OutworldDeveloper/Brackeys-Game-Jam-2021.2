@@ -31,6 +31,9 @@ public class Jack : PlayerCharacter
 
     public bool IsInLight(Transform other)
     {
+        if (IsSleeping)
+            return false;
+
         var distance = FlatVector.Distance(transform.position, other.position);
 
         if (distance < _lightDeathZone)

@@ -18,6 +18,7 @@ public class Ghost : MonoBehaviour
 
     [SerializeField] private SoundPlayer _soundPlayerDamage;
     [SerializeField] private SoundPlayer _soundPlayerPiss;
+    [SerializeField] private float _maxTimeInLight = 0.15f;
     [Inject] public GhostSettings Settings { get; private set; }
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
@@ -26,7 +27,9 @@ public class Ghost : MonoBehaviour
     private readonly StateMachine _stateMachine = new StateMachine();
     private float _luckDistance => GetDistanceTo(_luck.transform);
     private float _jackDistance => GetDistanceTo(_jack.transform);
+
     private float _deathTime;
+    private float _timeInLight;
 
     private void Awake()
     {
@@ -35,17 +38,17 @@ public class Ghost : MonoBehaviour
 
     private void Start()
     {
-        var chasing = new Chasing(this);
-        var runningAway = new RunningAway(this, false);
-        var attacking = new Chasing(this);
-        var escaping = new RunningAway(this, true);
+        var chasing = new Chasing(this, Settings.Speed);
+        var runningAway = new RunningAway(this, Settings.Speed, false);
+        var attacking = new Chasing(this, Settings.AttackingSpeed);
+        var escaping = new RunningAway(this, Settings.RunningAwaySpeed, true);
 
         _stateMachine.CreateTransition(chasing, attacking, () => _luckDistance < 3.5f);
-        _stateMachine.CreateTransition(chasing, runningAway, () => IsJackLooking());
+        _stateMachine.CreateTransition(chasing, runningAway, () => _timeInLight > _maxTimeInLight);
         _stateMachine.CreateTransition(chasing, escaping, () => chasing.Ended);
 
         _stateMachine.CreateTransition(attacking, chasing, () => _luckDistance > 4f);
-        _stateMachine.CreateTransition(attacking, runningAway, () => IsJackLooking());
+        _stateMachine.CreateTransition(attacking, runningAway, () => _timeInLight > _maxTimeInLight);
         _stateMachine.CreateTransition(attacking, escaping, () => attacking.Ended);
 
         _stateMachine.CreateTransition(runningAway, chasing, () => !IsJackLooking() && runningAway.Ended);
@@ -61,6 +64,15 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
+        if (IsJackLooking())
+        {
+            _timeInLight += Time.deltaTime;
+        }
+        else
+        {
+            _timeInLight = 0f;
+        }
+
         _stateMachine.Tick();
     }
 
@@ -99,12 +111,12 @@ public class Ghost : MonoBehaviour
 
         private bool _isSprinting;
 
-        public Chasing(Ghost ghost)
+        public Chasing(Ghost ghost, float speed)
         {
             _ghost = ghost;
             _rotationController = ghost._rotationController;
             _soundPlayer = _ghost._soundPlayerDamage;
-            _speed = ghost.Settings.Speed;
+            _speed = speed;
             _target = ghost._luck;
         }
 
@@ -150,10 +162,10 @@ public class Ghost : MonoBehaviour
 
         private float _endTime;
 
-        public RunningAway(Ghost ghost, bool destroy)
+        public RunningAway(Ghost ghost, float speed, bool destroy)
         {
             _ghost = ghost;
-            _speed = ghost.Settings.Speed;
+            _speed = speed;
             _rotationController = ghost._rotationController;
             _destroy = destroy;
             _soundPlayer = _ghost._soundPlayerPiss;
@@ -166,10 +178,7 @@ public class Ghost : MonoBehaviour
                 Destroy(_ghost.gameObject, 15f);
             }
 
-            if (_soundPlayer.IsPlaying == false)
-            {
-                _soundPlayer.PlaySound();
-            }
+            _soundPlayer.PlaySound();
 
             _endTime = Time.time + Random.Range(0.5f, 4f);
         }
