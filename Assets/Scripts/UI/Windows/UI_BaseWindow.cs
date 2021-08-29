@@ -24,7 +24,9 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
     public Text TitleText => _references.TitleText;
     public Button CloseButton => _references.CloseButton;
     public bool HideWindowsUnderneath => _hideMenusUnderneath;
+    public Color? OverrideBackgroundColor => _references.OverrideBackgroundColor;
     protected abstract Selectable InitialSelection { get; }
+
     protected readonly InputReciver InputReciver = new InputReciver(true);
 
     private UI_WindowReferences _references;
@@ -165,6 +167,7 @@ public interface IWindow
     CanvasGroup CanvasGroup { get; }
     RectTransform RectTransform { get; }
     bool HideWindowsUnderneath { get; }
+    Color? OverrideBackgroundColor { get; }
     void Show();
     void Hide();
     void Select();

@@ -13,6 +13,8 @@ public sealed class UI_WindowReferences : MonoBehaviour
     [SerializeField] private Text _titleText = default;
     [SerializeField] private GenericWindowAnimation _genericOpeningAnimation;
     [SerializeField] private GenericWindowAnimation _genericClosingAnimation;
+    [SerializeField] private bool _overrideBackground;
+    [SerializeField] private Color _backgroundColorOverride;
 
     public Button CloseButton => _closeButton;
     public CanvasGroup CanvasGroup => _canvasGroup;
@@ -20,6 +22,15 @@ public sealed class UI_WindowReferences : MonoBehaviour
     public RectTransform RectTransform { get; private set; }
     public GenericWindowAnimation GenericClosingAnimation => _genericClosingAnimation;
     public GenericWindowAnimation GenericOpeningAnimation => _genericOpeningAnimation;
+    public Color? OverrideBackgroundColor
+    {
+        get
+        {
+            if (_overrideBackground)
+                return _backgroundColorOverride;
+            return null;
+        }
+    }
 
     private void Awake()
     {

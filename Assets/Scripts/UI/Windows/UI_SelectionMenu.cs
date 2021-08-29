@@ -11,7 +11,7 @@ public class UI_SelectionMenu : UI_BaseWindow<UI_SelectionMenu>
     [SerializeField] private RectTransform _selectionsParent;
 
     public UI_SelectionMenuButton[] CurrentButtons => _currentButtons.ToArray();
-    protected override Selectable InitialSelection => _currentButtons[0]?.Button;
+    protected override Selectable InitialSelection => _currentButtons[0].Button;
 
     private readonly List<UI_SelectionMenuButton> _currentButtons = new List<UI_SelectionMenuButton>();
 

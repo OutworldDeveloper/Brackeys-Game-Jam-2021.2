@@ -8,18 +8,16 @@ using UnityEngine;
 public class UI_WindowsManager : MonoBehaviour
 {
 
-    [SerializeField] private bool _hideWindows;
-    [SerializeField] private float _backgroundFadeDuration = 0.5f;
-    [SerializeField] private CanvasGroup _background;
+    [SerializeField] private float _backgroundFadeSpeed = 0.5f;
+    [SerializeField] private Color _defaultBackgroundColor;
+    [SerializeField] private BackgroundHider _backgroundHider;
 
     private readonly List<IWindow> _windows = new List<IWindow>();
     private Tween _currentTween;
 
     private void Start()
     {
-        _background.alpha = 0f;
-        _background.interactable = false;
-        _background.gameObject.SetActive(false);
+        _backgroundHider.Init(_defaultBackgroundColor, _backgroundFadeSpeed);
     }
 
     public void AddWindow(IWindow window)
@@ -71,19 +69,20 @@ public class UI_WindowsManager : MonoBehaviour
 
         if (windowsCount > 0)
         {
-            _background.transform.SetSiblingIndex(windowsCount - 1);
-            _background.gameObject.SetActive(true);
-            _background.blocksRaycasts = true;
-            _background.interactable = true;
-
-            _currentTween = _background.DOFade(1f, _backgroundFadeDuration).SetSpeedBased().SetUpdate(true);
+            var lastWindow = _windows.Last();
+            _backgroundHider.transform.SetSiblingIndex(windowsCount - 1);
+            if (lastWindow.OverrideBackgroundColor.HasValue)
+            {
+                _backgroundHider.StartHidding(lastWindow.OverrideBackgroundColor.Value);
+            }
+            else
+            {
+                _backgroundHider.StartHidding(_defaultBackgroundColor);
+            }
             return;
         }
 
-        _background.blocksRaycasts = false;
-        _background.interactable = false;
-        
-        _currentTween = _background.DOFade(0f, _backgroundFadeDuration).SetSpeedBased().OnComplete(() => _background.gameObject.SetActive(false)).SetUpdate(true);
+        _backgroundHider.StopHidding();
     }
 
 }

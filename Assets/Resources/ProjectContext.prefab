@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7729037045803023548}
   - component: {fileID: 5469886503797351894}
   - component: {fileID: 2910543490962189603}
+  - component: {fileID: 7926003201046488390}
   m_Layer: 5
   m_Name: Background Hidder
   m_TagString: Untagged
@@ -59,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9411765}
+  m_Color: {r: 0.3224813, g: 0.4818085, b: 0.5754717, a: 0.9411765}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88,6 +89,18 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7926003201046488390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185536187922485603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b58493f1e28d1334bae77d9722ff8706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1801433970056510434
 GameObject:
   m_ObjectHideFlags: 0
@@ -364,9 +377,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b25d261df2976274b9a1dc4101bb42f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideWindows: 1
-  _backgroundFadeDuration: 1.5
-  _background: {fileID: 2910543490962189603}
+  _backgroundFadeSpeed: 0.5
+  _defaultBackgroundColor: {r: 0, g: 0, b: 0, a: 0.9411765}
+  _backgroundHider: {fileID: 7926003201046488390}
 --- !u!114 &298547828127937298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,7 +411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _windowsCanvas: {fileID: 4900179528191741947}
-  _yesNoWindowPrefab: {fileID: 2509935397239803236, guid: 82d8d47c913ed3a448b4fbacb8af6e21,
+  _yesNoWindowPrefab: {fileID: 4734128111737620654, guid: 7ba421bdc4da0dc4da6a85060c2b6682,
     type: 3}
   _selectionMenuWindowPrefab: {fileID: -2277892425130802355, guid: 3a5252493ea801145addf72bfffd1a9b,
     type: 3}
