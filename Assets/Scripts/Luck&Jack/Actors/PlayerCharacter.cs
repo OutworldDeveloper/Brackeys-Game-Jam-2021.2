@@ -40,4 +40,10 @@ public abstract class PlayerCharacter : Actor
         RotationController.enabled = false;
     }
 
+    [ConsoleCommand("SetCharacterSpeed", "Sets speed for selected characters")]
+    private void SetSpeed(float speed)
+    {
+        _speed = speed;
+    }
+
 }

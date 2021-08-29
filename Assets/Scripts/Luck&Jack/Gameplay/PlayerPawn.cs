@@ -10,6 +10,7 @@ public class PlayerPawn : Pawn
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
     [Inject] private PauseMenu _pauseMenu;
+    [Inject] private IConsole _console;
 
     private FlatVector _luckInput;
     private FlatVector _jackInput;
@@ -35,6 +36,8 @@ public class PlayerPawn : Pawn
         _virtualCameraTarget = (FlatVector)_luck.transform.position;
         _virtualCameraPosition = _virtualCameraTarget;
         _cameraVelocity = Vector3.zero;
+        _console.RegisterObject(_luck);
+        _console.RegisterObject(_jack);
     }
 
     public override void PossessedTick()
@@ -78,6 +81,8 @@ public class PlayerPawn : Pawn
     {
         _luck.Move(FlatVector.zero);
         _jack.Move(FlatVector.zero);
+        _console.DeregisterObject(_luck);
+        _console.DeregisterObject(_jack);
     }
 
 }

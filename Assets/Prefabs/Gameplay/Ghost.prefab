@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _soundPlayerDamage: {fileID: 5369478369647417348}
   _soundPlayerPiss: {fileID: 2996230802364330152}
-  _maxTimeInLight: 0.1
+  _maxTimeInLight: 0.2
 --- !u!114 &2572598515600053073
 MonoBehaviour:
   m_ObjectHideFlags: 0

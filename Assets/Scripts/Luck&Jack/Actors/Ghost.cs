@@ -11,7 +11,8 @@ public class Ghost : MonoBehaviour
     {
         Speed = 4.5f,
         AttackingSpeed = 8f,
-        RunningAwaySpeed = 12f,
+        RunningAwaySpeed = 8f,
+        EscapingSpeed = 14f,
         LifetimeMin = 10f,
         LifetimeMax = 15f,
     };
@@ -39,7 +40,7 @@ public class Ghost : MonoBehaviour
     private void Start()
     {
         var chasing = new Chasing(this, Settings.Speed);
-        var runningAway = new RunningAway(this, Settings.Speed, false);
+        var runningAway = new RunningAway(this, Settings.RunningAwaySpeed, false);
         var attacking = new Chasing(this, Settings.AttackingSpeed);
         var escaping = new RunningAway(this, Settings.RunningAwaySpeed, true);
 
@@ -86,12 +87,23 @@ public class Ghost : MonoBehaviour
         return _jack.IsInLight(transform);
     }
 
+#if UNITY_EDITOR
+
+    private void OnDrawGizmos()
+    {
+        UnityEditor.Handles.color = Color.red;
+        UnityEditor.Handles.Label(transform.position, _timeInLight.ToString());  
+    }
+
+#endif
+
     [System.Serializable]
     public struct GhostSettings
     {
         public float Speed;
         public float AttackingSpeed;
         public float RunningAwaySpeed;
+        public float EscapingSpeed;
         public float LifetimeMin;
         public float LifetimeMax;
     }

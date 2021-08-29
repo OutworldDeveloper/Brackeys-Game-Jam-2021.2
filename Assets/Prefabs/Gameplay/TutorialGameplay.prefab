@@ -100,6 +100,7 @@ MonoBehaviour:
   _tutorialGhost:
     Speed: 1
     AttackingSpeed: 4
-    RunningAwaySpeed: 14
+    RunningAwaySpeed: 8
+    EscapingSpeed: 14
     LifetimeMin: 30
     LifetimeMax: 35
