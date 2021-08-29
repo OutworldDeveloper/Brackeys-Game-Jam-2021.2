@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 using Zenject;
 
 public class LuckGameplayTutorial : LuckGameplayBase
@@ -7,6 +8,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
     public event Action JackSaved;
 
     [Inject] private SleepingJack _sleepingJack;
+    [Inject] private UI_SelectionMenu.Factory _selectionMenuFactory;
 
     protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
 
@@ -31,6 +33,21 @@ public class LuckGameplayTutorial : LuckGameplayBase
         _hasSavedJack = true;
         _sleepingJack.JackSaved -= OnJackSaved;
         JackSaved?.Invoke();
+    }
+
+    protected override void OnGraveSaved(Grave grave)
+    {
+        base.OnGraveSaved(grave);
+        if (GravesSaved == Graves.Length)
+        {
+            var menu = _selectionMenuFactory.Create();
+
+            menu.SetTitle("You have completed the tutorial");
+            menu.SetDescription("Survival mode unlocked");
+            menu.DisableClosing();
+            menu.AddSelection("Survival Mode", () => Debug.Log("Survival Mode"));
+            menu.AddSelection("Main Menu", () => Debug.Log("Main Menu"));
+        }
     }
 
 }

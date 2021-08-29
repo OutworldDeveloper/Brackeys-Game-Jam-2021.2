@@ -131,6 +131,13 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
     public void SetTitle(string title)
     {
         TitleText.text = title;
+        TitleText.gameObject.SetActive(true);
+    }
+
+    public void SetDescription(string description)
+    {
+        _references.DescriptionText.text = description;
+        _references.DescriptionText.gameObject.SetActive(true);
     }
 
     public void AddCloseButtonCallback(Action action)
