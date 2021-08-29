@@ -45,7 +45,6 @@ public class ExitingManager : IInitializable
 
         _currentWindow.AddCloseButtonCallback(() =>
         {
-            _currentWindow.CloseThenDestroy();
             _currentWindow = null;
         });
 

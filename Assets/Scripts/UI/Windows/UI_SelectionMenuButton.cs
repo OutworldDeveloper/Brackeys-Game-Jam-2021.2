@@ -10,6 +10,7 @@ public class UI_SelectionMenuButton : MonoBehaviour
     [SerializeField] private Text _text;
 
     public CanvasGroup CanvasGroup { get; private set; }
+    public Button Button => _button;
 
     private void Awake()
     {

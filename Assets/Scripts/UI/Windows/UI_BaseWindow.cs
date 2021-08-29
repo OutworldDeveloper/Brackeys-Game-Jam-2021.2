@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Zenject;
 
@@ -22,6 +23,7 @@ public abstract class UI_BaseWindow : MonoBehaviour
     public Text TitleText { get; private set; }
     public Button CloseButton { get; private set; }
     public bool HideWindowsUnderneath => _hideMenusUnderneath;
+    protected abstract Selectable InitialSelection { get; }
 
     protected readonly InputReciver InputReciver = new InputReciver(true);
 
@@ -72,7 +74,20 @@ public abstract class UI_BaseWindow : MonoBehaviour
                 CloseThenDestroy();
         });
 
+        //InitialSelection.Select();
+
         OnOpened();
+    }
+
+    public void Select()
+    {
+        InitialSelection.Select();
+        CanvasGroup.interactable = true;
+    }
+
+    public void Deselect()
+    {
+        CanvasGroup.interactable = false;
     }
 
     public void Show()

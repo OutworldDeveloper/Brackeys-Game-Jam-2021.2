@@ -13,6 +13,7 @@ public class UI_HelperText : MonoBehaviour
     [Inject] private IConsole _console;
 
     private float _endTime;
+    private int _hideRequestsCount;
 
     private void Start()
     {
@@ -44,6 +45,18 @@ public class UI_HelperText : MonoBehaviour
     {
         _text.text = text;
         _endTime = Time.time + duration;
+    }
+
+    public void RequestHidding()
+    {
+        _hideRequestsCount++;
+        _text.gameObject.SetActive(_hideRequestsCount == 0);
+    }
+
+    public void RemoveHiddingRequest()
+    {
+        _hideRequestsCount--;
+        _text.gameObject.SetActive(_hideRequestsCount == 0);
     }
 
 }

@@ -44,6 +44,8 @@ public class UI_WindowsManager : MonoBehaviour
         {
             var window = _windows[i];
 
+            window.Deselect();
+
             if (hide)
             {
                 window.Hide();
@@ -51,8 +53,13 @@ public class UI_WindowsManager : MonoBehaviour
             else
             {
                 hide = window.HideWindowsUnderneath;
-                window.Show ();
+                window.Show();
             }
+        }
+
+        if (_windows.Count > 0)
+        {
+            _windows.Last().Select();
         }
     }
 

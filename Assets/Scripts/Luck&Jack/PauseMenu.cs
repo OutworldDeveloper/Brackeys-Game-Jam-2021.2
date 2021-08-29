@@ -10,6 +10,7 @@ public class PauseMenu : MonoBehaviour
     [Inject] private UI_YesNoWindow.Factory _yesNoWindowFactory;
     [Inject] private UI_SelectionMenu.Factory _selectionWindowFactory;
     [Inject] private UI_SettingsMenu.Factory _settingsMenuFactory;
+    [Inject] private UI_HelperText _helperText;
 
     public void Show()
     {
@@ -22,11 +23,15 @@ public class PauseMenu : MonoBehaviour
         pauseWindow.AddSelection("Hats", () => Debug.Log("Hats :("));
         pauseWindow.AddSelection("Settings", OpenPauseMenu);
         pauseWindow.AddSelection("Main Menu", () => SubMenu(pauseWindow));
+
+        //pauseWindow.AddCloseButtonCallback(_helperText.RequestHidding); Should be closing callback, but whatever
+
+        //_helperText.RequestHidding();
     }
 
     private void OpenPauseMenu()
     {
-        var window = _settingsMenuFactory.Create();
+        _settingsMenuFactory.Create();
     }
 
     private void SubMenu(UI_SelectionMenu parent)

@@ -10,6 +10,8 @@ public class UI_YesNoWindow : UI_BaseWindow
     [SerializeField] private Button _yesButton = default;
     [SerializeField] private Button _noButton = default;
 
+    protected override Selectable InitialSelection => _noButton;
+
     public UI_YesNoWindow SetDescription(string description)
     {
         _descriptionText.text = description;
