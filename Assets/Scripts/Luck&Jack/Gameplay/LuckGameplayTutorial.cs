@@ -20,8 +20,6 @@ public class LuckGameplayTutorial : LuckGameplayBase
         base.Start();
         _sleepingJack.PlaceJack(Jack);
         _sleepingJack.JackSaved += OnJackSaved;
-
-        SpawnGhost();
     }
 
     protected override void OnDestroy()

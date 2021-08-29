@@ -8,6 +8,9 @@ public class Jack : PlayerCharacter
     [SerializeField] private SoundPlayer _attackSoundPlayer;
     [SerializeField] private SoundPlayer _hitSoundPlayer;
     [SerializeField] private SoundPlayer _wakingUpSoundPlayer;
+    [SerializeField] private  float _lightDeathZone = 1.5f;
+    [SerializeField] private  float _lightRange = 8f;
+    [SerializeField] private  float _lightAngle = 40f;
 
     public bool IsSleeping { get; private set; }
 
@@ -26,6 +29,22 @@ public class Jack : PlayerCharacter
         IsSleeping = false;
     }
 
+    public bool IsInLight(Transform other)
+    {
+        var distance = FlatVector.Distance(transform.position, other.position);
+
+        if (distance < _lightDeathZone)
+            return false;
+
+        if (distance > _lightRange)
+            return false;
+
+        FlatVector targetDirection = (FlatVector)(other.position - transform.position);
+        float angle = FlatVector.Angle(targetDirection, (FlatVector)transform.forward);
+
+        return angle < _lightAngle;
+    }    
+
     protected override State CreateDefaultState()
     {
         return new PlayerCharacterMovementState(this, CharacterController, RotationController, Animator);
@@ -43,6 +62,31 @@ public class Jack : PlayerCharacter
         StateMachine.CreateTransition(sleepingState, () => IsSleeping);
         StateMachine.CreateTransition(sleepingState, DefaultState, () => !IsSleeping);
     }
+
+#if UNITY_EDITOR
+
+    private void OnDrawGizmosSelected()
+    {
+        Transform target = transform;
+
+        UnityEditor.Handles.color = Color.red;
+        UnityEditor.Handles.color = Color.yellow;
+        UnityEditor.Handles.DrawWireDisc(target.transform.position, target.transform.up, 8f);
+        UnityEditor.Handles.DrawWireDisc(target.transform.position, target.transform.up, 2.5f);
+        UnityEditor.Handles.color = Color.green;
+
+        Gizmos.color = Color.yellow;
+
+        Gizmos.DrawLine(
+            target.transform.position + Quaternion.AngleAxis(-_lightAngle, Vector3.up) * target.transform.forward * _lightDeathZone,
+            target.transform.position + Quaternion.AngleAxis(-_lightAngle, Vector3.up) * target.transform.forward * _lightRange);
+
+        Gizmos.DrawLine(
+            target.transform.position + Quaternion.AngleAxis(_lightAngle, Vector3.up) * target.transform.forward * _lightDeathZone,
+            target.transform.position + Quaternion.AngleAxis(_lightAngle, Vector3.up) * target.transform.forward * _lightRange);
+    }
+
+#endif
 
 }
 

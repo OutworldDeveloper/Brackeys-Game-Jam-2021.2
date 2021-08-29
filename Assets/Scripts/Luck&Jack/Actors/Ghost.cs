@@ -7,10 +7,6 @@ using Zenject;
 public class Ghost : MonoBehaviour
 {
 
-    private const float JackLightDeathZone = 1.5f;
-    private const float JackLightRange = 8f;
-    private const float JackLightAngle = 40f;
-
     public static GhostSettings DefaultSettings => new GhostSettings()
     {
         Speed = 4.5f,
@@ -75,16 +71,7 @@ public class Ghost : MonoBehaviour
 
     private bool IsJackLooking()
     {
-        if (_jackDistance < JackLightDeathZone)
-            return false;
-
-        if (_jackDistance > JackLightRange)
-            return false;
-
-        FlatVector targetDirection = (FlatVector)(transform.position - _jack.transform.position);
-        float angle = FlatVector.Angle(targetDirection, (FlatVector)_jack.transform.forward);
-
-        return angle < JackLightAngle;
+        return _jack.IsInLight(transform);
     }
 
     [System.Serializable]
