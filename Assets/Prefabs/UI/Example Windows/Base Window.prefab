@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1726468883184046511}
   - component: {fileID: 8645073517277632767}
   m_Layer: 5
-  m_Name: BaseWindowExample
+  m_Name: Base Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
