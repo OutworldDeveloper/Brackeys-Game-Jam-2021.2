@@ -50,6 +50,7 @@ MonoBehaviour:
   - _displayName: Gameplay
     _settings:
     - {fileID: 11400000, guid: 714afd080e9359a478fc1c21d4ba6474, type: 2}
+    - {fileID: 11400000, guid: ce146abddaa149f4aa988aaa05c62767, type: 2}
   - _displayName: Graphics
     _settings:
     - {fileID: 11400000, guid: bad49ca2305a0c844b8ca59f2d5d39fb, type: 2}
@@ -68,3 +69,13 @@ MonoBehaviour:
     - {fileID: 11400000, guid: e089d2019a64894419368e4180d834c7, type: 2}
     - {fileID: 11400000, guid: 3f0fb43438cef1547bb6efa9213cc705, type: 2}
     - {fileID: 11400000, guid: 0d6f50bf39142b5458d312cfabe782f4, type: 2}
+  _settingsPresenters:
+  - {fileID: 2089426815519495162, guid: 929c6c0259ff57244b9e472b640eeaec, type: 3}
+  - {fileID: -3305293521985323663, guid: c683df4a628f9f3409baab5720f22cf7, type: 3}
+  - {fileID: 3445834183252169415, guid: d5d808627bf85ac4388709cce536f9e5, type: 3}
+  - {fileID: 9213096955717181607, guid: 1fcbc70d4f485964aa4689b33ece6b16, type: 3}
+  - {fileID: 6872996717217107445, guid: 93bc52da4fc2e0c45a57c33f012bcead, type: 3}
+  - {fileID: 6438397519438043255, guid: 51cbf8136beed934299539093a31d513, type: 3}
+  - {fileID: 556016622394933647, guid: 0a7c7d41eeaa1c244a64a314b24c3666, type: 3}
+  _groupPresenter: {fileID: 2295995378950334817, guid: 790947ff89954b644a62a2a3aedb540d,
+    type: 3}

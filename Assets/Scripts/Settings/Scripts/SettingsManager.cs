@@ -10,7 +10,7 @@ public sealed class SettingsManager : MonoBehaviour
     public const string ManagerName = "SettingsManager";
 
     public static event Action OnSettingsChanged;
-    public static List<SettingsGroup> Groups => _instance._settingsGroups;
+    public static SettingsGroup[] Groups => _instance._settingsGroups.ToArray();
 
     private static SettingsManager _instance;
     private static bool _gameStartedCallbackSended;
@@ -38,7 +38,7 @@ public sealed class SettingsManager : MonoBehaviour
 
     public static void ForEachSetting(Action<BaseSetting> action)
     {
-        Groups.ForEach(group =>
+        _instance._settingsGroups.ForEach(group =>
         {
             group.Settings.ForEach(setting => action.Invoke(setting));
         });

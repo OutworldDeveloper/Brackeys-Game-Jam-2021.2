@@ -3,7 +3,7 @@ using UnityEngine;
 using Zenject;
 using UnityRandom = UnityEngine.Random;
 
-public class LuckGameplayBase : GameplayController
+public abstract class LuckGameplayBase : GameplayController
 {
 
     public event QuestUpdatedEventHandler QuestUpdated;
@@ -38,7 +38,9 @@ public class LuckGameplayBase : GameplayController
         Luck.transform.position = SpawnPoint.transform.position;
         Jack.transform.position = SpawnPoint.transform.position;
         PlayerController.Possess(PlayerPawn);
+        UpdateQuest();
     }
+
     protected virtual void OnDestroy()
     {
         Luck.Died -= OnLuckDied;
@@ -118,6 +120,7 @@ public class LuckGameplayBase : GameplayController
     {
         GravesSaved++;
         SpawnRats();
+        UpdateQuest();
     }
 
     protected virtual void OnGameover()
@@ -138,6 +141,7 @@ public class LuckGameplayBase : GameplayController
             HasSeenRat = true;
             OnFirstRatEncounter();
         }
+        UpdateQuest();
     }
 
     protected void SpawnRats()
@@ -167,10 +171,13 @@ public class LuckGameplayBase : GameplayController
         ghost.transform.position = (FlatVector)spawnPoint.transform.position;
     }
 
-    protected void UpdateQuest(string quest)
+    protected void UpdateQuest()
     {
+        var quest = GetQuestText();
         QuestUpdated?.Invoke(quest);
     }
+
+    protected abstract string GetQuestText();
 
     public delegate void QuestUpdatedEventHandler(string newQuest);
 

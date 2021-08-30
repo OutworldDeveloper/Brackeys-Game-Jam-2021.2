@@ -17,8 +17,6 @@ public abstract class Pawn : MonoBehaviour
         OnPawnStart();
     }
 
-    public virtual UI_BaseHud CreateHud() => null;
-
     public void OnPossesesed(PlayerController playerController) 
     {
         PlayerController = playerController;
@@ -37,6 +35,7 @@ public abstract class Pawn : MonoBehaviour
         }
     }
 
+    public virtual UI_BaseHud CreateHud() => null;
     public virtual void PossessedTick() { }
     protected virtual void OnPossesesed() { }
     protected virtual void OnUnpossessed() { }

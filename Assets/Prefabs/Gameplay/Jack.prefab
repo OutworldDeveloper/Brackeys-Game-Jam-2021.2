@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 832288641776379285}
   - component: {fileID: 2010841698800407946}
   - component: {fileID: 1377944112998594276}
+  - component: {fileID: 3737321731136413851}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1192,6 +1193,23 @@ MonoBehaviour:
         m_CallState: 2
   targetParameter: {fileID: 11400000, guid: bad49ca2305a0c844b8ca59f2d5d39fb, type: 2}
   invert: 0
+--- !u!114 &3737321731136413851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4972488185250805374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d09529dd9d6caf43bc78c6eef1989b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  intensityChangingSpeed: 70000
+  changeIntervalDelayMin: 0.5
+  changeIntervalDelayMax: 1
+  minIntensity: 25000
+  maxIntensity: 50000
 --- !u!1 &5223405163360824806
 GameObject:
   m_ObjectHideFlags: 0

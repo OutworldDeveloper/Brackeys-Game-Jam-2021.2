@@ -4,6 +4,7 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
 {
 
     [SerializeField] private PlayerPawn _playerPawnPrefab;
+    [SerializeField] private UI_LuckHud _hudPrefab;
     [SerializeField] private Luck _luckPrefab;
     [SerializeField] private Jack _jackPrefab;
     [SerializeField] private Rat _ratPrefab;
@@ -17,6 +18,9 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
             FromComponentInNewPrefab(_playerPawnPrefab).
             UnderTransform(transform).
             AsSingle();
+
+        Container.BindFactory<PlayerPawn, UI_LuckHud, UI_LuckHud.Factory>().
+            FromComponentInNewPrefab(_hudPrefab);
 
         Container.Bind<PauseMenu>().
             FromNewComponentOnNewGameObject().

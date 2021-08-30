@@ -34,6 +34,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
         _hasSavedJack = true;
         _sleepingJack.JackSaved -= OnJackSaved;
         JackSaved?.Invoke();
+        UpdateQuest();
     }
 
     protected override void OnGraveSaved(Grave grave)
@@ -55,6 +56,16 @@ public class LuckGameplayTutorial : LuckGameplayBase
             menu.AddSelection("Survival Mode", () => Debug.Log("Survival Mode"));
             menu.AddSelection("Main Menu", () => Debug.Log("Main Menu"));
         }
+    }
+
+    protected override string GetQuestText()
+    {
+        if (_hasSavedJack)
+        {
+            return $"Extract souls {GravesSaved} / {Graves.Length}";
+        }
+
+        return "Find and wake up Jack";
     }
 
 }

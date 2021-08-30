@@ -3,7 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Interactable : MonoBehaviour
+// This is needed so we can bind interactables in scene easaly
+public interface IInteractable
+{
+    FlatVector RangeCenterPoint { get; }
+    float Range { get; }
+    Vector3 TextPosition { get; }
+    string InteractionText { get; }
+    bool IsAvaliable();
+
+}
+
+public abstract class Interactable : MonoBehaviour, IInteractable
 {
 
     [SerializeField] private Vector3 _pointOffset = Vector3.zero;

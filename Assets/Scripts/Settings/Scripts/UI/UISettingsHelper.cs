@@ -1,15 +1,16 @@
 ﻿using UnityEngine;
 
+// Maybe this should be a part of SettingsManager
 public struct UISettingsHelper
 {
 
     private readonly SettingsGroupPresenter _groupPresenterPrefab;
     private readonly BaseSettingPresenter[] _presentersPrefabs;
 
-    public UISettingsHelper(SettingsGroupPresenter groupPresenterPrefab, BaseSettingPresenter[] presentersPrefabs)
+    public UISettingsHelper(SettingsGroupPresenter customGroupPresenter, BaseSettingPresenter[] customPresenters)
     {
-        _groupPresenterPrefab = groupPresenterPrefab;
-        _presentersPrefabs = presentersPrefabs;
+        _groupPresenterPrefab = customGroupPresenter;
+        _presentersPrefabs = customPresenters;
     }
 
     public void Populate(Transform parent)

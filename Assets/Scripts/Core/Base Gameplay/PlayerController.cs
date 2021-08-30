@@ -72,10 +72,10 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
             _cursorManager.Show(this);
         }
 
+        CurrentPawn.OnPossesesed(this);
+
         var hud = CurrentPawn.CreateHud();
         SetHud(hud);
-
-        CurrentPawn.OnPossesesed(this);
     }
 
     public void Unpossess()
@@ -101,6 +101,7 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
         {
             _inputSystem.RemoveReciver(_currentHud.InputReciver);
             _currentHud.HideThenDestroy();
+            _currentHud = null;
         }
 
         if (hud != null)
@@ -130,7 +131,13 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
     [ConsoleCommand("Toggles hud")]
     public void ToggleHud()
     {
-        
+        if (_currentHud)
+        {
+            SetHud(null);
+            return;
+        }
+        var hud = CurrentPawn.CreateHud();
+        SetHud(hud);
     }
 
     protected virtual void OnPlayerStart() { }

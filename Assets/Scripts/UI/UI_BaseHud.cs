@@ -37,31 +37,28 @@ public class UI_BaseHud : MonoBehaviour
 
     protected virtual Sequence CreateShowingSequence()
     {
-        _canvasGroup.alpha = 0f;
-        _canvasGroup.transform.localScale = Vector3.one * 0.5f;
+        var sequence = DOTween.Sequence();
 
-        var newSequence = DOTween.Sequence();
+        var scaleTween = _canvasGroup.transform.DOScale(Vector3.one, 0.35f).From(Vector3.zero);
+        var alphaTween = _canvasGroup.DOFade(1f, 0.6f).From(0f);
 
-        var scaleTween = _canvasGroup.transform.DOScale(Vector3.one, 0.35f);
-        var alphaTween = _canvasGroup.DOFade(1f, 0.6f);
+        sequence.Append(scaleTween);
+        sequence.Join(alphaTween);
 
-        newSequence.Insert(0, scaleTween);
-        newSequence.Insert(0, alphaTween);
-
-        return newSequence;
+        return sequence;
     }
 
     protected virtual Sequence CreateHiddingSequence()
     {
-        var newSequence = DOTween.Sequence();
+        var sequence = DOTween.Sequence();
 
         var scaleTween = _canvasGroup.transform.DOScale(Vector3.one * 2, 0.35f);
         var alphaTween = _canvasGroup.DOFade(0f, 0.6f);
 
-        newSequence.Insert(0, scaleTween);
-        newSequence.Insert(0, alphaTween);
+        sequence.Append(scaleTween);
+        sequence.Join(alphaTween);
 
-        return newSequence;
+        return sequence;
     }
 
 }

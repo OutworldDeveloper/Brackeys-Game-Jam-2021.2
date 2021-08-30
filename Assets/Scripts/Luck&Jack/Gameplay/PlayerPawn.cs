@@ -7,10 +7,13 @@ public class PlayerPawn : Pawn
     [SerializeField] private float _cameraSoloModeDistance = 7.5f;
     [SerializeField] private float _cameraPartyModeDistance = 9.5f;
     [SerializeField] private Setting_Float _cameraSpeed;
-    [Inject] private Luck _luck;
-    [Inject] private Jack _jack;
+
+    [Inject] public Luck Luck { get; private set; }
+    [Inject] public Jack Jack { get; private set; }
+
     [Inject] private PauseMenu _pauseMenu;
     [Inject] private IConsole _console;
+    [Inject] private UI_LuckHud.Factory _hudFactory;
 
     private FlatVector _luckInput;
     private FlatVector _jackInput;
@@ -20,35 +23,40 @@ public class PlayerPawn : Pawn
     private Vector3 _virtualCameraPosition;
     private Vector3 _cameraVelocity;
 
+    public override UI_BaseHud CreateHud()
+    {
+        return _hudFactory.Create(this);
+    }
+
     protected override void OnPawnStart()
     {
         InputReciver.BindAxis("luck_forward", (value) => _luckInput.z = value);
         InputReciver.BindAxis("luck_right", (value) => _luckInput.x = value);
         InputReciver.BindAxis("jack_forward", (value) => _jackInput.z = value);
         InputReciver.BindAxis("jack_right", (value) => _jackInput.x = value);
-        InputReciver.BindInputActionPressed("luck_interact", _luck.TryInteract);
-        InputReciver.BindInputActionPressed("jack_attack", _jack.TryAttack);
-        InputReciver.BindInputActionPressed("jack_shine", _jack.StartShining);
-        InputReciver.BindInputActionRelesed("jack_shine", _jack.StopShining);
+        InputReciver.BindInputActionPressed("luck_interact", Luck.TryInteract);
+        InputReciver.BindInputActionPressed("jack_attack", Jack.TryAttack);
+        InputReciver.BindInputActionPressed("jack_shine", Jack.StartShining);
+        InputReciver.BindInputActionRelesed("jack_shine", Jack.StopShining);
         InputReciver.BindInputActionPressed("pause", _pauseMenu.Show);
     }
 
     protected override void OnPossesesed()
     {
-        _virtualCameraTarget = (FlatVector)_luck.transform.position;
+        _virtualCameraTarget = (FlatVector)Luck.transform.position;
         _virtualCameraPosition = _virtualCameraTarget;
         _cameraVelocity = Vector3.zero;
-        _console.RegisterObject(_luck);
-        _console.RegisterObject(_jack);
+        _console.RegisterObject(Luck);
+        _console.RegisterObject(Jack);
     }
 
     public override void PossessedTick()
     {
-        _luck.Move(_luckInput);
-        _jack.Move(_jackInput);
+        Luck.Move(_luckInput);
+        Jack.Move(_jackInput);
 
-        var luckPosition = _luck.transform.GetFlatPosition();
-        var jackPosition = _jack.transform.GetFlatPosition();
+        var luckPosition = Luck.transform.GetFlatPosition();
+        var jackPosition = Jack.transform.GetFlatPosition();
 
         var distance = FlatVector.Distance(luckPosition, jackPosition);
 
@@ -81,10 +89,11 @@ public class PlayerPawn : Pawn
 
     protected override void OnUnpossessed()
     {
-        _luck.Move(FlatVector.zero);
-        _jack.Move(FlatVector.zero);
-        _console.DeregisterObject(_luck);
-        _console.DeregisterObject(_jack);
+        base.OnUnpossessed();
+        Luck.Move(FlatVector.zero);
+        Jack.Move(FlatVector.zero);
+        _console.DeregisterObject(Luck);
+        _console.DeregisterObject(Jack);
     }
 
 }

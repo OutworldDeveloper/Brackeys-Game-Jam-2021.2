@@ -6,31 +6,31 @@ using UnityEngine.UI;
 public class SettingPresenter_Options : SettingPresenter<Setting_Options>
 {
 
-    [SerializeField] private Dropdown _dropdown;
+    [SerializeField] private Button _button;
 
-    protected override void Present()
+    protected override void Present() 
     {
-
+        var value = Setting.GetValue();
+        _button.GetComponentInChildren<Text>().text = Setting.Options[value];
     }
 
     protected override void OnSetup()
     {
         base.OnSetup();
-        _dropdown.ClearOptions();
-        foreach (var item in Setting.Options.options)
-        {
-            Dropdown.OptionData optionData = new Dropdown.OptionData();
-            optionData.text = item.displayName;
-            _dropdown.options.Add(optionData);
-        }
-        _dropdown.value = Setting.GetValue();
-        _dropdown.onValueChanged.AddListener(Setting.SetValue);
+        _button.onClick.AddListener(Next);
     }
 
-    protected override void OnDestroy()
+    private void Next()
     {
-        base.OnDestroy();
-        _dropdown.onValueChanged.RemoveListener(Setting.SetValue);
+        var value = Setting.GetValue();
+        if (value + 1 > Setting.Options.Length - 1)
+        {
+            Setting.SetValue(0);
+        }
+        else
+        {
+            Setting.SetValue(value + 1);
+        }
     }
 
 }
