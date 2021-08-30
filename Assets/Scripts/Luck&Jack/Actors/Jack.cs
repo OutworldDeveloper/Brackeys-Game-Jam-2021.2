@@ -51,6 +51,11 @@ public class Jack : PlayerCharacter
         return new PlayerCharacterMovementState(this, CharacterController, RotationController, Animator);
     }
 
+    public override bool ApplyDamage(int damage, FlatVector direction) 
+    {
+        return false;
+    }
+
     protected override void Awake()
     {
         base.Awake();

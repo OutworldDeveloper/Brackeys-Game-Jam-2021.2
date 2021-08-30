@@ -94,6 +94,7 @@ MonoBehaviour:
       m_Calls: []
   _speed: 4
   _animator: {fileID: 171104226157635055}
+  _damage: 1
   _biteSoundPlayer: {fileID: 8942777855410249115}
 --- !u!114 &4410212558407726022
 MonoBehaviour:

@@ -1,6 +1,4 @@
 using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using Zenject;
@@ -29,7 +27,7 @@ public class LuckHitVolume : MonoBehaviour
         _luck.Damaged -= OnLuckDamaged;
     }
 
-    private void OnLuckDamaged(float damage, float health, float healthBefore, FlatVector direction)
+    private void OnLuckDamaged(int damage, int health, int healthBefore, FlatVector direction)
     {
         _currentSequence?.Kill();
         _currentSequence = DOTween.Sequence();

@@ -46,7 +46,7 @@ public class JackAttackState : State
 
         attackHelper.Attack((target, direction) =>
         {
-            target.ApplyDamage(999f, direction);
+            target.ApplyDamage(target.Health, direction);
             hasSetDamage = true;
             return true;
         });

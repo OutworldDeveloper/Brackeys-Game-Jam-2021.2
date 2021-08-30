@@ -20,6 +20,7 @@ public class Ghost : MonoBehaviour
     [SerializeField] private SoundPlayer _soundPlayerDamage;
     [SerializeField] private SoundPlayer _soundPlayerPiss;
     [SerializeField] private float _maxTimeInLight = 0.15f;
+    [SerializeField] private int _damage;
     [Inject] public GhostSettings Settings { get; private set; }
     [Inject] private Luck _luck;
     [Inject] private Jack _jack;
@@ -154,7 +155,7 @@ public class Ghost : MonoBehaviour
 
             if (distance < 0.25f)
             {
-                _target.ApplyDamage(40f, (FlatVector)_ghost.transform.forward);
+                _target.ApplyDamage(_ghost._damage, (FlatVector)_ghost.transform.forward);
                 _soundPlayer.PlaySound();
                 Ended = true;
             }

@@ -7,8 +7,8 @@ using UnityEngine.Events;
 public abstract class Actor : MonoBehaviour
 {
 
-    [SerializeField] private float _startHealth = 100f;
-    [SerializeField] private float _maxHealth = 100f;
+    [SerializeField] private int _startHealth;
+    [SerializeField] private int _maxHealth;
     [SerializeField] private float _eyesOffset = 1.75f;
     [SerializeField] private Team _team;
     [SerializeField] private UnityEvent _deathEvent;
@@ -19,9 +19,9 @@ public abstract class Actor : MonoBehaviour
     public event DiedEventHandler Died;
 
     public Vector3 EyesPosition => transform.position + Vector3.up * _eyesOffset;
-    public float Health { get; private set; }
-    public float MaxHealth => _maxHealth;
-    public float NormalizedHealth => Health / _maxHealth;
+    public int Health { get; private set; }
+    public int MaxHealth => _maxHealth;
+    public float NormalizedHealth => (float)Health / (float)_maxHealth;
     public Team Team => _team;
     public bool IsDead => Health <= 0;
     public float LastDamage { get; private set; }
@@ -51,11 +51,11 @@ public abstract class Actor : MonoBehaviour
 
     // If we would ever need to damage objects other than Actors
     // we could just create an Interface with this method
-    public void ApplyDamage(float damage, FlatVector direction)
+    public virtual bool ApplyDamage(int damage, FlatVector direction)
     {
         if (IsDead)
         {
-            return;
+            return false;
         }
 
         LastDamage = damage;
@@ -73,16 +73,18 @@ public abstract class Actor : MonoBehaviour
             Died?.Invoke(this);
             _deathEvent.Invoke();
         }
+
+        return true;
     }
 
-    public void ApplyHeal(float heal)
+    public void ApplyHeal(int heal)
     {
         if (IsDead)
         {
             return;
         }
 
-        float healthBefore = Health;
+        var healthBefore = Health;
         Health = Mathf.Min(_maxHealth, Health + heal);
         Healed?.Invoke(heal, Health, healthBefore);
         HealthChanged?.Invoke(Health, healthBefore);
@@ -94,9 +96,9 @@ public abstract class Actor : MonoBehaviour
 
     protected virtual void OnDied() { }
 
-    public delegate void DamagedEventHandler(float damage, float health, float healthBefore, FlatVector direction);
-    public delegate void HealedEventHanndler(float heal, float health, float healthBefore);
-    public delegate void HealthChangedEventHandler(float health, float healthBefore);
+    public delegate void DamagedEventHandler(int damage, int health, int healthBefore, FlatVector direction);
+    public delegate void HealedEventHanndler(int heal, int health, int healthBefore);
+    public delegate void HealthChangedEventHandler(int health, int healthBefore);
     public delegate void DiedEventHandler(Actor sender);
 
 }

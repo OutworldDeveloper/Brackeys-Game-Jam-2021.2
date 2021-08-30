@@ -51,8 +51,7 @@ public class RatJumpState : State
 
         attackHelper.Attack((target, direction) => 
         {
-            target.ApplyDamage(40f, direction);
-            _hasSetDamage = true;
+            _hasSetDamage = target.ApplyDamage(_rat.Damage, direction);
             return true;
         }, true);
 

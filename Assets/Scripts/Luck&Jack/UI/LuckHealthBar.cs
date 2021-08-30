@@ -4,7 +4,7 @@ using Zenject;
 using DG.Tweening;
 
 [RequireComponent(typeof(CanvasGroup))]
-public class NewHealthBar : MonoBehaviour
+public class LuckHealthBar : MonoBehaviour
 {
 
     [SerializeField] private Image _healthImage;
@@ -73,13 +73,13 @@ public class NewHealthBar : MonoBehaviour
         }
     }
 
-    private void OnLuckHealthChanged(float health, float healthBefore)
+    private void OnLuckHealthChanged(int health, int healthBefore)
     {
         _currentTween?.Kill();
         _healthImage.fillAmount = _playerPawn.Luck.NormalizedHealth;
         if (health < healthBefore)
         {
-            _currentTween = _delayedHealthImage.DOFillAmount(_playerPawn.Luck.NormalizedHealth, 0.3f);
+            _currentTween = _delayedHealthImage.DOFillAmount(_playerPawn.Luck.NormalizedHealth, 0.5f);
         }
         else
         {
@@ -94,7 +94,6 @@ public class NewHealthBar : MonoBehaviour
     {
         if (_followLuck)
         {
-            GetComponent<RectTransform>().localScale = Vector2.one * 0.75f;
             transform.position = _mainCamera.WorldToScreenPoint(_playerPawn.Luck.transform.position + Vector3.up * 2.5f);
         }
     }

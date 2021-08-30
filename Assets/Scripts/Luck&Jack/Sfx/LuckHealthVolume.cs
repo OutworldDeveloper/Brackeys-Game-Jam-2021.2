@@ -27,7 +27,7 @@ public class LuckHealthVolume : MonoBehaviour
         _luck.HealthChanged -= OnLuckHealthChanged;
     }
 
-    private void OnLuckHealthChanged(float health, float healthBefore)
+    private void OnLuckHealthChanged(int health, int healthBefore)
     {
         _currentTween?.Kill();
         var targetWeight = 1 - _luck.NormalizedHealth;

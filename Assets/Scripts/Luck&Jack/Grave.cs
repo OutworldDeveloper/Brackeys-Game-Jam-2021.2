@@ -48,7 +48,7 @@ public class Grave : Interactable
         if (Time.time > InteractionStartTime + SavingDuration && !IsSaved)
         {
             SaveGrave();
-            Interactor.ApplyHeal(33f);
+            Interactor.ApplyHeal(1);
         }
 
         if (Time.time > InteractionStartTime + FullDuration)

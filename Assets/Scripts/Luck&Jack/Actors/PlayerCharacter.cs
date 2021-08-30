@@ -46,4 +46,16 @@ public abstract class PlayerCharacter : Actor
         _speed = speed;
     }
 
+    [ConsoleCommand("Debug command")]
+    private void Damage(int damage)
+    {
+        ApplyDamage(damage, (FlatVector)transform.forward);
+    }
+
+    [ConsoleCommand("Debug command")]
+    private void Heal(int heal)
+    {
+        ApplyHeal(heal);
+    }
+
 }

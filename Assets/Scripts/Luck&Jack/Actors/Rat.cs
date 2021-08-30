@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -9,8 +7,10 @@ public class Rat : BaseNpc
 
     private const string JumpTrigger = "jump";
 
+    [SerializeField] private int _damage;
     [SerializeField] private SoundPlayer _biteSoundPlayer;
 
+    public int Damage => _damage;
     public FlatVector JumpDirection { get; private set; }
 
     public void Jump(FlatVector direction)

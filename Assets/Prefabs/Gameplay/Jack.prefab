@@ -2342,8 +2342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0e5d37c9e4cffb4cb5c7734e1b3af32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 100
-  _maxHealth: 100
+  _startHealth: 1
+  _maxHealth: 1
   _eyesOffset: 1.75
   _team: 0
   _deathEvent:

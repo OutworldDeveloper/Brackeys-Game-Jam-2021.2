@@ -720,8 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2df4c86c901ede4687d71776b526fad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startHealth: 100
-  _maxHealth: 100
+  _startHealth: 3
+  _maxHealth: 3
   _eyesOffset: 1.75
   _team: 0
   _deathEvent:

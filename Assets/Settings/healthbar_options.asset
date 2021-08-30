@@ -16,5 +16,5 @@ MonoBehaviour:
   _defaultValue: 0
   _options:
   - Hidden
-  - Default
-  - Legacy
+  - Dynamic
+  - Static
