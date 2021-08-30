@@ -20,6 +20,7 @@ public abstract class LuckGameplayBase : GameplayController
     [Inject] protected Grave[] Graves { get; private set; }
     [Inject] protected Rat.Factory RatFactory { get; private set; }
     [Inject] protected Ghost.Factory GhostFactory { get; private set; }
+    [Inject] protected UI_SelectionMenu.Factory SelectionMenuFactory { get; private set; }
 
     public int GravesSaved { get; private set; }
     public int RatsKilled { get; private set; }
@@ -126,6 +127,9 @@ public abstract class LuckGameplayBase : GameplayController
     protected virtual void OnGameover()
     {
         PlayerController.Unpossess();
+        var deathMenu = SelectionMenuFactory.Create();
+        deathMenu.DisableClosing();
+        PopulateDeathScreen(deathMenu);
     }
 
     protected virtual void OnFirstRatEncounter() { }
@@ -175,6 +179,13 @@ public abstract class LuckGameplayBase : GameplayController
     {
         var quest = GetQuestText();
         QuestUpdated?.Invoke(quest);
+    }
+
+    protected virtual void PopulateDeathScreen(UI_SelectionMenu menu)
+    {
+        menu.SetTitle("Luck is dead!");
+        menu.AddSelection("Main Menu", () => Debug.Log("mainMenu"));
+        menu.AddSelection("Restart", () => Debug.Log("Restart"));
     }
 
     protected abstract string GetQuestText();

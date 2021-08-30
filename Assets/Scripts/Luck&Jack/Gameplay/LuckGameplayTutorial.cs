@@ -8,7 +8,6 @@ public class LuckGameplayTutorial : LuckGameplayBase
     public event Action JackSaved;
 
     [Inject] private SleepingJack _sleepingJack;
-    [Inject] private UI_SelectionMenu.Factory _selectionMenuFactory;
     [SerializeField] private Ghost.GhostSettings _tutorialGhost;
 
     protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
@@ -48,7 +47,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
         if (GravesSaved == Graves.Length)
         {
-            var menu = _selectionMenuFactory.Create();
+            var menu = SelectionMenuFactory.Create();
 
             menu.SetTitle("You have completed the tutorial");
             menu.SetDescription("Survival mode unlocked");
