@@ -35,7 +35,7 @@ public struct AttackHelper
             if (distance > _range)
                 continue;
 
-            var actorDirection = actorPosition - _position;
+            var actorDirection = (actorPosition - _position).normalized;
             var angle = FlatVector.Angle(actorDirection, _position);
 
             if (angle > _angle)
