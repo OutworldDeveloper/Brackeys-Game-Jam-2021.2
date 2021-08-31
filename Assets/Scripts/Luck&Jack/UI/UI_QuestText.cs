@@ -13,23 +13,32 @@ public class UI_QuestText : MonoBehaviour
     private Canvas _canvas;
     private Sequence _currentSequence;
 
+    private bool _hasQuest;
+
     private void Awake()
     {
         _canvas = GetComponentInParent<Canvas>();
     }
 
-    private void Start()
+    private void OnEnable ()
     {
         _gameplay.QuestUpdated += OnQuestUpdated;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         _gameplay.QuestUpdated -= OnQuestUpdated;
     }
 
     private void OnQuestUpdated(string newQuest)
     {
+        if (_hasQuest == false)
+        {
+            _text.text = newQuest;
+            _hasQuest = true;
+            return;
+        }
+
         var currentPosition = _text.rectTransform.localPosition;
         var targetPositiion = _text.rectTransform.localPosition + Vector3.up * 100f * _canvas.scaleFactor;
 

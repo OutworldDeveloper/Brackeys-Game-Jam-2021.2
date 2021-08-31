@@ -6679,7 +6679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 444965032}
-  _gameplayControllerPrefab: {fileID: 7844912787428131965, guid: 736d11bb1f19ffe49a1043c327cc73e6,
+  _gameplayControllerPrefab: {fileID: 6853958512497122216, guid: a3d7c0cbf35ccc04ab9634ad6cad8e1e,
     type: 3}
   _playerPawnPrefab: {fileID: 3967885879566996180, guid: e1c82c62269ea574db062ff820d06f72,
     type: 3}

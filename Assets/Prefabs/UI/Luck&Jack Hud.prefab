@@ -304,7 +304,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Find and wake up Jack
+  m_Text: Current_quest
 --- !u!225 &6642930362186924228
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: interaction text
+  m_Text: interactions_text
 --- !u!225 &7068928760965168523
 CanvasGroup:
   m_ObjectHideFlags: 0
