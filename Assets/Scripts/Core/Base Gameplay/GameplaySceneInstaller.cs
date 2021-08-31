@@ -8,16 +8,10 @@ public abstract class GameplaySceneInstaller<TGameplayController, TPlayerControl
     where TPlayerController : PlayerController
 {
 
-    [SerializeField] private Camera _mainCamera;
     [SerializeField] private TGameplayController _gameplayControllerPrefab;
 
     public override void InstallBindings()
     {
-        Container.Bind<Camera>().
-            FromInstance(_mainCamera).
-            AsSingle().
-            WhenInjectedInto<TPlayerController>();
-
         Container.Bind<FreeCamera>().
             FromNewComponentOnNewGameObject().
             UnderTransform(transform).

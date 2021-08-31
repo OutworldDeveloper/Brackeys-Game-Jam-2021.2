@@ -1,35 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 [RequireComponent(typeof(Collider))]
 public class TutorialWall : MonoBehaviour
 {
-
-    [Inject] private LuckGameplayTutorial _tutorialGameplay;
 
     private Collider _collider;
 
     private void Awake()
     {
         _collider = GetComponent<Collider>();
+        Disable();
     }
 
-    private void Start()
+    public void Enable()
     {
-        _tutorialGameplay.JackSaved += OnJackSaved;
+        _collider.enabled = true;
     }
 
-    private void OnDestroy()
-    {
-        _tutorialGameplay.JackSaved -= OnJackSaved;
-    }
-
-    private void OnJackSaved()
+    public void Disable()
     {
         _collider.enabled = false;
-        Destroy(this);
     }
 
 }

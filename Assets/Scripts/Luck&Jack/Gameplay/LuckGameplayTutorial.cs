@@ -8,6 +8,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
     public event Action JackSaved;
 
     [Inject] private SleepingJack _sleepingJack;
+    [Inject] private TutorialWall _tutorialWall;
     [SerializeField] private Ghost.GhostSettings _tutorialGhost;
 
     protected override bool IgnoreDistanceSleeping => !_hasSavedJack;
@@ -19,6 +20,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
         base.Start();
         _sleepingJack.PlaceJack(Jack);
         _sleepingJack.JackSaved += OnJackSaved;
+        _tutorialWall.Enable();
     }
 
     protected override void OnDestroy()
@@ -33,17 +35,13 @@ public class LuckGameplayTutorial : LuckGameplayBase
         _hasSavedJack = true;
         _sleepingJack.JackSaved -= OnJackSaved;
         JackSaved?.Invoke();
+        _tutorialWall.Disable();
         UpdateQuest();
     }
 
     protected override void OnGraveSaved(Grave grave)
     {
         base.OnGraveSaved(grave);
-
-        if (GravesSaved == 2 || GravesSaved == 4)
-        {
-            SpawnGhost(_tutorialGhost);
-        }
 
         if (GravesSaved == Graves.Length)
         {
@@ -55,6 +53,11 @@ public class LuckGameplayTutorial : LuckGameplayBase
             menu.AddSelection("Survival Mode", () => Debug.Log("Survival Mode"));
             menu.AddSelection("Main Menu", () => Debug.Log("Main Menu"));
         }
+    }
+
+    protected override bool ShouldSpawnGhost()
+    {
+        return GravesSaved == 2 || GravesSaved == 4;
     }
 
     protected override string GetQuestText()

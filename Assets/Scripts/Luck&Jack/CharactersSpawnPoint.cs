@@ -7,11 +7,26 @@ public class CharactersSpawnPoint : MonoBehaviour
 
     [SerializeField] private float _distance;
 
-    private void OnDrawGizmosSelected()
+    public FlatVector GetLuckSpawnPosition()
     {
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position, 0.25f);
-        Gizmos.DrawRay(transform.position, transform.up * 10f);
+        return (FlatVector)(transform.position + transform.forward * _distance);
     }
 
+    public FlatVector GetJackSpawnPosition()
+    {
+        return (FlatVector)(transform.position - transform.forward * _distance);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Draw(GetLuckSpawnPosition(), Color.green);
+        Draw(GetJackSpawnPosition(), Color.cyan);
+    }
+
+    private void Draw(FlatVector position, Color color)
+    {
+        Gizmos.color = color;
+        Gizmos.DrawSphere(position, 0.25f);
+        Gizmos.DrawRay(position, transform.up * 10f);
+    }
 }

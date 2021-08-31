@@ -38,8 +38,8 @@ public abstract class LuckGameplayBase : GameplayController
         Grave.GraveSaved += OnGraveSaved;
         if (SpawnPoint)
         {
-            Luck.transform.position = SpawnPoint.transform.position;
-            Jack.transform.position = SpawnPoint.transform.position;
+            Luck.transform.position = SpawnPoint.GetLuckSpawnPosition();
+            Jack.transform.position = SpawnPoint.GetJackSpawnPosition();
         }
         PlayerController.Possess(PlayerPawn);
         UpdateQuest();
@@ -125,6 +125,10 @@ public abstract class LuckGameplayBase : GameplayController
         GravesSaved++;
         SpawnRats();
         UpdateQuest();
+        if (ShouldSpawnGhost())
+        {
+            SpawnGhost();
+        }
     }
 
     protected virtual void OnGameover()
@@ -192,6 +196,10 @@ public abstract class LuckGameplayBase : GameplayController
     }
 
     protected abstract string GetQuestText();
+    protected virtual bool ShouldSpawnGhost()
+    {
+        return true;
+    }
 
     public delegate void QuestUpdatedEventHandler(string newQuest);
 

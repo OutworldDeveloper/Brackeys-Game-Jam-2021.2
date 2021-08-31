@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7844912787428131964}
-  - component: {fileID: 7844912787428131965}
+  - component: {fileID: 6853958512497122216}
   m_Layer: 0
-  m_Name: GameplayTutorial
+  m_Name: Gameplay Survival
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7844912787428131965
+--- !u!114 &6853958512497122216
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7844912787428131962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cb4dfbb0eacd7b4789e5fdd9743bf3d, type: 3}
+  m_Script: {fileID: 11500000, guid: 2679e0c169e5f114fa7b5df6e92842be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _ratDetectionRange: 15
@@ -54,53 +54,64 @@ MonoBehaviour:
       value: 0
       inSlope: 0
       outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2
-      value: 0
-      inSlope: 0.5
-      outSlope: 0.5
-      tangentMode: 34
+      time: 1
+      value: 2
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 3
-      value: 1
-      inSlope: 0.75
-      outSlope: 0.75
-      tangentMode: 34
+      value: 3
+      inSlope: 0.33333334
+      outSlope: 0.33333334
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 5
-      value: 2
-      inSlope: 0.5
-      outSlope: 0.5
-      tangentMode: 34
+      time: 10
+      value: 5
+      inSlope: 0.36363637
+      outSlope: 0.36363637
+      tangentMode: 136
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 25
+      value: 15
+      inSlope: 0.375
+      outSlope: 0.375
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 50
+      value: 20
+      inSlope: 0.015384615
+      outSlope: 0.015384615
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1000
+      value: 30
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _tutorialGhost:
-    Speed: 1
-    AttackingSpeed: 4
-    RunningAwaySpeed: 8
-    EscapingSpeed: 14
-    LifetimeMin: 30
-    LifetimeMax: 35

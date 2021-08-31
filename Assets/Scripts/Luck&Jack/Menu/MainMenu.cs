@@ -10,9 +10,14 @@ public class MainMenu : MonoBehaviour
     [Inject] private CursorManager _cursorManager;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private UI_SettingsMenu.Factory _settingsWindowFactory;
+    [Inject] private Camera _camera;
+
+    [SerializeField] private GameplayScene _tutorialScene;
 
     private void Start()
     {
+        _camera.transform.position = transform.position;
+        _camera.transform.rotation = transform.rotation;
         _cursorManager.Show(this);
     }
 
@@ -23,7 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void LoadTutorial()
     {
-        _sceneLoader.LoadScene(1);
+        _sceneLoader.LoadGameplayScene(_tutorialScene);
     }
 
     public void OpenSettings()

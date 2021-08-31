@@ -37,11 +37,26 @@ public class SceneLoader : MonoBehaviour
             OnComplete(() =>
             {
                 var loadingOperation = _sceneLoader.LoadSceneAsync(index, LoadSceneMode.Single, extraBindings);
-                loadingOperation.completed += OnLevelLoaded;
+                loadingOperation.completed += (obj) => OnSceneLoaded();
             });
     }
 
-    private void OnLevelLoaded(AsyncOperation obj)
+    public void LoadGameplayScene(GameplayScene gameplayScene)
+    {
+        _background.blocksRaycasts = true;
+        _timescaleManager.Pause(this);
+
+        _background.DOFade(1f, 0.5f).
+            SetUpdate(true).
+            OnComplete(() =>
+            {
+                SceneManager.LoadScene(gameplayScene.EnvironmentIndex);
+                SceneManager.LoadScene(gameplayScene.GameplayIndex, LoadSceneMode.Additive);
+                OnSceneLoaded();
+            });
+    }
+
+    private void OnSceneLoaded()
     {
         _background.DOFade(0f, 0.5f).
             SetDelay(1f).
