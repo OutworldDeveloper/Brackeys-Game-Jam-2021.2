@@ -46,7 +46,7 @@ public abstract class GameplaySceneInstaller<TGameplayController, TPlayerControl
             typesToBind.Add(typeof(GameplayController));
         }
 
-        Container.Bind(typesToBind).FromComponentInNewPrefab(_gameplayControllerPrefab).UnderTransform(transform).AsSingle();
+        Container.Bind(typesToBind).FromComponentInNewPrefab(_gameplayControllerPrefab).UnderTransform(transform).AsSingle().NonLazy();
     }
 
     private void BindPlayerController()
@@ -66,7 +66,7 @@ public abstract class GameplaySceneInstaller<TGameplayController, TPlayerControl
             typesToBind.Add(typeof(PlayerController));
         }
 
-        Container.Bind(typesToBind).To<TPlayerController>().AsSingle();
+        Container.Bind(typesToBind).To<TPlayerController>().AsSingle().NonLazy();
     }
 
 }

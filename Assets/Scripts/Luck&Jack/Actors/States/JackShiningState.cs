@@ -22,7 +22,7 @@ public class JackShiningState : State
 
     public override void Start()
     {
-        _rotationController.enabled = false;
+        _rotationController.Stop();
         _shiner.EnableShining();
         if (!_soundPlayer.IsPlaying)
         {
@@ -38,7 +38,6 @@ public class JackShiningState : State
 
     public override void End()
     {
-        _rotationController.enabled = true;
         _shiner.DisableShining();
     }
 

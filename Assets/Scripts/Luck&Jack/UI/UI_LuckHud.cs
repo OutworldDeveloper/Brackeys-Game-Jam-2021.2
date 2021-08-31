@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-// 3 режима полоски здоровья - над лак, на экране и без
 public class UI_LuckHud : UI_BaseHud
 {
 

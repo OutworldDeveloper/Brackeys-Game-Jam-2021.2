@@ -5,7 +5,7 @@ using Zenject;
 public abstract class Pawn : MonoBehaviour
 {
     public virtual bool ShowCursor => false;
-    public virtual bool DestroyWhenUnpossessed => false; // Test
+    public virtual bool DestroyWhenUnpossessed => false; 
     public PlayerController PlayerController { get; private set; }
     public Vector3 CameraPosition { get; protected set; }
     public Quaternion CameraRotation { get; protected set; }

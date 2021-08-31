@@ -20,7 +20,10 @@ public class PlayerCharacterMovementState : State
 
     public override void Tick()
     {
-        RotationController.LookIn(PlayerCharacter.DesiredDirection);
+        if (PlayerCharacter.DesiredDirection != FlatVector.zero)
+        {
+            RotationController.LookIn(PlayerCharacter.DesiredDirection);
+        }
 
         Vector3 moveVector = PlayerCharacter.DesiredDirection * PlayerCharacter.Speed;
         CharacterController.Move((moveVector + Physics.gravity) * Time.deltaTime);

@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 
     [Inject] private CursorManager _cursorManager;
     [Inject] private SceneLoader _sceneLoader;
+    [Inject] private UI_SettingsMenu.Factory _settingsWindowFactory;
 
     private void Start()
     {
@@ -23,6 +24,11 @@ public class MainMenu : MonoBehaviour
     public void LoadTutorial()
     {
         _sceneLoader.LoadScene(1);
+    }
+
+    public void OpenSettings()
+    {
+        _settingsWindowFactory.Create();
     }
 
 }

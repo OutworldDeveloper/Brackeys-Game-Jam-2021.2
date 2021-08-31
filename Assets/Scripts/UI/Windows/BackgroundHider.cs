@@ -51,5 +51,4 @@ public class BackgroundHider : MonoBehaviour
         _canvasGroup.interactable = false;
     }
 
-
 }

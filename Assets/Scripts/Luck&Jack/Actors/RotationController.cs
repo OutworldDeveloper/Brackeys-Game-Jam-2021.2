@@ -11,6 +11,7 @@ public class RotationController : MonoBehaviour
 
     private Quaternion _desiredRotation;
     private float _currentRotationSpeed = 0f;
+    private bool _isStopped;
 
     public void SetDesiredRotation(Quaternion rotation)
     {
@@ -19,14 +20,22 @@ public class RotationController : MonoBehaviour
 
     public void LookAt(FlatVector targetPosition)
     {
-        FlatVector direction = targetPosition - transform.GetFlatPosition();
+        FlatVector direction = (targetPosition - (FlatVector)transform.position).normalized;
         LookIn(direction);
     }
 
     public void LookIn(FlatVector direction)
     {
         if (direction != FlatVector.zero)
+        {
+            _isStopped = false;
             _desiredRotation = Quaternion.LookRotation(direction.Vector3, Vector3.up);
+        }
+    }
+
+    public void Stop()
+    {
+        _isStopped = true;
     }
 
     private void Start()
@@ -36,7 +45,7 @@ public class RotationController : MonoBehaviour
 
     private void Update()
     {
-        if (transform.rotation == _desiredRotation)
+        if (transform.rotation == _desiredRotation || _isStopped)
         {
             _currentRotationSpeed = _initialRotationSpeed;
             return;
