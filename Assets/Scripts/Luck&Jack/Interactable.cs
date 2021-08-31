@@ -5,7 +5,8 @@ using UnityEngine;
 
 // This is needed so we can bind interactables in scene easaly
 public interface IInteractable
-{
+{ 
+    bool IsInstant { get; }
     FlatVector RangeCenterPoint { get; }
     float Range { get; }
     Vector3 TextPosition { get; }
@@ -23,6 +24,7 @@ public abstract class Interactable : MonoBehaviour, IInteractable
     [SerializeField] private float _range = 2f;
     [SerializeField] private Vector3 _textPosition = Vector3.up * 2f;
 
+    public bool IsInstant => false;
     public float Range => _range;
     public FlatVector Point => (FlatVector)transform.TransformPoint(_pointOffset);
     public FlatVector RangeCenterPoint => (FlatVector)transform.TransformPoint(_rangeCenterPointOffset);

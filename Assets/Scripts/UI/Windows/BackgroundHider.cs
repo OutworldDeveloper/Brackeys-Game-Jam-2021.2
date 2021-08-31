@@ -18,12 +18,14 @@ public class BackgroundHider : MonoBehaviour
         _image = GetComponent<Image>();
         _canvasGroup = GetComponent<CanvasGroup>();
     }
+
     public void Init(Color defaultColor, float speed)
     {
         _defaultColor = defaultColor;
         _speed = speed;
         _canvasGroup.alpha = 0f;
         _canvasGroup.interactable = false;
+        _canvasGroup.blocksRaycasts = false;
         _image.color = _defaultColor;
     }
 

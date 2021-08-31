@@ -10,6 +10,7 @@ public class CoreInstaller : MonoInstaller
         Container.BindInterfacesAndSelfTo<TimescaleManager>().AsSingle();
         Container.BindInterfacesAndSelfTo<ExitingManager>().AsSingle();
         Container.Bind<InputSystem>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<SceneLoader>().FromComponentInHierarchy().AsSingle();
     }
 
 }

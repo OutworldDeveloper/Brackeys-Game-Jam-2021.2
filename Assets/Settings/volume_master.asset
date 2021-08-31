@@ -18,4 +18,4 @@ MonoBehaviour:
   _maxValue: 100
   _presentation: 0
   _targetMixer: {fileID: 24100000, guid: ee9848a8ff5e28846bd50d0702f5f218, type: 2}
-  _targetParameter: test
+  _targetParameter: MasterVolume
