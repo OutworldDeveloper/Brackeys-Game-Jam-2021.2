@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     [Inject] private UI_SelectionMenu.Factory _selectionWindowFactory;
     [Inject] private UI_SettingsMenu.Factory _settingsMenuFactory;
     [Inject] private UI_HelperText _helperText;
+    [Inject] private SceneLoader _sceneLoader;
 
     public void Show()
     {
@@ -40,9 +41,16 @@ public class PauseMenu : MonoBehaviour
 
         window.SetTitle("Main Menu?");
         window.SetDescription("Progress won't be saved!");
+        window.SetYesCallback(() =>
+        {
+            parent.CloseThenDestroy();
+            LoadMainMenu();
+        });
+    }
 
-        window.SetYesCallback(() => Debug.Log("кого"));
-        window.SetNoCallback(window.CloseThenDestroy);
+    private void LoadMainMenu()
+    {
+        _sceneLoader.LoadScene(0);
     }
 
 }

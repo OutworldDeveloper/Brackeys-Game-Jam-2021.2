@@ -21,6 +21,12 @@ public class UI_YesNoWindow : UI_BaseWindow<UI_YesNoWindow>
         _noButton.onClick.AddListener(action.Invoke);
     }
 
+    protected override void OnOpened()
+    {
+        _yesButton.onClick.AddListener(CloseThenDestroy);
+        _noButton.onClick.AddListener(CloseThenDestroy);
+    }
+
     public class Factory : PlaceholderFactory<UI_YesNoWindow> { }
 
 }
