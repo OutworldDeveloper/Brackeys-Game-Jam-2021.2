@@ -25,6 +25,11 @@ namespace EditorUtilities
         {
             var currentSceneSetup = EditorSceneManager.GetSceneManagerSetup();
 
+            if (HasUnsavedScenes())
+            {
+                EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+            }
+
             EditorPrefs.SetBool(MainKey, true);
             EditorPrefs.SetInt(AmountKey, currentSceneSetup.Length);
 
@@ -37,6 +42,20 @@ namespace EditorUtilities
             var scene = EditorBuildSettings.scenes[0];
             EditorSceneManager.OpenScene(scene.path, OpenSceneMode.Single);
             EditorApplication.isPlaying = true;
+        }
+
+        private static bool HasUnsavedScenes()
+        {
+            bool hasUnsavedScenes = false;
+            for (int i = 0; i < EditorSceneManager.sceneCount; i++)
+            {
+                var scene = EditorSceneManager.GetSceneAt(i);
+                if (scene.isDirty)
+                {
+                    hasUnsavedScenes = true;
+                }
+            }
+            return hasUnsavedScenes;
         }
 
         private static void OnPlayModeStateChanged(PlayModeStateChange state)

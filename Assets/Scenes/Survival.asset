@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca49b901780d93d4e85045202ae710d0, type: 3}
   m_Name: Survival
   m_EditorClassIdentifier: 
+  _displayName: Survival
   _sceneNames:
   - Environment Survival
   - Gameplay Survival

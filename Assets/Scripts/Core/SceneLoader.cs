@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour
     [SerializeField] private CanvasGroup _background;
     [SerializeField] private Sprite[] _logos;
     [SerializeField] private Image _logoImage;
+    [SerializeField] private Text _loadingText;
 
     private GameplayScene _currentGameplayScene;
     private bool _isLoading;
@@ -37,6 +38,8 @@ public class SceneLoader : MonoBehaviour
     private IEnumerator LoadingGameplayScene(GameplayScene nextGameplayScene)
     {
         _isLoading = true;
+
+        _loadingText.text = $"Loading {nextGameplayScene.DisplayName}";
 
         _timescaleManager.Pause(this);
         _background.blocksRaycasts = true;

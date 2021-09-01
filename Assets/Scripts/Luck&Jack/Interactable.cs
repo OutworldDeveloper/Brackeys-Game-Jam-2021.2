@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // This is needed so we can bind interactables in scene easaly
+// This could be a MonoBehaviour
 public interface IInteractable
 { 
     bool IsInstant { get; }
@@ -12,6 +13,7 @@ public interface IInteractable
     Vector3 TextPosition { get; }
     string InteractionText { get; }
     bool IsAvaliable();
+    void StartInteraction(Luck luck);
 
 }
 
