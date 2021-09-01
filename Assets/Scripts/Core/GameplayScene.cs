@@ -4,10 +4,7 @@
 public sealed class GameplayScene : ScriptableObject
 {
 
-    [SerializeField] private int _environmentIndex;
-    [SerializeField] private int _gameplayIndex;
-
-    public int EnvironmentIndex => _environmentIndex;
-    public int GameplayIndex => _gameplayIndex; 
+    [SerializeField] private string[] _sceneNames;
+    public string[] SceneNames => _sceneNames;
 
 }

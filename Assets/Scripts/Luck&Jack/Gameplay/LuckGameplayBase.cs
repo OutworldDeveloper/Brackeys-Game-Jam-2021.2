@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
@@ -7,6 +8,8 @@ public abstract class LuckGameplayBase : GameplayController
 {
 
     public event QuestUpdatedEventHandler QuestUpdated;
+    public event Action PlayerWon;
+    public event Action PlayerLost;
 
     [SerializeField] private float _ratDetectionRange = 15f;
     [SerializeField] private float _jackSleepingRange = 14f;
@@ -137,6 +140,7 @@ public abstract class LuckGameplayBase : GameplayController
         var deathMenu = SelectionMenuFactory.Create();
         deathMenu.DisableClosing();
         PopulateDeathScreen(deathMenu);
+        PlayerLost?.Invoke();
     }
 
     protected virtual void OnFirstRatEncounter() { }

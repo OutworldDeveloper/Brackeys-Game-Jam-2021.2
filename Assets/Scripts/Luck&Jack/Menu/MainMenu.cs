@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 // Main Menu could be written as a window
@@ -14,10 +15,12 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] private GameplayScene _tutorialScene;
 
+
     private void Start()
     {
         _camera.transform.position = transform.position;
         _camera.transform.rotation = transform.rotation;
+
         _cursorManager.Show(this);
     }
 

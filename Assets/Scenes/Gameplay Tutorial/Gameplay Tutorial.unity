@@ -274,6 +274,7 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames:
+  - LuckAndJackContext
   - Environment
   - Tutorial Environment
 --- !u!4 &2135273747

@@ -36,10 +36,22 @@ public class SavingSystem
         return saveDatas.ToArray();
     }
 
+    public DataContainer LoadOrCreateSave(int index, string saveName)
+    {
+        var saveDatas = LoadSaves();
+
+        if (saveDatas.Length > 0)
+        {
+            return saveDatas[index];
+        }
+
+        return CreateSaveData(saveName);
+    }
+
     public void SaveOverride(DataContainer saveData)
     {
         var fileName = saveData.GetData<string>("FileName");
-        var savePath = GetPath() + $"/{fileName}.txt";
+        var savePath = $"{GetPath()}/{fileName}.txt";
         _dataSerializer.Serialize(savePath, saveData);
     }
 

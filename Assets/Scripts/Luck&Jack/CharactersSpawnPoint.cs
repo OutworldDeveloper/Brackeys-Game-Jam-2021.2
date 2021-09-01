@@ -29,4 +29,5 @@ public class CharactersSpawnPoint : MonoBehaviour
         Gizmos.DrawSphere(position, 0.25f);
         Gizmos.DrawRay(position, transform.up * 10f);
     }
+
 }

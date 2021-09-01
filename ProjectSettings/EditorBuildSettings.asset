@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Luck&Jack Context/Luck&Jack Context.unity
+    guid: 877282b91b82fcf49b35f800b860e6ac
+  - enabled: 1
     path: Assets/Scenes/Menu/Menu.unity
     guid: 3347aadf763abca47997e172cf015a8b
   - enabled: 1
