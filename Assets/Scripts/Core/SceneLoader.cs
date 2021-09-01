@@ -41,11 +41,7 @@ public class SceneLoader : MonoBehaviour
         _timescaleManager.Pause(this);
         _background.blocksRaycasts = true;
 
-        var hidingTween = _background.DOFade(1f, 0.5f).SetUpdate(true);
-
-        if (!hidingTween.IsComplete())
-            yield return null;
-
+        _background.DOFade(1f, 0.5f).SetUpdate(true);
         yield return new WaitForSecondsRealtime(1f);
 
         // Unloading previous scenes
@@ -68,24 +64,25 @@ public class SceneLoader : MonoBehaviour
         }
 
         // Wait until all the required scenes are loaded
-        foreach (var loading in loadings)
+        yield return new WaitUntil(() =>
         {
-            if (!loading.isDone)
+            foreach (var loading in loadings)
             {
-                yield return null;
+                if (!loading.isDone)
+                {
+                    return false;
+                }
             }
-        }
+            return true;
+        });
 
-        var showingTween = _background.DOFade(0f, 0.5f).SetDelay(1f).SetUpdate(true);
-
-        if (!showingTween.IsComplete())
-            yield return null;
+        _background.DOFade(0f, 0.5f).SetUpdate(true);
+        yield return new WaitForSecondsRealtime(0.5f);
 
         _background.blocksRaycasts = false;
         _timescaleManager.Unpause(this);
 
-        // This is needed so anything that changed position during the delay would actually move
-        Physics.SyncTransforms();
+        //Physics.SyncTransforms();
 
         _isLoading = false;
     }
