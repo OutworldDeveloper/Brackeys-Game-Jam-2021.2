@@ -28,6 +28,11 @@ public class PlayerPawn : Pawn
         return _hudFactory.Create(this);
     }
 
+    public override float GetCameraFov()
+    {
+        return 93.02777f;
+    }
+
     protected override void OnPawnStart()
     {
         InputReciver.BindAxis("luck_forward", (value) => _luckInput.z = value);

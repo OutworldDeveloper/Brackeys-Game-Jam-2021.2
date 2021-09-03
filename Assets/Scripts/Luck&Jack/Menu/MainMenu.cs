@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
     {
         _camera.transform.position = transform.position;
         _camera.transform.rotation = transform.rotation;
+        _camera.fieldOfView = 45f;
 
         _cursorManager.Show(this);
     }

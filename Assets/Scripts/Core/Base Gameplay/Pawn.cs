@@ -35,6 +35,11 @@ public abstract class Pawn : MonoBehaviour
         }
     }
 
+    public virtual float GetCameraFov()
+    {
+        return 70f;
+    }
+
     public virtual UI_BaseHud CreateHud() => null;
     public virtual void PossessedTick() { }
     protected virtual void OnPossesesed() { }

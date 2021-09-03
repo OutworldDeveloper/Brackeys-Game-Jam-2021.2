@@ -50,6 +50,7 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
             return;
         PlayerCamera.transform.position = CurrentPawn.CameraPosition;
         PlayerCamera.transform.rotation = CurrentPawn.CameraRotation;
+        PlayerCamera.fieldOfView = CurrentPawn.GetCameraFov();
     }
 
     public void Dispose()
