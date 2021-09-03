@@ -1,21 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-// This is not really possible to use right now
-public interface IInputReciver
+
+public interface IInputReciverProcessor
 {
-    bool EatEverything { get; set; }
-    void BindInputActionPressed(string id, Action action);
-    void BindInputActionRelesed(string id, Action action);
-    void BindAxis(string id, Action<float> action);
+    bool ExecuteWhenPaused { get; }
+    string ReciverName { get; }
+    bool EatEverything { get; }
+    bool ProcesssActionDown(string key);
+    bool ProcessActionUp(string key);
+    bool ProcessAxis(string key, float value);
+    void ReleaseAll();
+    void ZeroAllAxes();
 
 }
 
-public class InputReciver : IInputReciver
+public class InputReciver : IInputReciverProcessor
 {
-
-    public readonly bool ExecuteWhenPaused;
-    public readonly string ReciverName;
+    public bool ExecuteWhenPaused { get; }
+    public string ReciverName { get; }
     public bool EatEverything { get; set; }
 
     private readonly Dictionary<string, Action> _actionsBindsPressed = new Dictionary<string, Action>();
@@ -26,53 +29,7 @@ public class InputReciver : IInputReciver
     {
         ExecuteWhenPaused = executeWhenPaused;
         ReciverName = reciverName;
-    }
-
-    public bool ProcesssActionDown(string key)
-    {
-        if (_actionsBindsPressed.TryGetValue(key, out Action action))
-        {
-            action.Invoke();
-            return true;
-        }
-        return false;
-    }
-
-    public bool ProcessActionUp(string key)
-    {
-        if (_actionsBindsReleased.TryGetValue(key, out Action action))
-        {
-            action.Invoke();
-            return true;
-        }
-        return false;
-    }
-
-    public bool ProcessAxis(string key, float value)
-    {
-        if (_axisBinds.TryGetValue(key, out Action<float> action))
-        {
-            action.Invoke(value);
-            return true;
-        }
-        return false;
-    }
-
-    public void ReleaseAll()
-    {
-        foreach (var action in _actionsBindsReleased)
-        {
-            action.Value.Invoke();
-        }
-    }
-
-    public void ZeroAllAxes()
-    {
-        foreach (var axis in _axisBinds)
-        {
-            axis.Value.Invoke(0f);
-        }
-    }
+    }  
 
     public void BindInputActionPressed(string name, Action action)
     {
@@ -87,6 +44,52 @@ public class InputReciver : IInputReciver
     public void BindAxis(string name, Action<float> action)
     {
         _axisBinds.Add(name, action);
+    }
+
+    bool IInputReciverProcessor.ProcesssActionDown(string key)
+    {
+        if (_actionsBindsPressed.TryGetValue(key, out Action action))
+        {
+            action.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+    bool IInputReciverProcessor.ProcessActionUp(string key)
+    {
+        if (_actionsBindsReleased.TryGetValue(key, out Action action))
+        {
+            action.Invoke();
+            return true;
+        }
+        return false;
+    }
+
+    bool IInputReciverProcessor.ProcessAxis(string key, float value)
+    {
+        if (_axisBinds.TryGetValue(key, out Action<float> action))
+        {
+            action.Invoke(value);
+            return true;
+        }
+        return false;
+    }
+
+    void IInputReciverProcessor.ReleaseAll()
+    {
+        foreach (var action in _actionsBindsReleased)
+        {
+            action.Value.Invoke();
+        }
+    }
+
+    void IInputReciverProcessor.ZeroAllAxes()
+    {
+        foreach (var axis in _axisBinds)
+        {
+            axis.Value.Invoke(0f);
+        }
     }
 
 }

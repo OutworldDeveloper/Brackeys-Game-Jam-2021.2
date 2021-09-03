@@ -211,19 +211,19 @@ public class InputSystem : MonoBehaviour
         { "qe", new TwoKeysAxis(KeyCode.E, KeyCode.Q) },
     };
     
-    private readonly List<InputReciver> _inputRecivers = new List<InputReciver>();
+    private readonly List<IInputReciverProcessor> _inputRecivers = new List<IInputReciverProcessor>();
 
-    public void AddReciver(InputReciver reciver)
+    public void AddReciver(IInputReciverProcessor reciver)
     {
         _inputRecivers.Insert(0, reciver);
     }
 
-    public void AddReciverToTheBottomOfStack(InputReciver reciver)
+    public void AddReciverToTheBottomOfStack(IInputReciverProcessor reciver)
     {
         _inputRecivers.Add(reciver);
     }
 
-    public void RemoveReciver(InputReciver reciver)
+    public void RemoveReciver(IInputReciverProcessor reciver)
     {
         _inputRecivers.Remove(reciver);
     }
