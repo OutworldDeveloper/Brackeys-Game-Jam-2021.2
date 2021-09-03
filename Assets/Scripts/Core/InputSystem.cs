@@ -190,6 +190,8 @@ public class InputSystem : MonoBehaviour
     [SerializeField] private InputActionBlueprint[] _actionsBlueprints;
     [SerializeField] private InputAxisBlueprint[] _axesBlueprints;
 
+    // This doesn't have to be dictionaries 
+
     private readonly Dictionary<string, IInputAction> _inputActions = new Dictionary<string, IInputAction>()
     {
         { "mouse0", new MouseAction(0) },
@@ -244,36 +246,23 @@ public class InputSystem : MonoBehaviour
         }
     }
 
-    // This is not needed because InputSystem is only destroyed 
-    // when the application is closed.
-    private void OnDestroy()
-    {
-        _console.DeregisterObject(this);
-        _timescaleManager.OnGamePaused -= OnGamePaused;
-    }
-
     private void Update()
     {
         foreach (var inputAction in _inputActions)
         {
-            var actionName = inputAction.Key;
+            var key = inputAction.Key;
             var action = inputAction.Value;
 
             if (action.IsDown())
             {
                 foreach (var reciver in _inputRecivers)
                 {
-                    // TODO: Invert it, because r.n. it doesn't eat input if the game is paused
-                    if (_timescaleManager.IsGamePaused && reciver.ExecuteWhenPaused == false)
-                        continue;
-
-                    if (reciver.ActionsBindsPressed.ContainsKey(actionName))
+                    if (!_timescaleManager.IsGamePaused || reciver.ExecuteWhenPaused)
                     {
-                        foreach (var item in reciver.ActionsBindsPressed[actionName])
+                        if (reciver.ProcesssActionDown(key))
                         {
-                            item.Invoke();
+                            break;
                         }
-                        break;
                     }
 
                     if (reciver.EatEverything)
@@ -285,13 +274,12 @@ public class InputSystem : MonoBehaviour
             {
                 foreach (var reciver in _inputRecivers)
                 {
-                    if (_timescaleManager.IsGamePaused && reciver.ExecuteWhenPaused == false) 
-                        continue;
-
-                    if (reciver.ActionsBindsReleased.ContainsKey(actionName))
+                    if (!_timescaleManager.IsGamePaused || reciver.ExecuteWhenPaused)
                     {
-                        reciver.ActionsBindsReleased[actionName].Invoke();
-                        break;
+                        if (reciver.ProcessActionUp(key))
+                        {
+                            break;
+                        }
                     }
 
                     if (reciver.EatEverything)
@@ -302,19 +290,17 @@ public class InputSystem : MonoBehaviour
 
         foreach (var inputAxis in _inputAxes)
         {
-            var axisName = inputAxis.Key;
-            var axis = inputAxis.Value;
+            var key = inputAxis.Key;
+            var value = inputAxis.Value.GetValue();
 
             foreach (var reciver in _inputRecivers)
             {
-                if (_timescaleManager.IsGamePaused && reciver.ExecuteWhenPaused == false)
-                    continue;
-
-                if (reciver.AxisBinds.ContainsKey(axisName))
+                if (!_timescaleManager.IsGamePaused || reciver.ExecuteWhenPaused)
                 {
-                    float value = axis.GetValue();
-                    reciver.AxisBinds[axisName].Invoke(value);
-                    break;
+                    if (reciver.ProcessAxis(key, value))
+                    {
+                        break;
+                    }
                 }
 
                 if (reciver.EatEverything)
@@ -332,14 +318,9 @@ public class InputSystem : MonoBehaviour
         {
             if (reciver.ExecuteWhenPaused)
                 continue;
-            foreach (var action in reciver.ActionsBindsReleased.Values)
-            {
-                action.Invoke();
-            }
-            foreach (var axis in reciver.AxisBinds.Values)
-            {
-                axis.Invoke(0f);
-            }
+
+            reciver.ReleaseAll();
+            reciver.ZeroAllAxes();
         }
     }
 
@@ -349,7 +330,7 @@ public class InputSystem : MonoBehaviour
         _console.Log($"{_inputRecivers.Count} active input recivers:");
         foreach (var reciver in _inputRecivers)
         {
-            _console.Log($"{reciver.Information} (ExecuteWhenPaused: {reciver.ExecuteWhenPaused})");
+            _console.Log($"{reciver.ReciverName} (ExecuteWhenPaused: {reciver.ExecuteWhenPaused})");
         }
     }
 
