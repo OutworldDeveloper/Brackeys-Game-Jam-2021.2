@@ -10,15 +10,8 @@ public class UI_QuestText : MonoBehaviour
     [SerializeField] private Text _text;
     [SerializeField] private CanvasGroup _canvasGroup;
 
-    private Canvas _canvas;
     private Sequence _currentSequence;
-
     private bool _hasQuest;
-
-    private void Awake()
-    {
-        _canvas = GetComponentInParent<Canvas>();
-    }
 
     private void OnEnable ()
     {
@@ -40,14 +33,14 @@ public class UI_QuestText : MonoBehaviour
         }
 
         var currentPosition = _text.rectTransform.localPosition;
-        var targetPositiion = _text.rectTransform.localPosition + Vector3.up * 100f * _canvas.scaleFactor;
+        var targetPosition = _text.rectTransform.localPosition + Vector3.up * 100f * GetComponentInParent<Canvas>().scaleFactor;
 
         _currentSequence?.Kill();
         _currentSequence = DOTween.Sequence();
 
         _currentSequence.Append(_canvasGroup.DOFade(0f, 0.2f));
         _currentSequence.AppendCallback(() => _text.text = newQuest);
-        _currentSequence.AppendCallback(() => _text.rectTransform.localPosition = targetPositiion);
+        _currentSequence.AppendCallback(() => _text.rectTransform.localPosition = targetPosition);
         _currentSequence.Append(_canvasGroup.DOFade(1f, 0.2f));
         _currentSequence.Join(_text.rectTransform.DOLocalMove(currentPosition, 0.25f, true));
     }

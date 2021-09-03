@@ -263,8 +263,10 @@ public class InputSystem : MonoBehaviour
             {
                 foreach (var reciver in _inputRecivers)
                 {
+                    // TODO: Invert it, because r.n. it doesn't eat input if the game is paused
                     if (_timescaleManager.IsGamePaused && reciver.ExecuteWhenPaused == false)
                         continue;
+
                     if (reciver.ActionsBindsPressed.ContainsKey(actionName))
                     {
                         foreach (var item in reciver.ActionsBindsPressed[actionName])
