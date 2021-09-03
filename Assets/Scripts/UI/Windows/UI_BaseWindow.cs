@@ -41,6 +41,8 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
 
     private void Start()
     {
+        OnOpened();
+
         CanvasGroup.alpha = 0f;
         RectTransform.localScale = new Vector3(0, 0f, 1f);
 
@@ -72,9 +74,6 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
             if (!_isClosingDisabled && !_isClosing)
                 CloseThenDestroy();
         });
-
-        // This should happen before animation and before registration in manager
-        OnOpened();
     }
 
     public override void Select()

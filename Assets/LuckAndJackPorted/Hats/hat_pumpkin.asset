@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc46b8e1374ea246afbf09f603273a0, type: 3}
+  m_Name: hat_pumpkin
+  m_EditorClassIdentifier: 
+  _displayName: Smashing Pumpkin
+  _sprite: {fileID: 21300000, guid: 0ef94d43a21683447901c592aa87e834, type: 3}
+  _prefab: {fileID: 2004337737060357446, guid: 1682f73e40932674bb52db3dd52ba3ee, type: 3}
+  _unlockRequirements:
+    GameplayScene: {fileID: 11400000, guid: eb4fa91e4420f1f458398055a559a4a4, type: 2}
+    ShouldWin: 0
+    MinGravesSaved: 3
