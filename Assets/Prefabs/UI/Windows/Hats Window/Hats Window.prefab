@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f859d3ac87947914895951836568d326, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideMenusUnderneath: 1
+  _openingAnimation: {fileID: 11400000, guid: 66524d8f8c727f84c8c82c59e43b9962, type: 2}
   _openingAnimations:
   - {fileID: 11400000, guid: 6e058d37dac55c64a8cc6ebe8f6f94ff, type: 2}
+  _closingAnimation: {fileID: 11400000, guid: 5231299f35d2ab248841c99b70e6177b, type: 2}
   _closingAnimations: []
+  _hideMenusUnderneath: 1
   _hatButtonPrefab: {fileID: 1602330885087347795, guid: fe226367f8e918a4f898fbb6d177f789,
     type: 3}
   _hatsParent: {fileID: 6388779234456370316}

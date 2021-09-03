@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Luck Opening Animation", menuName = "Window Animations/Luck Opening")]
 public class LuckOpeningAnimation : GenericWindowAnimation
 {
-    public override void ModifySequence(Window window, Sequence sequence)
+    public override void ModifySequence(IPanel window, Sequence sequence)
     {
         var alpha = window.CanvasGroup.DOFade(1f, 0.25f);
         var scale = window.RectTransform.DOScale(1f, 0.2f).From(1.5f).SetEase(Ease.OutExpo); 

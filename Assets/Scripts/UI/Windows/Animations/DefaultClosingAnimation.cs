@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefaultClosingAnimation : GenericWindowAnimation
 {
 
-    public override void ModifySequence(Window window, Sequence sequence)
+    public override void ModifySequence(IPanel window, Sequence sequence)
     {
         var alpha = window.CanvasGroup.DOFade(0f, 0.17f);
         var scale = window.RectTransform.DOScale(1.5f, 0.17f);

@@ -19,7 +19,7 @@ public class UI_HatsWindow : UI_BaseWindow<UI_HatsWindow>
 
     private UI_HatButton _selectedButton;
 
-    protected override void OnOpened()
+    protected override void OnOpening()
     {
         base.OnOpened();
 

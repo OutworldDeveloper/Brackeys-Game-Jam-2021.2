@@ -12,7 +12,7 @@ public class UI_WindowsManager : MonoBehaviour
     [SerializeField] private Color _defaultBackgroundColor;
     [SerializeField] private BackgroundHider _backgroundHider;
 
-    private readonly List<Window> _windows = new List<Window>();
+    private readonly List<IPanel> _windows = new List<IPanel>();
     private Tween _currentTween;
 
     private void Start()
@@ -20,15 +20,15 @@ public class UI_WindowsManager : MonoBehaviour
         _backgroundHider.Init(_defaultBackgroundColor, _backgroundFadeSpeed);
     }
 
-    public void AddWindow(Window window)
+    public void AddWindow(IPanel window)
     {
         _windows.Add(window);
-        window.transform.SetParent(transform, false);
+        window.RectTransform.SetParent(transform, false);
         HideWindowsExceptTheLast();
         UpdateBackground();
     }
 
-    public void RemoveWindow(Window window)
+    public void RemoveWindow(IPanel window)
     {
         _windows.Remove(window);
         HideWindowsExceptTheLast();
@@ -72,14 +72,16 @@ public class UI_WindowsManager : MonoBehaviour
         {
             var lastWindow = _windows.Last();
             _backgroundHider.transform.SetSiblingIndex(windowsCount - 1);
-            if (lastWindow.OverrideBackgroundColor.HasValue)
-            {
-                _backgroundHider.StartHidding(lastWindow.OverrideBackgroundColor.Value);
-            }
-            else
+
+            if (lastWindow.HideBackground)
             {
                 _backgroundHider.StartHidding(_defaultBackgroundColor);
             }
+            else
+            {
+                _backgroundHider.StopHidding();
+            }
+
             return;
         }
 

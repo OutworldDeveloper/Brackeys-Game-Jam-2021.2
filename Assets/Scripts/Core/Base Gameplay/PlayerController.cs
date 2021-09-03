@@ -13,7 +13,7 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
     private readonly CursorManager _cursorManager;
     private readonly InputSystem _inputSystem;
     private readonly FreeCamera _freeCamera;
-    private UI_BaseHud _currentHud;
+    private UI_BaseHud _hud;
     private bool _isFreeCamera;
     private Pawn _lastPawn; 
 
@@ -91,24 +91,15 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
         {
             _cursorManager.Hide(this);
         }
+
         CurrentPawn.OnUnpossessed(this);
         CurrentPawn = null;
     }
 
     private void SetHud(UI_BaseHud hud)
     {
-        if (_currentHud != null)
-        {
-            _inputSystem.RemoveReciver(_currentHud.InputReciver);
-            _currentHud.HideThenDestroy();
-            _currentHud = null;
-        }
-
-        if (hud != null)
-        {
-            _currentHud = hud;
-            _inputSystem.AddReciver(_currentHud.InputReciver);
-        }
+        _hud?.CloseThenDestroy();
+        _hud = hud;
     }
 
     [ConsoleCommand("Toggles free camera")]
@@ -128,6 +119,7 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
         _isFreeCamera = true;
     }
 
+    /*
     [ConsoleCommand("Toggles hud")]
     public void ToggleHud()
     {
@@ -139,6 +131,7 @@ public class PlayerController : ITickable, ILateTickable, IInitializable, IDispo
         var hud = CurrentPawn.CreateHud();
         SetHud(hud);
     }
+    */
 
     protected virtual void OnPlayerStart() { }
     protected virtual void OnPlayerTick() { }

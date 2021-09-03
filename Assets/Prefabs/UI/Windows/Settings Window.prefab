@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc10e84ad817d40b1bfd858c17f23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideMenusUnderneath: 1
+  _openingAnimation: {fileID: 11400000, guid: 66524d8f8c727f84c8c82c59e43b9962, type: 2}
   _openingAnimations: []
+  _closingAnimation: {fileID: 11400000, guid: 5231299f35d2ab248841c99b70e6177b, type: 2}
   _closingAnimations: []
+  _hideMenusUnderneath: 1
   _groupPresenterPrefab: {fileID: 2295995378950334817, guid: 790947ff89954b644a62a2a3aedb540d,
     type: 3}
   _presentersPrefabs:

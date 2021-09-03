@@ -51,7 +51,7 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
             menu.SetTitle("You have completed the tutorial");
             menu.SetDescription("Survival mode unlocked");
-            menu.DisableClosing();
+            menu.DisallowClosing();
             menu.AddSelection("Survival Mode", () => Debug.Log("Survival Mode"));
             menu.AddSelection("Main Menu", () => Debug.Log("Main Menu"));
         }

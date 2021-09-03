@@ -34,16 +34,17 @@ public class LuckHealthBar : MonoBehaviour
 
     private void Start()
     {
+        // This is broken because Start is invoked earlier than Hud is in position
         _defaultPosition = GetComponent<RectTransform>().anchoredPosition;
         _healthImage.fillAmount = _playerPawn.Luck.NormalizedHealth;
         _delayedHealthImage.fillAmount = _playerPawn.Luck.NormalizedHealth;
-        SetupHealthBar();
     }
 
     private void OnEnable()
     {
         SettingsManager.OnSettingsChanged += SetupHealthBar;
         _playerPawn.Luck.HealthChanged += OnLuckHealthChanged;
+        SetupHealthBar();
     }
 
     private void OnDisable()

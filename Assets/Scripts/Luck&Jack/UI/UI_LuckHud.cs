@@ -18,9 +18,8 @@ public class UI_LuckHud : UI_BaseHud
     private Camera _camera;
     private Vector3 _lastInteractionsTextPosition;
 
-    protected override void OnHudStarted()
+    protected override void OnOpening()
     {
-        base.OnHudStarted();
         _camera = _playerPawn.PlayerController.PlayerCamera;
         _interactionsTextCanvasGroup.alpha = 0f;
     }

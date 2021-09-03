@@ -13,7 +13,7 @@ public class UI_SettingsMenu : UI_BaseWindow<UI_SettingsMenu>
 
     protected override Selectable InitialSelection => CloseButton;
 
-    protected override void OnOpened()
+    protected override void OnOpening()
     {
         var helper = new UISettingsHelper(_groupPresenterPrefab, _presentersPrefabs);
         helper.Populate(_parent);

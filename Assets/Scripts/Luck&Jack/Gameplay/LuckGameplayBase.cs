@@ -140,7 +140,7 @@ public abstract class LuckGameplayBase : GameplayController
     {
         PlayerController.Unpossess();
         var deathMenu = SelectionMenuFactory.Create();
-        deathMenu.DisableClosing();
+        deathMenu.DisallowClosing();
         PopulateDeathScreen(deathMenu);
         PlayerLost?.Invoke();
     }

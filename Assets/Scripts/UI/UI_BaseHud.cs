@@ -1,51 +1,13 @@
 ﻿using UnityEngine;
-using Zenject;
 using DG.Tweening;
+using UnityEngine.UI;
 
-//[RequireComponent(typeof(GameObjectContext))]
-[RequireComponent(typeof(CanvasGroup))]
-public class UI_BaseHud : MonoBehaviour
+// 2 types of Panels - Huds and Windows
+// Huds should always be at the bottom
+public abstract class UI_BaseHud : UI_BasePanel<UI_BaseHud>
 {
+    public override bool HideWindowsUnderneath => false;
+    public override bool HideBackground => false;
 
-    public readonly InputReciver InputReciver = new InputReciver(false); 
-    protected CanvasGroup CanvasGroup { get; private set; }
-    private Sequence _currentSequence;
-
-    private void Awake()
-    {
-        CanvasGroup = GetComponent<CanvasGroup>();
-    }
-
-    private void Start()
-    {
-        OnHudStarted();
-        var sequence = CreateShowingSequence();
-        if (sequence != null)
-        {
-            _currentSequence = sequence.SetUpdate(true);
-        }
-    }
-
-    public void HideThenDestroy()
-    {
-        OnHudHidden();
-        _currentSequence?.Kill();
-        var sequence = CreateShowingSequence();
-        if (sequence != null)
-        {
-            _currentSequence = sequence.
-                OnComplete(() => Destroy(gameObject)).
-                SetUpdate(true);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-    }
-
-    protected virtual void OnHudStarted() { }
-    protected virtual void OnHudHidden() { }
-    protected virtual Sequence CreateShowingSequence() => null;
-    protected virtual Sequence CreateHiddingSequence() => null;
 
 }
