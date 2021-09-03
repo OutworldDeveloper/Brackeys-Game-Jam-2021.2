@@ -3,15 +3,26 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class SavingSystem
+// Need to find a way to make it more generic. 
+// It should be able to save data into different folders
+public sealed class SavingSystem
 {
 
-    public static DataContainer CreateSaveData(string saveName)
+    // Generics here are usless for now
+    // Maybe it's not needed actually
+    public static DataContainer CreateSaveData<T>(string saveName) where T : DataContainer, new()
     {
-        var dataContainer = new DataContainer();
-        dataContainer.SetData("FileName", DateTime.Now.ToString("yyyyMMddTHHmmss"));
-        dataContainer.SetData("SaveName", saveName);
-        dataContainer.SetData("CreationTime", DateTime.Now);
+        var dataContainer = new T();
+
+        var saveInfo = new SaveInfo()
+        {
+            FileName = Guid.NewGuid().ToString(),
+            SaveName = saveName,
+            CreationTime = DateTime.Now,
+        };
+
+        dataContainer.SetData("SaveInfo", saveInfo);
+
         return dataContainer;
     }
 
@@ -45,12 +56,12 @@ public class SavingSystem
             return saveDatas[index];
         }
 
-        return CreateSaveData(saveName);
+        return CreateSaveData<DataContainer>(saveName);
     }
 
     public void SaveOverride(DataContainer saveData)
     {
-        var fileName = saveData.GetData<string>("FileName");
+        var fileName = saveData.GetData<SaveInfo>("SaveInfo").FileName;
         var savePath = $"{GetPath()}/{fileName}.txt";
         _dataSerializer.Serialize(savePath, saveData);
     }
@@ -63,5 +74,14 @@ public class SavingSystem
         Directory.CreateDirectory(path);
         return path;
     }
+
+}
+
+[Serializable]
+public struct SaveInfo
+{
+    public string FileName;
+    public string SaveName;
+    public DateTime CreationTime;
 
 }

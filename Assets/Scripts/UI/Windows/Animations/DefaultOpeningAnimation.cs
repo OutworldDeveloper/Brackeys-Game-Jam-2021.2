@@ -5,7 +5,7 @@ using UnityEngine;
 public class DefaultOpeningAnimation : GenericWindowAnimation
 {
 
-    public override void ModifySequence(IWindow window, Sequence sequence)
+    public override void ModifySequence(Window window, Sequence sequence)
     {
         var alpha = window.CanvasGroup.DOFade(1f, 0.25f);
         var scaleX = window.RectTransform.DOScaleX(1f, 0.16f).SetEase(Ease.OutBack);

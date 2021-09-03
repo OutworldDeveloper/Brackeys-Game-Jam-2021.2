@@ -24,6 +24,8 @@ public abstract class LuckGameplayBase : GameplayController
     [Inject] protected Rat.Factory RatFactory { get; private set; }
     [Inject] protected Ghost.Factory GhostFactory { get; private set; }
     [Inject] protected UI_SelectionMenu.Factory SelectionMenuFactory { get; private set; }
+    // Shouldn't be here
+    [Inject] private SceneLoader _sceneLoader;
 
     public int GravesSaved { get; private set; }
     public int RatsKilled { get; private set; }
@@ -196,7 +198,11 @@ public abstract class LuckGameplayBase : GameplayController
     {
         menu.SetTitle("Luck is dead!");
         menu.AddSelection("Main Menu", () => Debug.Log("mainMenu"));
-        menu.AddSelection("Restart", () => Debug.Log("Restart"));
+        menu.AddSelection("Restart", () => 
+        { 
+            _sceneLoader.ReloadCurrentGameplayScene();
+            menu.CloseThenDestroy();
+        });
     }
 
     protected abstract string GetQuestText();

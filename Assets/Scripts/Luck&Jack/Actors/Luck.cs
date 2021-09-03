@@ -34,6 +34,7 @@ public class Luck : PlayerCharacter
 
     private bool HasInteractableInRange(out Interactable result)
     {
+        // It is possible to just inject IInteractables here, but there will be problems in "Interacting State"
         foreach (var interactable in FindObjectsOfType<Interactable>())
         {
             if (interactable.IsAvaliable())

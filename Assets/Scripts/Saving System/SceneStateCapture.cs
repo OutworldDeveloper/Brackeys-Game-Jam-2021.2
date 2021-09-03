@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Zenject;
-
 public class SceneStateCapture
 {
 
@@ -31,8 +29,5 @@ public class SceneStateCapture
             saveable.OnSaving(saveData);
         }
     }
-
-    // Recreate it when needed so it can recive all the callback recivers
-    public class Factory : PlaceholderFactory<SceneStateCapture> { }
 
 }

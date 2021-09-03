@@ -23,8 +23,7 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
             FromComponentInNewPrefab(_hudPrefab);
 
         Container.Bind<PauseMenu>().
-            FromNewComponentOnNewGameObject().
-            UnderTransform(transform).
+            FromComponentInHierarchy().
             AsSingle();
 
         Container.Bind<Luck>().FromComponentInNewPrefab(_luckPrefab).AsSingle();
@@ -33,7 +32,9 @@ public class LuckGameplayInstaller : GameplaySceneInstaller<LuckGameplayBase, Pl
         Container.BindFactory<Rat, Rat.Factory>().FromComponentInNewPrefab(_ratPrefab);
         Container.BindFactory<Ghost.GhostSettings, Ghost, Ghost.Factory>().FromComponentInNewPrefab(_ghostPrefab);
 
-        //Container.BindInterfacesAndSelfTo<StatsSaver>().AsSingle();
+        // Should be in a separate installer I think
+        Container.BindInterfacesTo<StatsCapture>().AsSingle().NonLazy();
+        Container.BindInterfacesTo<Unlocker>().AsSingle().NonLazy();
     }
 
 }

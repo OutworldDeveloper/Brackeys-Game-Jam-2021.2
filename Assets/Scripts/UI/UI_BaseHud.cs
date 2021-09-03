@@ -37,6 +37,10 @@ public class UI_BaseHud : MonoBehaviour
                 OnComplete(() => Destroy(gameObject)).
                 SetUpdate(true);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     protected virtual void OnHudStarted() { }

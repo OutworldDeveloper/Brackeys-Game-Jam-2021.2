@@ -41,7 +41,7 @@ namespace EditorUtilities
 
             var scene = EditorBuildSettings.scenes[0];
             EditorSceneManager.OpenScene(scene.path, OpenSceneMode.Single);
-            EditorApplication.isPlaying = true;
+            EditorApplication.EnterPlaymode();
         }
 
         private static bool HasUnsavedScenes()

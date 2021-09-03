@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public sealed class BinaryыDataSerializer : IDataSerializer
+public sealed class BinaryDataSerializer : IDataSerializer
 {
 
     public void Serialize<T>(string path, T saveData) where T : DataContainer

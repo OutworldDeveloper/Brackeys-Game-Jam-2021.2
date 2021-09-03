@@ -1,7 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class JackShiner : MonoBehaviour
 {
+
+    public event Action<bool> LightStateChanged;
 
     [SerializeField] private float _deathZone = 1.5f;
     [SerializeField] private float _range = 8f;
@@ -19,12 +22,14 @@ public class JackShiner : MonoBehaviour
     {
         _isShining = true;
         _visualLight.enabled = true;
+        LightStateChanged?.Invoke(true);
     }
 
     public void DisableShining()
     {
         _isShining = false;
         _visualLight.enabled = false;
+        LightStateChanged?.Invoke(false);
     }
 
     public bool IsInLight(Transform other)

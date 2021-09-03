@@ -2271,6 +2271,7 @@ GameObject:
   - component: {fileID: 6674474310739503647}
   - component: {fileID: 2651313650324215342}
   - component: {fileID: 2997449850241232948}
+  - component: {fileID: 1375880981814569261}
   m_Layer: 13
   m_Name: Jack
   m_TagString: Untagged
@@ -2371,6 +2372,19 @@ MonoBehaviour:
   _range: 8
   _angle: 40
   _visualLight: {fileID: 832288641776379285}
+--- !u!114 &1375880981814569261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8561048763999663304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19e171032c0ca9b4b837c458d6e3f328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headBone: {fileID: 6592259128002862879}
 --- !u!1 &9161862722324076394
 GameObject:
   m_ObjectHideFlags: 0

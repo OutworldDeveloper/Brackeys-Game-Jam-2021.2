@@ -12,7 +12,7 @@ public class SceneCaptureAndRestorerInstaller : MonoInstaller
 
         if (Container.HasBinding<DataContainer>() == false)
         {
-            Container.Bind<DataContainer>().FromInstance(SavingSystem.CreateSaveData("test123"));
+            Container.Bind<DataContainer>().FromInstance(SavingSystem.CreateSaveData<DataContainer>("test123"));
         }
     }
 

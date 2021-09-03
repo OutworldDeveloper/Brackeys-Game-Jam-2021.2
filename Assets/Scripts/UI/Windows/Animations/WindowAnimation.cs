@@ -9,6 +9,6 @@ public abstract class WindowAnimation<T> : ScriptableObject where T : UI_BaseWin
 
 public abstract class GenericWindowAnimation : ScriptableObject
 {
-    public abstract void ModifySequence(IWindow window, Sequence sequence);
+    public abstract void ModifySequence(Window window, Sequence sequence);
 
 }

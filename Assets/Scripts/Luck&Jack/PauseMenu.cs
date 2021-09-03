@@ -10,7 +10,10 @@ public class PauseMenu : MonoBehaviour
     [Inject] private UI_YesNoWindow.Factory _yesNoWindowFactory;
     [Inject] private UI_SelectionMenu.Factory _selectionWindowFactory;
     [Inject] private UI_SettingsMenu.Factory _settingsMenuFactory;
+    [Inject] private UI_HatsWindow.Factory _hatsWindowFactory;
     [Inject] private SceneLoader _sceneLoader;
+
+    [SerializeField] private GameplayScene _menuScene;
 
     public void Show()
     {
@@ -20,12 +23,17 @@ public class PauseMenu : MonoBehaviour
         pauseWindow.DisableCloseButton();
 
         pauseWindow.AddSelection("Resume", pauseWindow.CloseThenDestroy);
-        pauseWindow.AddSelection("Hats", () => Debug.Log("Hats :("));
-        pauseWindow.AddSelection("Settings", OpenPauseMenu);
+        pauseWindow.AddSelection("Hats", OpenHatsWindoow);
+        pauseWindow.AddSelection("Settings", OpenSettingsMenu);
         pauseWindow.AddSelection("Main Menu", () => SubMenu(pauseWindow));
     }
 
-    private void OpenPauseMenu()
+    private void OpenHatsWindoow()
+    {
+        _hatsWindowFactory.Create();
+    }
+
+    private void OpenSettingsMenu()
     {
         _settingsMenuFactory.Create();
     }
@@ -39,13 +47,8 @@ public class PauseMenu : MonoBehaviour
         window.SetYesCallback(() =>
         {
             parent.CloseThenDestroy();
-            LoadMainMenu();
+            _sceneLoader.LoadGameplayScene(_menuScene);
         });
-    }
-
-    private void LoadMainMenu()
-    {
-
     }
 
 }

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using Zenject;
 
 [RequireComponent(typeof(UI_WindowReferences))]
-public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_BaseWindow<T>
+public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
 {
 
     [Inject] private UI_WindowsManager _windowsManager;
@@ -19,12 +19,12 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
     [SerializeField] private WindowAnimation<T>[] _openingAnimations;
     [SerializeField] private WindowAnimation<T>[] _closingAnimations;
 
-    public CanvasGroup CanvasGroup => _references.CanvasGroup;
-    public RectTransform RectTransform => _references.RectTransform;
+    public override CanvasGroup CanvasGroup => _references.CanvasGroup;
+    public override RectTransform RectTransform => _references.RectTransform;
     public Text TitleText => _references.TitleText;
     public Button CloseButton => _references.CloseButton;
-    public bool HideWindowsUnderneath => _hideMenusUnderneath;
-    public Color? OverrideBackgroundColor => _references.OverrideBackgroundColor;
+    public override bool HideWindowsUnderneath => _hideMenusUnderneath;
+    public override Color? OverrideBackgroundColor => _references.OverrideBackgroundColor;
     protected abstract Selectable InitialSelection { get; }
 
     protected readonly InputReciver InputReciver = new InputReciver(true);
@@ -77,23 +77,23 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
         OnOpened();
     }
 
-    public void Select()
+    public override void Select()
     {
         InitialSelection.Select();
         CanvasGroup.interactable = true;
     }
 
-    public void Deselect()
+    public override void Deselect()
     {
         CanvasGroup.interactable = false;
     }
 
-    public void Show()
+    public override void Show()
     {
         gameObject.SetActive(true);
     }
 
-    public void Hide()
+    public override void Hide()
     {
         gameObject.SetActive(false);
     }
@@ -168,15 +168,15 @@ public abstract class UI_BaseWindow<T> : MonoBehaviour, IWindow where T : UI_Bas
 
 }
 
-public interface IWindow
+public abstract class Window : MonoBehaviour
 {
-    CanvasGroup CanvasGroup { get; }
-    RectTransform RectTransform { get; }
-    bool HideWindowsUnderneath { get; }
-    Color? OverrideBackgroundColor { get; }
-    void Show();
-    void Hide();
-    void Select();
-    void Deselect();
+    public abstract CanvasGroup CanvasGroup { get; }
+    public abstract RectTransform RectTransform { get; }
+    public abstract bool HideWindowsUnderneath { get; }
+    public abstract Color? OverrideBackgroundColor { get; }
+    public abstract void Show();
+    public abstract void Hide();
+    public abstract void Select();
+    public abstract void Deselect();
 
 }

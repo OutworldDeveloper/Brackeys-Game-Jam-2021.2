@@ -17,12 +17,12 @@ public class HatVisuals : MonoBehaviour
 
     public void StartShining()
     {
-        _renderer.sharedMaterial.SetFloat(Parameter, 1f);
+        _renderer.sharedMaterial.SetFloat(Parameter, 0f);
     }
 
     public void StopShining()
     {
-        _renderer.sharedMaterial.SetFloat(Parameter, 0f);
+        _renderer.sharedMaterial.SetFloat(Parameter, 1f);
     }
 
 }

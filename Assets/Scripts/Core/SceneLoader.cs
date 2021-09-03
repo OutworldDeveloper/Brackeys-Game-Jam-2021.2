@@ -7,17 +7,17 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Collections;
 
+// TODO: Rename
 public class SceneLoader : MonoBehaviour
 {
 
-    [Inject] private ZenjectSceneLoader _sceneLoader;
     [Inject] private TimescaleManager _timescaleManager;
     [SerializeField] private CanvasGroup _background;
     [SerializeField] private Sprite[] _logos;
     [SerializeField] private Image _logoImage;
     [SerializeField] private Text _loadingText;
 
-    private GameplayScene _currentGameplayScene;
+    public GameplayScene LoadedGameplayScene { get; private set; }
     private bool _isLoading;
 
     private void Start()
@@ -35,6 +35,15 @@ public class SceneLoader : MonoBehaviour
         StartCoroutine(LoadingGameplayScene(gameplayScene));
     }
 
+    public void ReloadCurrentGameplayScene()
+    {
+        if(LoadedGameplayScene == null)
+        {
+            throw new InvalidOperationException("Tried to restart current gameplay scene, but there is no gameplay scene loaded.");
+        }
+        LoadGameplayScene(LoadedGameplayScene);
+    }
+
     private IEnumerator LoadingGameplayScene(GameplayScene nextGameplayScene)
     {
         _isLoading = true;
@@ -48,15 +57,15 @@ public class SceneLoader : MonoBehaviour
         yield return new WaitForSecondsRealtime(1f);
 
         // Unloading previous scenes
-        if (_currentGameplayScene)
+        if (LoadedGameplayScene)
         {
-            foreach (var sceneName in _currentGameplayScene.SceneNames)
+            foreach (var sceneName in LoadedGameplayScene.SceneNames)
             {
                 SceneManager.UnloadSceneAsync(sceneName);
             }
         }
 
-        _currentGameplayScene = nextGameplayScene;
+        LoadedGameplayScene = nextGameplayScene;
 
         var loadings = new List<AsyncOperation>(nextGameplayScene.SceneNames.Length);
 
