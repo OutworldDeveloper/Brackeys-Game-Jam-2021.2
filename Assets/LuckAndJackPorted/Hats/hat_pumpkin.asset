@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: hat_pumpkin
   m_EditorClassIdentifier: 
   _displayName: Smashing Pumpkin
+  _description: Some say it's not a pumpkin.
   _sprite: {fileID: 21300000, guid: 0ef94d43a21683447901c592aa87e834, type: 3}
   _prefab: {fileID: 2004337737060357446, guid: 1682f73e40932674bb52db3dd52ba3ee, type: 3}
   _unlockRequirements:
+    Text: The real pumpkin
     GameplayScene: {fileID: 11400000, guid: eb4fa91e4420f1f458398055a559a4a4, type: 2}
     ShouldWin: 0
     MinGravesSaved: 3

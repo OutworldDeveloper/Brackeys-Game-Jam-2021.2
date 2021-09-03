@@ -9,7 +9,7 @@ public class TooltipTriggerBase<TTooltip, TTarget> : MonoBehaviour, IPointerEnte
     where TTarget : struct
 {
 
-    private const float SAFEZONE = 25f;
+    private const float Safezone = 25f;
 
     [Inject] protected TTooltip Tooltip { get; private set; }
     [SerializeField] private Orientation _orientation;
@@ -35,7 +35,7 @@ public class TooltipTriggerBase<TTooltip, TTarget> : MonoBehaviour, IPointerEnte
     }
 
     public void OnPointerEnter(PointerEventData eventData)
-    {
+    {        
         IsFocused = true;
         Tooltip.Show(Target);
         CalculatePosition();
@@ -51,10 +51,10 @@ public class TooltipTriggerBase<TTooltip, TTarget> : MonoBehaviour, IPointerEnte
     {
         float scaleFactor = Tooltip.Canvas.scaleFactor;
 
-        float safeVerticalMin = SAFEZONE * scaleFactor;
-        float safeVerticalMax =  Screen.height - SAFEZONE * scaleFactor;
-        float safeHorizontalMin = SAFEZONE * scaleFactor;
-        float safeHorizontalMax = Screen.width - SAFEZONE * scaleFactor;
+        float safeVerticalMin = Safezone * scaleFactor;
+        float safeVerticalMax =  Screen.height - Safezone * scaleFactor;
+        float safeHorizontalMin = Safezone * scaleFactor;
+        float safeHorizontalMax = Screen.width - Safezone * scaleFactor;
 
         float virtualPositionY = transform.position.y;
         float virtualPositionX = transform.position.x;

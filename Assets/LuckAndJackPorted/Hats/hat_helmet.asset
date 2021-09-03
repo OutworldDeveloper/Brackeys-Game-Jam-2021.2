@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5fc46b8e1374ea246afbf09f603273a0, type: 3}
-  m_Name: hat_bitard
+  m_Name: hat_helmet
   m_EditorClassIdentifier: 
-  _displayName: Bitard's Hat
-  _description: Why would she make Jack wear such a thing?
-  _sprite: {fileID: 21300000, guid: 647a47f613631b049a60c4cfd1e6e730, type: 3}
-  _prefab: {fileID: 2004337737060357446, guid: 7b8e835b5888c944f85dd9372d07b0fc, type: 3}
+  _displayName: Helmet
+  _description: An uncomfortable helmet.
+  _sprite: {fileID: 21300000, guid: e37c729054f67984bbe175132e9628e1, type: 3}
+  _prefab: {fileID: 1648624426404647744, guid: a789981b713d78746951470fb098bc66, type: 3}
   _unlockRequirements:
     Text: ???
     GameplayScene: {fileID: 11400000, guid: eb4fa91e4420f1f458398055a559a4a4, type: 2}

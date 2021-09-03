@@ -18,7 +18,8 @@ public class TooltipsInstaller : MonoInstaller
         Container.Bind<T>().
             FromComponentInNewPrefabResource($"Tooltips/{typeof(T)}").
             UnderTransform(_canvas.transform).
-            AsSingle();
+            AsSingle().
+            NonLazy();
     }
 
 }

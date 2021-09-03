@@ -2,17 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
 public class HatVisuals : MonoBehaviour
 {
 
     private const string Parameter = "_EmissiveExposureWeight";
-    
-    private Renderer _renderer;
+
+    [SerializeField] private Renderer _renderer;
 
     private void Awake()
     {
-        _renderer = GetComponent<Renderer>();
+        if (_renderer == null)
+        {
+            _renderer = GetComponent<Renderer>();
+        }
+        StopShining();
     }
 
     public void StartShining()

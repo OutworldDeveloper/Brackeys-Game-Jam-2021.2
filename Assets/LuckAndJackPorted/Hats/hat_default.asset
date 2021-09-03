@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: hat_default
   m_EditorClassIdentifier: 
   _displayName: Jack's Hat
+  _description: Jack's default hat. Nothing interesting really.
   _sprite: {fileID: 21300000, guid: 63436f0f9a5ea644b82fb9fb14ea104c, type: 3}
   _prefab: {fileID: 2004337737060357446, guid: 38ee208ed45857f4eaf9188974aae9ac, type: 3}
   _unlockRequirements:
+    Text: 
     GameplayScene: {fileID: 0}
     ShouldWin: 0
     MinGravesSaved: 0

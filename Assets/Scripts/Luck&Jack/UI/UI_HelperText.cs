@@ -28,7 +28,7 @@ public class UI_HelperText : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time < _endTime)
+        if (Time.realtimeSinceStartup < _endTime)
         {
             if (_canvasGroup.alpha < 1f)
                 _canvasGroup.alpha += _fadeDuration * Time.unscaledDeltaTime;
@@ -44,7 +44,7 @@ public class UI_HelperText : MonoBehaviour
     public void Show(string text, float duration)
     {
         _text.text = text;
-        _endTime = Time.time + duration;
+        _endTime = Time.realtimeSinceStartup + duration;
     }
 
     public void RequestHidding()

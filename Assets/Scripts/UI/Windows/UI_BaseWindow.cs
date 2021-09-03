@@ -57,6 +57,11 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
 
         _currentSequence.SetUpdate(true);
 
+        // exp
+        CanvasGroup.blocksRaycasts = false;
+        _currentSequence.OnComplete(() => CanvasGroup.blocksRaycasts = true);
+        //
+
         CloseButton.onClick.AddListener(() =>
         {
             if (!_isClosingDisabled && !_isClosing)
@@ -78,7 +83,7 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
 
     public override void Select()
     {
-        InitialSelection.Select();
+        //InitialSelection.Select();
         CanvasGroup.interactable = true;
     }
 

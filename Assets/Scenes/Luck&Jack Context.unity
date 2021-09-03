@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _text: {fileID: 1045731971}
   _canvasGroup: {fileID: 1045731968}
-  _fadeDuration: 1
+  _fadeDuration: 2
 --- !u!114 &857575842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 966109871}
   - component: {fileID: 966109872}
   m_Layer: 0
-  m_Name: JackCustomizaton
+  m_Name: Jack Customizaton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,6 +421,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unlockables:
   - {fileID: 11400000, guid: 1ffa69bed65376a418635e5cc76e0610, type: 2}
+  - {fileID: 11400000, guid: 5aad236567e5f424d9a3801b182370fa, type: 2}
+  - {fileID: 11400000, guid: 8d0de5984c4593f40909c9a9ab5d8621, type: 2}
+  - {fileID: 11400000, guid: 0be02faf3927baf4a88790e2a90ee1c3, type: 2}
   - {fileID: 11400000, guid: 8ba1cdaed5c441a499af4097915cdaef, type: 2}
 --- !u!1 &1440434371
 GameObject:

@@ -9,8 +9,8 @@ public class HatsWindowOpeningAnimation : WindowAnimation<UI_HatsWindow>
         for (int i = 0; i < window.HatButtons.Count; i++)
         {
             var button = window.HatButtons[i];
-            sequence.Insert(0.2f * (1 + i), button.CanvasGroup.DOFade(1f, 0.1f).From(0f));
-            sequence.Insert(0.2f * (1 + i), button.transform.DOScale(Vector3.one, 0.2f).From(Vector3.one * 1.25f));
+            sequence.Insert(0.15f * (1 + i), button.CanvasGroup.DOFade(1f, 0.2f).From(0f));
+            sequence.Insert(0.15f * (1 + i), button.transform.DOScale(Vector3.one, 0.25f).From(Vector3.one * 1.25f));
         }
     }
 

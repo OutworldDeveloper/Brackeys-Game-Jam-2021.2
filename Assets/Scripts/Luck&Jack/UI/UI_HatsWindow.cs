@@ -9,6 +9,7 @@ public class UI_HatsWindow : UI_BaseWindow<UI_HatsWindow>
 
     [Inject] private UnlockablesManager _unlockablesManager;
     [Inject] private JackCustomizaton _jackCustomizaton;
+    [Inject] private UI_HatButton.Factory _hatButtonFactory;
 
     [SerializeField] private UI_HatButton _hatButtonPrefab;
     [SerializeField] private RectTransform _hatsParent;
@@ -39,12 +40,12 @@ public class UI_HatsWindow : UI_BaseWindow<UI_HatsWindow>
         HatButtons = hatButtons;
     }
 
-    private UI_HatButton CreateButton(Hat hat, bool enabled)
+    private UI_HatButton CreateButton(Hat hat, bool unlocked)
     {
         bool selected = _jackCustomizaton.EquipedHat == hat;
 
-        var button = Instantiate(_hatButtonPrefab, _hatsParent);
-        button.Init(hat.Sprite, enabled);
+        var button = _hatButtonFactory.Create(hat, unlocked);
+        button.transform.SetParent(_hatsParent);
 
         if (selected)
         {
@@ -52,7 +53,7 @@ public class UI_HatsWindow : UI_BaseWindow<UI_HatsWindow>
             button.EnableSelection(true);
         }
 
-        if (enabled)
+        if (unlocked)
         {
             button.Button.onClick.AddListener(() =>
             {

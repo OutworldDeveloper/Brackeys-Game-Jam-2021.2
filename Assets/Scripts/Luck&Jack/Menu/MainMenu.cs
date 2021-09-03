@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     [Inject] private CursorManager _cursorManager;
     [Inject] private SceneLoader _sceneLoader;
     [Inject] private UI_SettingsMenu.Factory _settingsWindowFactory;
+    [Inject] private UI_HatsWindow.Factory _hatWindowFactory;
     [Inject] private Camera _camera;
 
     [SerializeField] private GameplayScene _tutorialScene;
@@ -37,6 +38,11 @@ public class MainMenu : MonoBehaviour
     public void OpenSettings()
     {
         _settingsWindowFactory.Create();
+    }
+
+    public void OpenHats()
+    {
+        _hatWindowFactory.Create();
     }
 
 }
