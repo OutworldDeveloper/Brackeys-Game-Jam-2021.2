@@ -34,6 +34,8 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
     private bool _isClosing;
     private bool _isClosingDisabled;
 
+    private Action _closingCallback;
+
     private void Awake()
     {
         _references = GetComponent<UI_WindowReferences>();
@@ -120,7 +122,10 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
             animation.ModifySequence((T)this, _currentSequence);
         }
 
-        _currentSequence.SetUpdate(true).OnComplete(() => Destroy(gameObject));
+        _currentSequence.SetUpdate(true).OnComplete(() => 
+        {
+            Destroy(gameObject);         
+        });
 
         _windowsManager.RemoveWindow(this);
 
@@ -129,6 +134,7 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
 
         _inputSystem.RemoveReciver(InputReciver);
 
+        _closingCallback?.Invoke();
         OnClosed();
     }
 
@@ -156,6 +162,11 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
         });
     }
 
+    public void AddClosingCallback(Action action)
+    {
+        _closingCallback += action;
+    }
+
     public void DisableCloseButton()
     {
         CloseButton.gameObject.SetActive(false);
@@ -167,7 +178,9 @@ public abstract class UI_BaseWindow<T> : Window where T : UI_BaseWindow<T>
         DisableCloseButton();
     }
 
+    // On Opening
     protected virtual void OnOpened() { }
+    // On Closing
     protected virtual void OnClosed() { }
 
 }

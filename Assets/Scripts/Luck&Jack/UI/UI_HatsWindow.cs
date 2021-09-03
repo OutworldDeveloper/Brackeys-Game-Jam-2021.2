@@ -30,7 +30,8 @@ public class UI_HatsWindow : UI_BaseWindow<UI_HatsWindow>
             hatButtons.Add(button);
         }
 
-        foreach (var hat in _unlockablesManager.Unlockables)
+        var hats = _unlockablesManager.GetUnlockablesOfType<Hat>(false);
+        foreach (var hat in hats)
         {
             var isUnlocked = _unlockablesManager.IsUnlocked(hat);
             var button = CreateButton(hat, isUnlocked);

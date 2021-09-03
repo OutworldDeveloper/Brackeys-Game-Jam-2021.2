@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _displayName: Survival
   _sceneNames:
-  - Environment Survival
+  - Environment Big Map
   - Gameplay Survival

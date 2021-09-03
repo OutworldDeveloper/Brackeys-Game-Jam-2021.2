@@ -199,6 +199,7 @@ MonoBehaviour:
   _parentNewObjectsUnderSceneContext: 0
   _contractNames: []
   _parentContractNames:
+  - LuckAndJackContext
   - Environment
 --- !u!4 &410215268
 Transform:

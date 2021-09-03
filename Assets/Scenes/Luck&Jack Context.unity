@@ -425,6 +425,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8d0de5984c4593f40909c9a9ab5d8621, type: 2}
   - {fileID: 11400000, guid: 0be02faf3927baf4a88790e2a90ee1c3, type: 2}
   - {fileID: 11400000, guid: 8ba1cdaed5c441a499af4097915cdaef, type: 2}
+  - {fileID: 11400000, guid: 99edc306acfca294284e7a477eff70c2, type: 2}
 --- !u!1 &1440434371
 GameObject:
   m_ObjectHideFlags: 0

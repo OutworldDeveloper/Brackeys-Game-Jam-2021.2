@@ -5,32 +5,51 @@ using Zenject;
 public class UnlockablesManager : MonoBehaviour
 {
 
-    [SerializeField] private Hat[] _unlockables;
+    [SerializeField] private Unlockable[] _unlockables;
 
     [Inject] private DataContainer _saveData;
     [Inject] private SavingSystem _savingSystem;
     [Inject] private RecordsManager _recordsManager;
 
-    public IReadOnlyCollection<Hat> Unlockables => _unlockables;
+    public IReadOnlyCollection<Unlockable> Unlockables => _unlockables;
 
-    public Hat GetHatByName(string name)
+    public T GetHatByName<T>(string name) where T : Unlockable
     {
-        foreach (var hat in _unlockables)
+        foreach (var unlockable in _unlockables)
         {
-            if (hat.name == name)
+            if (unlockable is T)
             {
-                return hat;
+                if (unlockable.name == name)
+                {
+                    return unlockable as T;
+                }
             }
         }
         return null;
     }
 
-    public bool IsUnlocked(Hat unlockable)
+    public IEnumerable<T> GetUnlockablesOfType<T>(bool onlyUnlocked) where T : Unlockable
+    {
+        foreach (var unlockable in _unlockables)
+        {
+            if (onlyUnlocked && IsUnlocked(unlockable) == false)
+            {
+                continue;
+            }
+
+            if (unlockable is T)
+            {
+                yield return unlockable as T;
+            }
+        }
+    }
+
+    public bool IsUnlocked(Unlockable unlockable)
     {
         return _saveData.TryGetData($"{unlockable.name}_unlocked", out bool result);
     }
 
-    public void Unlock(Hat unlockable)
+    public void Unlock(Unlockable unlockable)
     {
         _saveData.SetData($"{unlockable.name}_unlocked", true);
         _savingSystem.SaveOverride(_saveData);

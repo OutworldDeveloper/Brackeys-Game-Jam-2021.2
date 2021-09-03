@@ -19,7 +19,7 @@ public class JackCustomizaton : MonoBehaviour
     {
         if (_saveData.TryGetData("EquipedHat", out string data))
         {
-            var hat = _unlockablesManager.GetHatByName(data);
+            var hat = _unlockablesManager.GetHatByName<Hat>(data);
             if (hat)
             {
                 Equip(hat);

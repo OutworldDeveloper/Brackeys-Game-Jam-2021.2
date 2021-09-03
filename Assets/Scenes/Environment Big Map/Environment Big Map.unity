@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 7.73905, g: 4.438479, b: 16.468403, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22178,7 +22178,6 @@ MonoBehaviour:
       m_Calls: []
   _parentNewObjectsUnderSceneContext: 0
   _contractNames:
-  - LuckAndJackContext
   - Environment
   _parentContractNames: []
 --- !u!1001 &1160517788
