@@ -45,6 +45,8 @@ public class LuckGameplayTutorial : LuckGameplayBase
 
         if (GravesSaved == Graves.Length)
         {
+            Win();
+
             var menu = SelectionMenuFactory.Create();
 
             menu.SetTitle("You have completed the tutorial");

@@ -21,10 +21,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Environment Big Map/Environment Big Map.unity
     guid: 96488fc0e6bc4844a9266aab3983ec82
   - enabled: 1
-    path: Assets/Scenes/Gameplay Survival/Gameplay Survival.unity
+    path: Assets/Scenes/Gameplay Survival.unity
     guid: 10cf23e908507474cb747a81d6ef9ba9
   - enabled: 1
-    path: Assets/Scenes/Gameplay Tutorial/Gameplay Tutorial.unity
+    path: Assets/Scenes/Gameplay Tutorial.unity
     guid: 2e34778916785c74abee0ae09e18033d
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 4d536aa52654e28448a73d6491ff03a8,

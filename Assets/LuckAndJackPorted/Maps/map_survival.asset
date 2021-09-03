@@ -16,6 +16,6 @@ MonoBehaviour:
   _unlockRequirements:
     Text: 
     GameplayScene: {fileID: 11400000, guid: eb4fa91e4420f1f458398055a559a4a4, type: 2}
-    ShouldWin: 0
+    ShouldWin: 1
     MinGravesSaved: 2
   _gameplayScene: {fileID: 11400000, guid: 601c94fc21bfaf848bc473ba1bdaab7a, type: 2}

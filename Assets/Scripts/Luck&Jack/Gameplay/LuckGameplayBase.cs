@@ -205,6 +205,11 @@ public abstract class LuckGameplayBase : GameplayController
         });
     }
 
+    protected void Win()
+    {
+        PlayerWon?.Invoke();
+    }    
+
     protected abstract string GetQuestText();
     protected virtual bool ShouldSpawnGhost()
     {
